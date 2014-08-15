@@ -1,32 +1,48 @@
+<p align="center">
+  <a href="javascript:void(0)">
+    <img height="200" width=auto src="http://brandcrowd.com/gallery/brands/pictures/picture12646789515109.jpg">
+  </a>
+</p>
+
+# testProject [![Build Status][travis-image]][travis-url]
+> The streaming build system
+
+## Sample `gulpfile.js`
+
+```js
+var gulp = require('gulp');
+// This is what code looks like
+```
+
 testProject
 ===========
 
 Nothing to see here.
 
-##Guide (skip what you already have installed)
+## Guide (skip what you already have installed)
 
 1. Go to: (nodejs.org)[http://nodejs.org/download/] and use the proper installer for your platform (remember to click on the download and follow the download procedure)
 2. Then install [git local package management](http://git-scm.com/downloads)
 3. Install Meteor:
-    curl https://install.meteor.com/ | sh
+    `curl https://install.meteor.com/ | sh`
 4. Install meteorite (for package management)
-    sudo -H npm install -g meteorite
+    `sudo -H npm install -g meteorite`
 5. Install gulp (for file compilation)
-    npm install --global gulp
+    `npm install --global gulp`
 6. Now use it!
     * Navigate to your clone/download of testProject
-    * Type "meteor" in the command line to view the project locally
+    * Type `meteor` in the command line to view the project locally
         (point your browser to: [localhost:3000](http://localhost:3000))
     * To make changes or edit;
-        - meteor-npm #type inside your project
-        - Navigate to the .gulp directory (cd .gulp)
-        - Run sudo npm install -g meteor-npm #single time operation
-        - Run gulp
+        - `meteor-npm #type inside your project`
+        - Navigate to the .gulp directory (`cd .gulp`)
+        - Run `sudo npm install -g meteor-npm #single time operation`
+        - Run `gulp`
 
-####Future Things
+## Future Things
 * Setup a trello roadmap for development: https://trello.com/b/hjBDflxp/meteor-roadmap
 
-####Internet/Google to the Rescue
+## Internet/Google to the Rescue
 1. [Steps to ignore gulpfile](http://stackoverflow.com/questions/23443301/how-to-tell-meteor-to-ignore-gulpfile-js) - may also need to add npm to mrt
 2. [Add NPM to Meteor](https://github.com/arunoda/meteor-npm/) - used non-mrt method
 3. [Intro to GulpJS](https://www.codefellows.org/blog/quick-intro-to-gulp-js)
