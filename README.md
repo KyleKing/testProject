@@ -5,7 +5,7 @@
 </p>
 
 # testProject [![Build Status][travis-image]][travis-url]
-> The streaming build system
+| Nothing to see here
 
 ## Sample `gulpfile.js`
 
