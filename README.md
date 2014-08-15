@@ -5,7 +5,7 @@
 </p>
 
 # testProject [![Build Status][travis-image]][travis-url]
-| Nothing to see here
+> Nothing to see here
 
 ## Sample `gulpfile.js`
 
@@ -50,3 +50,8 @@ Nothing to see here.
 5. [Gulp Recipes](https://github.com/gulpjs/gulp/tree/master/docs/recipes)
 6. [Articles](https://github.com/gulpjs/gulp/blob/master/docs/README.md#articles)
 7. [Gulp API Docs](https://github.com/gulpjs/gulp/blob/master/docs/API.md)
+
+
+
+[travis-url]: https://travis-ci.org/gulpjs/gulp
+[travis-image]: http://img.shields.io/travis/gulpjs/gulp.svg
