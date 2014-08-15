@@ -7,18 +7,6 @@
 # testProject [![Build Status][travis-image]][travis-url]
 > Nothing to see here
 
-## Sample `gulpfile.js`
-
-```js
-var gulp = require('gulp');
-// This is what code looks like
-```
-
-testProject
-===========
-
-Nothing to see here.
-
 ## Guide (skip what you already have installed)
 
 1. Go to: (nodejs.org)[http://nodejs.org/download/] and use the proper installer for your platform (remember to click on the download and follow the download procedure)
@@ -52,6 +40,15 @@ Nothing to see here.
 7. [Gulp API Docs](https://github.com/gulpjs/gulp/blob/master/docs/API.md)
 
 
+
+
+
+## Sample `gulpfile.js`
+
+```js
+var gulp = require('gulp');
+// This is what code looks like
+```
 
 [travis-url]: https://travis-ci.org/gulpjs/gulp
 [travis-image]: http://img.shields.io/travis/gulpjs/gulp.svg
