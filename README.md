@@ -1,7 +1,7 @@
 testProject
 ===========
 
-Nothing to see here, but if you are on a given team with only two females and far too many men:
+Nothing to see here.
 
 ##Guide (skip what you already have installed)
 
