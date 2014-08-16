@@ -1,11 +1,11 @@
 <p align="center">
   <a href="http://kyleking.github.io">
-    <img height="200" width=auto src="https://app.box.com/s/ls5wxudh2u80e1rfa0gy">
+    <img height="200" width=auto src="/public/icons/BlockBike.png">
   </a>
 </p>
 
 # testProject
-![Build Status][Build Passing] ![Built with GulpJS](http://b.repl.ca/v1/Built_with-GulpJS-orange.png) ![Using MeteorJS](http://b.repl.ca/v1/Using-MeteorJS-blue.png) ![Quality Status][Questionable] ![devDependencies Status][Out of Date] 
+![Build Status][Build Passing] ![Built with GulpJS](http://b.repl.ca/v1/Built_with-GulpJS-orange.png) ![Using MeteorJS](http://b.repl.ca/v1/Using-MeteorJS-blue.png) ![Quality Status][Questionable] ![devDependencies Status][Out of Date]
 <!--![Nothing To See Here](http://b.repl.ca/v1/Nothing-To_See%20Here-grey.png) -->
 <!--![Move On?][On]-->
 > Nothing to see here
