@@ -1,6 +1,6 @@
 <p align="center">
   <a href="javascript:void(0)">
-    <img height="200" width=auto src="http://pixabay.com/p-33591/?no_redirect">
+    <img height="200" width=auto src="https://bikeshare.rit.edu/assets/bike_logo_web-d52c19ea6ef7400d3cfdb26f42c0a8a5.png">
   </a>
 </p>
 
@@ -50,5 +50,5 @@ var gulp = require('gulp');
 // This is what code looks like
 ```
 
-[failed]: https://secure.travis-ci.org/twitter/scrooge.png)](http://travis-ci.org/twitter/scrooge
+[failed]: https://secure.travis-ci.org/twitter/scrooge.png
 [passing]: http://img.shields.io/travis/gulpjs/gulp.svg
