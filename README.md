@@ -18,7 +18,9 @@ Skip what you already have installed
     * Click install
     * Open the package
         - For help click [here](http://blog.nodeknockout.com/post/65463770933/how-to-install-node-js-and-npm)
+
 2. Then install [git local package management](http://git-scm.com/downloads)
+
 3. Install Meteor:
 
         curl https://install.meteor.com/ | sh
@@ -27,38 +29,41 @@ Skip what you already have installed
 
         sudo -H npm install -g meteorite
 
-5. Install gulp (for file compilation)
+<!-- 5. Install gulp (for file compilation)
 
-        npm install --global gulp
+        npm install - -global gulp
 
   or this (not really sure which one is the correct one needed - sorry)[`help for the gulp-cli`](http://markgoodyear.com/2014/01/getting-started-with-gulp/):
 
       npm install gulp -g
+Scratch that....gulp should be installed with npm install.. -->
 
-6. clone the repo
+5. clone the repo
 
-        git clone https://github.com/KyleKing/gulp-boilerplate-v2.git
+        git clone https://github.com/KyleKing/testProject.git
         cd testProject/
 
-7. install dependencies
+6. install dependencies
 
         npm install
 
-8. start gulp
+7. start gulp
 
         cd tests/
         gulp
 
-9. Start meteor (in new terminal window)
+8. Start meteor (in new terminal window)
 
         meteor
 
-10. start hacking away with super fast latency compensation and livereload goodness.
+9. start hacking away with super fast latency compensation and livereload goodness.
 
 ## Future Things
 A queue of things to come
 
 * [`Add scss support for gulp`](http://markgoodyear.com/2014/01/getting-started-with-gulp/)
+* [Minify CSS Files](https://www.npmjs.org/package/gulp-minify-css)
+* Optimize site for the web
 * Setup a trello roadmap for development: https://trello.com/b/hjBDflxp/meteor-roadmap
 
 ## Internet/Google to the Rescue

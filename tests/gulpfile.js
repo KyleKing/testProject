@@ -4,14 +4,13 @@ jade     = require('gulp-jade'),
 connect  = require('gulp-connect'),
 plumber  = require('gulp-plumber'),
 watch    = require('gulp-watch'),
-// less     = require('gulp-less'),
-// scss     = require('gulp-scss'),
+scss     = require('gulp-sass'),
 	sources = {
 		coffee: "../src/coffee/**/*.coffee",
 		templates: ["../src/jade/**/*.jade", "!../src/jade/*.jade"],
 		docs: "../src/jade/*.jade",
-		less: "../src/less/**/*.less",
-		style: "../src/less/style.less",
+		scss: "../src/scss/**/*.scss",
+		style: "../src/scss/style.scss",
 		overwatch: "../tests/out/**/*.*"
 	},
 	destinations = {
@@ -34,41 +33,35 @@ gulp.task('serve', function(event) {
 		.pipe(connect.reload());
 });
 /*COFFEE TASK*/
-// gulp.task('coffee', function(event) {
-// 	return gulp.src(sources.coffee)
-// 		.pipe(plumber())
-// 		.pipe(coffee())
-// 		.pipe(gulp.dest(destinations.js));
-// });
+gulp.task('coffee', function(event) {
+	return gulp.src(sources.coffee)
+		.pipe(plumber())
+		.pipe(coffee())
+		.pipe(gulp.dest(destinations.js));
+});
 /*COFFEE WATCH TASK FOR DEVELOPMENT*/
-// gulp.task('coffee:watch', function(event) {
-// 	watch({glob: sources.coffee})
-// 		.pipe(plumber())
-// 		.pipe(coffee())
-// 		.pipe(gulp.dest(destinations.js));
-// });
-
+gulp.task('coffee:watch', function(event) {
+	watch({glob: sources.coffee})
+		.pipe(plumber())
+		.pipe(coffee())
+		.pipe(gulp.dest(destinations.js));
+});
 /*SCSS TASK*/
-// gulp.task('scss', function(event) {
-// 	return gulp.src(sources.style)
-// 		.pipe(plumber())
-// 		.pipe(less({
-// 			compress: true
-// 		}))
-// 		.pipe(gulp.dest(destinations.css));
-// });
+gulp.task("scss", function(event) {
+	return gulp.src(sources.style)
+		.pipe(plumber())
+		.pipe(scss())
+		.pipe(gulp.dest(destinations.css));
+});
 /*SCSS WATCH TASK FOR DEVELOPMENT*/
-// gulp.task('scss:watch', function(event) {
-// 	watch({glob: sources.less}, function(files) {
-// 		gulp.src(sources.style)
-// 			.pipe(plumber())
-// 			.pipe(less({
-// 				compress: true
-// 			}))
-// 			.pipe(gulp.dest(destinations.css));
-// 	});
-// });
-
+gulp.task('scss:watch', function(event) {
+	watch({glob: sources.scss}, function(files) {
+		gulp.src(sources.style)
+			.pipe(plumber())
+			.pipe(scss())
+			.pipe(gulp.dest(destinations.css));
+	});
+});
 /*LESS TASK*/
 // gulp.task('less', function(event) {
 // 	return gulp.src(sources.style)
@@ -98,7 +91,6 @@ gulp.task('jade', function(event) {
 		}))
 		.pipe(gulp.dest(destinations.docs));
 });
-
 /*JADE WATCH TASK FOR DEVELOPMENT*/
 gulp.task('jade:watch', function(event){
 	watch({glob: sources.templates}, function(files) {
@@ -117,5 +109,5 @@ gulp.task('jade:watch', function(event){
 		.pipe(gulp.dest(destinations.docs));
 });
 /*DEFAULT TASK*/
-gulp.task('default', ["serve", "jade:watch"]);
-// , "less:watch", "coffee:watch"
+gulp.task('default', ["serve", "jade:watch", "scss:watch"]);
+// , "coffee:watch"
