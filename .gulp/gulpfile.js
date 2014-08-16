@@ -1,15 +1,17 @@
-var gulp = require('gulp'),
-   uglify = require('gulp-uglify');
+var gulp = Meteor.require('gulp'),
+    jade = Meteor.require('gulp-jade');
+// ,
+   // uglify = require('gulp-uglify');
 
 gulp.task('default', function() {
   // place code for your default task here
 });
 
-gulp.task('minify', function () {
-   gulp.src('js/app.js')
-      .pipe(uglify())
-      .pipe(gulp.dest('build'))
-});
+// gulp.task('minify', function () {
+//    gulp.src('js/app.js')
+//       .pipe(uglify())
+//       .pipe(gulp.dest('build'))
+// });
 
 /* ------------------------------------------------------------
                Sample file:

@@ -1,10 +1,10 @@
 <p align="center">
   <a href="javascript:void(0)">
-    <img height="200" width=auto src="http://brandcrowd.com/gallery/brands/pictures/picture12646789515109.jpg">
+    <img height="200" width=auto src="http://pixabay.com/p-33591/?no_redirect">
   </a>
 </p>
 
-# testProject [![Build Status][travis-image]][travis-url]
+# testProject ![Build Status][failed]
 > Nothing to see here
 
 ## Guide (skip what you already have installed)
@@ -50,5 +50,5 @@ var gulp = require('gulp');
 // This is what code looks like
 ```
 
-[travis-url]: https://travis-ci.org/gulpjs/gulp
-[travis-image]: http://img.shields.io/travis/gulpjs/gulp.svg
+[failed]: https://secure.travis-ci.org/twitter/scrooge.png)](http://travis-ci.org/twitter/scrooge
+[passing]: http://img.shields.io/travis/gulpjs/gulp.svg
