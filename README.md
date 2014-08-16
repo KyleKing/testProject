@@ -52,3 +52,48 @@ var gulp = require('gulp');
 
 [failed]: https://secure.travis-ci.org/twitter/scrooge.png
 [passing]: http://img.shields.io/travis/gulpjs/gulp.svg
+
+
+
+
+
+#gulp boilerplate v2 + METEOR!
+
+a revised simple gulp boilerplate that gives you:
+
+* static server with automatic live reload
+* jade compilation
+* less compilation
+* coffeescript compilation
+* Plus meteor capability for a realtime JS webapp
+
+The aim is to get you up and running with meteor and a powerful task runner, _gulp_.
+
+##usage
+as a prerequisite it's assumed you have [`npm`](http://blog.nodeknockout.com/post/65463770933/how-to-install-node-js-and-npm) installed and the [`gulp-cli`](http://markgoodyear.com/2014/01/getting-started-with-gulp/).
+
+1. clone the repo
+
+        git clone https://github.com/KyleKing/gulp-boilerplate-v2.git
+
+2. install dependencies
+
+        npm install
+
+3. start gulp
+
+        cd tests/
+
+        gulp
+
+4. Start meteor
+
+        meteor
+
+5. start hacking away with super fast livereload goodness.
+
+Any problems or questions, feel free to post an issue or tweet me, @_jh3y!
+
+Made by: @jh3y 2014
+
+Edited by: @kyleking 2014
