@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-coffee   = require('gulp-coffee'),
+// coffee   = require('gulp-coffee'),
 jade     = require('gulp-jade'),
 connect  = require('gulp-connect'),
 plumber  = require('gulp-plumber'),
@@ -34,19 +34,19 @@ gulp.task('serve', function(event) {
 		.pipe(connect.reload());
 });
 /*COFFEE TASK*/
-gulp.task('coffee', function(event) {
-	return gulp.src(sources.coffee)
-		.pipe(plumber())
-		.pipe(coffee())
-		.pipe(gulp.dest(destinations.js));
-});
+// gulp.task('coffee', function(event) {
+// 	return gulp.src(sources.coffee)
+// 		.pipe(plumber())
+// 		.pipe(coffee())
+// 		.pipe(gulp.dest(destinations.js));
+// });
 /*COFFEE WATCH TASK FOR DEVELOPMENT*/
-gulp.task('coffee:watch', function(event) {
-	watch({glob: sources.coffee})
-		.pipe(plumber())
-		.pipe(coffee())
-		.pipe(gulp.dest(destinations.js));
-});
+// gulp.task('coffee:watch', function(event) {
+// 	watch({glob: sources.coffee})
+// 		.pipe(plumber())
+// 		.pipe(coffee())
+// 		.pipe(gulp.dest(destinations.js));
+// });
 
 /*SCSS TASK*/
 // gulp.task('scss', function(event) {
@@ -98,13 +98,14 @@ gulp.task('jade', function(event) {
 		}))
 		.pipe(gulp.dest(destinations.docs));
 });
+
 /*JADE WATCH TASK FOR DEVELOPMENT*/
 gulp.task('jade:watch', function(event){
 	watch({glob: sources.templates}, function(files) {
 		gulp.src(sources.docs)
 			.pipe(plumber())
 			.pipe(jade({
-				pretty: true
+			pretty: true
 			}))
 			.pipe(gulp.dest(destinations.docs));
 	});
@@ -116,5 +117,5 @@ gulp.task('jade:watch', function(event){
 		.pipe(gulp.dest(destinations.docs));
 });
 /*DEFAULT TASK*/
-gulp.task('default', ["serve", "jade:watch", "coffee:watch"]);
-// "less:watch", 
+gulp.task('default', ["serve", "jade:watch"]);
+// , "less:watch", "coffee:watch"
