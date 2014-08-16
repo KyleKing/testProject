@@ -4,7 +4,10 @@
   </a>
 </p>
 
-# testProject ![Build Status][failed]
+# testProject
+![Build Status][Build Passing] ![Built with GulpJS](http://b.repl.ca/v1/Built_with-GulpJS-orange.png) ![Using MeteorJS](http://b.repl.ca/v1/Using-MeteorJS-blue.png) ![Quality Status][Questionable] ![devDependencies Status][Out of Date] 
+<!--![Nothing To See Here](http://b.repl.ca/v1/Nothing-To_See%20Here-grey.png) -->
+<!--![Move On?][On]-->
 > Nothing to see here
 
 ## Usage
@@ -83,6 +86,7 @@ A queue of things to come
     * [With Laika](http://mherman.org/blog/2014/01/29/meteor-dot-js-in-action-create-an-app-test-with-laika/#.U--XyEv1GzA)
     * [Building a Chatapp](http://sebastiandahlgren.se/2013/07/17/tutorial-writing-your-first-metor-application/)
     * [Openshift](https://www.openshift.com/blogs/day-15-meteor-building-a-web-app-from-scratch-in-meteor)
+9. Github icons built with [Buckler](http://b.repl.ca)
 
 
 
@@ -95,5 +99,13 @@ var code = require('codeJS');
 // This is what code looks like
 ```
 
-[failed]: https://secure.travis-ci.org/twitter/scrooge.png
-[passing]: http://img.shields.io/travis/gulpjs/gulp.svg
+
+[Build Success!!!]: http://b.repl.ca/v1/Build-Success%21%21%21-brightgreen.png
+[Build Passing]: http://b.repl.ca/v1/Build-Passing-lightgrey.png
+[Build Failing]: http://b.repl.ca/v1/Build-Failing-red.png
+
+[Questionable]: http://b.repl.ca/v1/Quality-Questionable-lightgrey.png
+
+[Out of Date]: http://b.repl.ca/v1/devDependencies-Out_of%20Date-red.png
+
+[On]: http://b.repl.ca/v1/Move-On-red.png
