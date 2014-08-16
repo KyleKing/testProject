@@ -1,2 +1,2 @@
 # http://git-scm.com/docs/gitignore
-node_modules
+tests/node_modules
