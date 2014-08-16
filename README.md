@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="javascript:void(0)">
-    <img height="200" width=auto src="https://bikeshare.rit.edu/assets/bike_logo_web-d52c19ea6ef7400d3cfdb26f42c0a8a5.png">
+  <a href="http://kyleking.github.io">
+    <img height="200" width=auto src="https://app.box.com/s/ls5wxudh2u80e1rfa0gy">
   </a>
 </p>
 
