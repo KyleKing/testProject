@@ -28,9 +28,9 @@ Skip what you already have installed
 
         npm install --global gulp
 
-or this (not really sure which one is the correct one needed - sorry)[`help for the gulp-cli`](http://markgoodyear.com/2014/01/getting-started-with-gulp/):
+  or this (not really sure which one is the correct one needed - sorry)[`help for the gulp-cli`](http://markgoodyear.com/2014/01/getting-started-with-gulp/):
 
-        npm install gulp -g
+      npm install gulp -g
 
 6. clone the repo
 
@@ -97,19 +97,3 @@ var code = require('codeJS');
 
 [failed]: https://secure.travis-ci.org/twitter/scrooge.png
 [passing]: http://img.shields.io/travis/gulpjs/gulp.svg
-
-
-
-
-
-#gulp boilerplate v2 + METEOR!
-
-a revised simple gulp boilerplate that gives you:
-
-* static server with automatic live reload
-* jade compilation
-* less compilation
-* coffeescript compilation
-* Plus meteor capability for a realtime JS webapp
-
-The aim is to get you up and running with meteor and a powerful task runner, _gulp_.
