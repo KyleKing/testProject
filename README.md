@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://kyleking.github.io">
-    <img height="200" width=auto src="https://app.box.com/s/ls5wxudh2u80e1rfa0gy">
+    <img height="200" width=auto src="/public/icons/BlockBike.png">
   </a>
 </p>
 
