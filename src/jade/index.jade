@@ -1,5 +1,12 @@
 extends layout-blocks/layout
+
 block content
+	header.center
+		h1 Test Title Text...Woohoo!
 	.content.center
-		h2 A nice simple gulp boilerplate that sets up a static server with live reload
-		p The boilerplate gets you up and running with tasks that will process jade, less, and coffeescript.
+		.container
+			header.navbar
+				.navbar-inner
+					a(href="/").brand  Microscope
+			#main.row-fluid
+				| {{> postsList}}
