@@ -1,7 +1,0 @@
-<<<<<<< HEAD
-.meteor
-packages
-=======
-# http://git-scm.com/docs/gitignore
-tests/node_modules
->>>>>>> FETCH_HEAD
