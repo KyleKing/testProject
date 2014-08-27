@@ -29,7 +29,7 @@ tr:first-child td {
 }
 
 /* Map Style from parties Example */
-.map {
+/*.map {
     position: relative;
     background-image: url('/soma.png');
     width: 500px;
@@ -38,4 +38,13 @@ tr:first-child td {
 
 .map circle.public {
     fill: #49AFCD;
+}*/
+
+/* Leaflet Basic */
+#map {
+    height: 200px;
+    width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 100px;
 }
