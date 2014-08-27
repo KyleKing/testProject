@@ -24,18 +24,18 @@
   var bikesData = [
   {
     title: 'Bike #1',
-    status: 'Good',
-    needs: 'none',
+    status: 'Bad',
+    needs: 'Needs Parts',
     repaired: '2014-08-12',
-    latitude: '38.983046',
-    longitude: '-76.949717'
+    latitude: '38.984249',
+    longitude: '-76.960559'
   },
   {
     title: 'Bike #2',
-    status: 'BadBadBad',
-    needs: 'Needs Parts',
+    status: 'Good',
+    needs: 'none',
     repaired: '2014-08-12',
-    latitude: '38.982043',
+    latitude: '38.984249',
     longitude: '-76.942719'
   },
   {
@@ -120,9 +120,6 @@
   }
 ];
 
-Template.bikesList.helpers({
-  bikes: bikesData
-});
   // Start Minimum working code:
     // var map = L.map('map').setView([51.505, -0.09], 13); // Center on London
     var map = L.map('map').setView([bikesData[0].latitude, bikesData[0].longitude], 14); // Center on Bike #1
@@ -139,11 +136,20 @@ Template.bikesList.helpers({
 
   // Test Circle
   for (var i = 11; i >= 0; i--) {
-    var circle = L.circle([bikesData[i].latitude, bikesData[i].longitude], 10, {
-      color: 'red',
-      fillColor: '#f03',
-      fillOpacity: 0.5
-    }).addTo(map);
+
+    if (bikesData[i].status == "Good") {
+      var circle = L.circle([bikesData[i].latitude, bikesData[i].longitude], 25, {
+          color: 'green',
+          fillColor: '#43ff6c',
+          fillOpacity: 0.5
+        }).addTo(map);
+    } else {
+      var circle = L.circle([bikesData[i].latitude, bikesData[i].longitude], 25, {
+          color: 'red',
+          fillColor: '#f03',
+          fillOpacity: 0.5
+        }).addTo(map);
+    };
   };
 
 

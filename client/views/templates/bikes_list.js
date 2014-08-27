@@ -1,18 +1,18 @@
 var bikesData = [
   {
     title: 'Bike #1',
-    status: 'Good',
-    needs: 'none',
+    status: 'Bad',
+    needs: 'In a lake...',
     repaired: '2014-08-12',
-    latitude: '38.983046',
-    longitude: '-76.949717'
+    latitude: '38.984249',
+    longitude: '-76.960559'
   },
   {
     title: 'Bike #2',
-    status: 'BadBadBad',
-    needs: 'Needs Parts',
+    status: 'Good',
+    needs: 'none',
     repaired: '2014-08-12',
-    latitude: '38.982043',
+    latitude: '38.984249',
     longitude: '-76.942719'
   },
   {

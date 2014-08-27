@@ -42,7 +42,7 @@ tr:first-child td {
 
 /* Leaflet Basic */
 #map {
-    height: 200px;
+    height: 500px;
     width: 900px;
     margin-right: auto;
     margin-left: auto;
