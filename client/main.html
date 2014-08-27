@@ -1,5 +1,6 @@
 <head>
   <title>Team BIKES</title>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 </head>
 <body>
   <div class="container">
@@ -8,13 +9,152 @@
         <a class="brand" href="/">Team BIKESHARE</a>
       </div>
     </header>
+    <div id="map"></div>
     {{> bikesList}}
     <!-- <div class="row">
       <div class="small-2 large-1 columns"></div>
-      <div class="small-8 large-10 columns">
-          {{> map}}
-      </div>
-      <div class="small-2 large-1 columns"></div>
-    </div> -->
-  </div>
+      <div class="small-8 large-10 columns"> -->
+        <!-- {{> map}} -->
+      <!-- </div> -->
+      <!-- <div class="small-2 large-1 columns"></div> -->
+    </div>
+  <!-- </div> -->
+  <!-- <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> // Already included in the Leaflet package-->
+  <script type="text/javascript">
+  var bikesData = [
+  {
+    title: 'Bike #1',
+    status: 'Bad',
+    needs: 'Needs Parts',
+    repaired: '2014-08-12',
+    latitude: '38.984249',
+    longitude: '-76.960559'
+  },
+  {
+    title: 'Bike #2',
+    status: 'Good',
+    needs: 'none',
+    repaired: '2014-08-12',
+    latitude: '38.984249',
+    longitude: '-76.942719'
+  },
+  {
+    title: 'Bike #3',
+    status: 'Good',
+    needs: 'none',
+    repaired: '2014-08-12',
+    latitude: '38.932046',
+    longitude: '-76.949717'
+  },
+  {
+    title: 'Bike #4',
+    status: 'Good',
+    needs: 'none',
+    repaired: '2014-08-12',
+    latitude: '38.982346',
+    longitude: '-76.942797'
+  },
+  {
+    title: 'Bike #5',
+    status: 'Good',
+    needs: 'none',
+    repaired: '2014-08-12',
+    latitude: '38.982043',
+    longitude: '-76.949797'
+  },
+  {
+    title: 'Bike #6',
+    status: 'Good',
+    needs: 'none',
+    repaired: '2014-08-12',
+    latitude: '38.932046',
+    longitude: '-76.949717'
+  },
+  {
+    title: 'Bike #7',
+    status: 'Good',
+    needs: 'none',
+    repaired: '2014-08-12',
+    latitude: '38.983046',
+    longitude: '-76.942719'
+  },
+  {
+    title: 'Bike #8',
+    status: 'Good',
+    needs: 'none',
+    repaired: '2014-08-12',
+    latitude: '38.985046',
+    longitude: '-76.943717'
+  },
+  {
+    title: 'Bike #9',
+    status: 'Good',
+    needs: 'none',
+    repaired: '2014-08-12',
+    latitude: '38.982056',
+    longitude: '-76.932717'
+  },
+  {
+    title: 'Bike #10',
+    status: 'Good',
+    needs: 'none',
+    repaired: '2014-08-12',
+    latitude: '38.582046',
+    longitude: '-76.942713'
+  },
+  {
+    title: 'Bike #11',
+    status: 'Good',
+    needs: 'none',
+    repaired: '2014-08-12',
+    latitude: '38.952046',
+    longitude: '-76.942317'
+  },
+  {
+    title: 'Bike #12',
+    status: 'Good',
+    needs: 'none',
+    repaired: '2014-08-12',
+    latitude: '38.982056',
+    longitude: '-76.942737'
+  }
+];
+
+  // Start Minimum working code:
+    // var map = L.map('map').setView([51.505, -0.09], 13); // Center on London
+    var map = L.map('map').setView([bikesData[0].latitude, bikesData[0].longitude], 14); // Center on Bike #1
+    L.tileLayer('http://{s}.tiles.mapbox.com/v3/kyleking.icaokpd6/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        maxZoom: 16,
+        minZoom: 12
+    }).addTo(map);
+  // End Minimum working code:
+
+  // Plot bikes
+  // bikesData[i].latitude
+  // bikesData[i].longitude
+
+  // Test Circle
+  for (var i = 11; i >= 0; i--) {
+
+    if (bikesData[i].status == "Good") {
+      var circle = L.circle([bikesData[i].latitude, bikesData[i].longitude], 25, {
+          color: 'green',
+          fillColor: '#43ff6c',
+          fillOpacity: 0.5
+        }).addTo(map);
+    } else {
+      var circle = L.circle([bikesData[i].latitude, bikesData[i].longitude], 25, {
+          color: 'red',
+          fillColor: '#f03',
+          fillOpacity: 0.5
+        }).addTo(map);
+    };
+  };
+
+
+
+
+
+  </script>
 </body>
