@@ -1,13 +1,29 @@
 .navbar {
-    padding: 10px 10px !important;
-    margin: 10px;
-    background-color: #ecfecf;
+  padding: 10px 10px !important;
+  background-color: #081118;
+  margin-bottom: 10px;
+  width: 100%;
+  font-weight: bold;
+}
+
+a {
+  color: #ffffff;
+}
+
+a:hover {
+  color: #e5f5ff;
 }
 
 .data-set {
-    width: 100%;
-    max-width: 900px;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
+  width: 100%;
+  max-width: 900px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+tr:first-child td {
+  color: #ffffff !important;
+  background-color: #387fb1;
+  font-weight: bold;
 }
