@@ -1,0 +1,48 @@
+<template name="bikesList">
+    <div class="data-set row" >
+      <table >
+        <tr>
+            <td>
+                Bike Number
+            </td>
+            <td>
+                Status
+            </td>
+            <td >
+                Needs
+            </td>
+            <td>
+                Repaired on
+            </td>
+            <td>
+                Latitude
+            </td>
+            <td>
+                Longitude
+            </td>
+        </tr>
+        {{#each bikes}}
+            <tr>
+              <td>
+                {{title}}
+              </td>
+              <td>
+                {{status}}
+              </td>
+              <td>
+                {{needs}}
+              </td>
+              <td>
+                {{repaired}}
+              </td>
+              <td>
+                {{latitude}}
+              </td>
+              <td>
+                {{longitude}}
+              </td>
+            </tr>
+        {{/each}}
+      </table>
+    </div>
+  </template>
