@@ -27,3 +27,15 @@ tr:first-child td {
   background-color: #387fb1;
   font-weight: bold;
 }
+
+/* Map Style from parties Example */
+.map {
+    position: relative;
+    background-image: url('/soma.png');
+    width: 500px;
+    height: 500px;
+}
+
+.map circle.public {
+    fill: #49AFCD;
+}
