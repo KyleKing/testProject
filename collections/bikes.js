@@ -1,1 +1,1 @@
-Bikes = new Meteor.Collection('bikes');
+Bikes = new Meteor.Collection('bikes'); // Create new bikes collection for inventory

@@ -1,3 +1,4 @@
+// Upon loading the map template, runs this code:
 Template.map.rendered = function() {
 
   // Populate database with static information
@@ -131,13 +132,13 @@ Template.map.rendered = function() {
       var circle = L.circle([bikesData[i].latitude, bikesData[i].longitude], 25, {
           color: 'green',
           fillColor: '#43ff6c',
-          fillOpacity: 0.5
+          fillOpacity: 0.9
         }).addTo(map);
     } else { // If bad status, make red circle
       var circle = L.circle([bikesData[i].latitude, bikesData[i].longitude], 25, {
           color: 'red',
           fillColor: '#f03',
-          fillOpacity: 0.5
+          fillOpacity: 0.9
         }).addTo(map);
        };
   };
