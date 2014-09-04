@@ -1,0 +1,1 @@
+Bikes = new Meteor.Collection('bikes');
