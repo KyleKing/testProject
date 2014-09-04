@@ -1,5 +1,7 @@
 // Upon loading the map template, runs this code:
-Template.map.rendered = function() {
+// Template.map.rendered = function() {
+  // alternate attempt
+Template.map.created = function() {
 
   // Populate database with static information
   if (Bikes.find().count() === 0) {
