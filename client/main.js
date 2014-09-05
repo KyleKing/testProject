@@ -5,11 +5,12 @@ Template.map.rendered = function() {
 // Wait for subscription to plot bikes data
 Meteor.subscribe("bikesData", function() { // Callback fired when data received
   if (Meteor.isClient) { // double check to make sure Meteor is client
+    L.Icon.Default.imagePath = 'packages/mrt:leaflet/images'; // Added to help Meteor locate the marker icon
     // Start Minimum working code:
     var map = L.map('map').setView([38.987701, -76.940989], 14); // Center on Mckeldin
     L.tileLayer('http://{s}.tiles.mapbox.com/v3/kyleking.icaokpd6/{z}/{x}/{y}.png', {
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        maxZoom: 16,
+        maxZoom: 20,
         minZoom: 12
     }).addTo(map);
     // End Minimum working code:
@@ -25,14 +26,14 @@ Meteor.subscribe("bikesData", function() { // Callback fired when data received
     for (var i = (bikesData.length-1); i >= 0; i--) {
 
       if (bikesData[i].status == "Good") { // If good status, make green circle
-        var circle = L.circle([bikesData[i].latitude, bikesData[i].longitude], 25, {
+        var circle = L.circle([bikesData[i].latitude, bikesData[i].longitude], 10, {
             color: 'green',
             fillColor: '#43ff6c',
             fillOpacity: 0.9
           }).addTo(map);
         // console.log(bikesData[i].status); Should print out 11 "good's"
       } else { // If bad status, make red circle
-        var circle = L.circle([bikesData[i].latitude, bikesData[i].longitude], 25, {
+        var circle = L.circle([bikesData[i].latitude, bikesData[i].longitude], 30, {
             color: 'red',
             fillColor: '#f03',
             fillOpacity: 0.9
