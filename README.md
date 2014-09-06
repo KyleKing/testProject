@@ -24,6 +24,9 @@ testProject
 4. Point your browser to [Localhost:3000 ](http://localhost:3000)
 5. If it doesn't work, let me know!
 
+### Todo
+1. [See Usage Info](http://atmospherejs.com/mquandalle/jade)
+
 ### Tutorials, StackOverflow - basically everything that has kept this project alive:
 1. [Great explanation of loading behavior of Meteor ](http://www.kingkryn.com/?p=1697#comment-5018)
 2. [Got me started with Meteor/Leaflet and added find my location ](http://www.kingkryn.com/?p=1697#comment-5018)
