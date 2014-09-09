@@ -20,19 +20,18 @@ body
                 a(href='javascript:void(0)') Submenu Item
               li
                 a(href='javascript:void(0)') Another Item
-      a.sign-up(href='javascript:void(0)') Sign Up
-        //- .navigation-tools
-        //-   .search-bar
-        //-     .search-and-submit
-        //-       input(type='search', placeholder='Enter Search')
-        //-       button(type='submit')
-        //-         img(src='https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png', alt='')
-        //-   a.sign-up(href='javascript:void(0)') Sign Up
+      .navigation-tools
+        .search-bar
+          .search-and-submit
+            input(type='search', placeholder='Enter Search')
+            button(type='submit')
+              img(src='https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png', alt='')
+        a.sign-up(href='javascript:void(0)') Sign Up
   .container
     //- Available Bike Map
     +map
     //- Sample Admin Panel
-    +bikesList
+    //- +bikesList
 template(name='map')
   //- Where the map will be generated based on the template helper in main.js
   #map
