@@ -1,11 +1,34 @@
 head
   title Team BIKES
 body
+  //- Navigation1
+  header.navigation
+    .navigation-wrapper
+      a.logo(href='/')
+        img(src='RedBarsLogo.png', alt='')
+      a#js-mobile-menu.navigation-menu-button(href='') Red Bars
+      .nav
+        ul#navigation-menu
+          li.nav-link
+            a(href='javascript:void(0)') about
+          li.nav-link
+            a(href='javascript:void(0)') contact
+          li.nav-link.more
+            a(href='javascript:void(0)') more
+            ul.submenu
+              li
+                a(href='javascript:void(0)') Submenu Item
+              li
+                a(href='javascript:void(0)') Another Item
+      a.sign-up(href='javascript:void(0)') Sign Up
+        //- .navigation-tools
+        //-   .search-bar
+        //-     .search-and-submit
+        //-       input(type='search', placeholder='Enter Search')
+        //-       button(type='submit')
+        //-         img(src='https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png', alt='')
+        //-   a.sign-up(href='javascript:void(0)') Sign Up
   .container
-    //- Basic Navigation Bar
-    header.navbar
-      .navbar-inner
-        a.brand(href='/') Red Bars
     //- Available Bike Map
     +map
     //- Sample Admin Panel
