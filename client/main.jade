@@ -1,0 +1,15 @@
+head
+  title Team BIKES
+body
+  .container
+    //- Basic Navigation Bar
+    header.navbar
+      .navbar-inner
+        a.brand(href='/') Red Bars
+    //- Available Bike Map
+    +map
+    //- Sample Admin Panel
+    +bikesList
+template(name='map')
+  //- Where the map will be generated based on the template helper in main.js
+  #map

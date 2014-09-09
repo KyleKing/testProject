@@ -9,4 +9,8 @@ mrt:leaflet
 ewall:foundation
 d3
 mquandalle:jade
+fourseven:scss
+mrt:moment
+aldeed:simple-schema
+iron:router
 
