@@ -13,4 +13,5 @@ fourseven:scss
 mrt:moment
 aldeed:simple-schema
 iron:router
+coffeescript
 
