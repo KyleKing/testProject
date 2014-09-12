@@ -2,7 +2,7 @@ template(name='layout')
   //- Navigation1
   header.navigation
     .navigation-wrapper
-      a.logo(href='/')
+      a.logo(href="{{pathFor 'map'}}")
         img(src='RedBarsLogo.png', alt='')
       a#js-mobile-menu.navigation-menu-button(href='') Red Bars
       .nav
@@ -30,6 +30,3 @@ template(name='layout')
     +map
     //- Sample Admin Panel
     //- +bikesList
-template(name='map')
-  //- Where the map will be generated based on the template helper in main.js
-  #map
