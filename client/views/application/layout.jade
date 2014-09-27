@@ -1,32 +1,48 @@
 template(name='layout')
   //- Navigation1
-  header.navigation
-    .navigation-wrapper
-      a.logo(href="{{pathFor 'map'}}")
-        img(src='RedBarsLogo.png', alt='')
-      a#js-mobile-menu.navigation-menu-button(href='') Red Bars
-      .nav
-        ul#navigation-menu
-          li.nav-link
-            a(href='javascript:void(0)') about
-          li.nav-link
-            a(href='javascript:void(0)') contact
-          li.nav-link.more
-            a(href='javascript:void(0)') more
-            ul.submenu
-              li
-                a(href='javascript:void(0)') Submenu Item
-              li
-                a(href='javascript:void(0)') Another Item
-      .navigation-tools
-        .search-bar
-          .search-and-submit
-            input(type='search', placeholder='Enter Search')
-            button(type='submit')
-              img(src='https://openclipart.org/image/2400px/svg_to_png/188650/search_ideogram.png', alt='')
-        a.sign-up(href='javascript:void(0)') Sign Up
-  .container
-    //- Available Bike Map
-    +map
-    //- Sample Admin Panel
-    //- +bikesList
+  .navMenu
+    ul.navItems
+      li
+        a(href='javascript:void(0)') menu
+      li
+        a(href='javascript:void(0)') about
+      li
+        a(href='javascript:void(0)') contact
+      li
+        a(href='javascript:void(0)') sign up/login
+  //- Available Bike Map
+  +map
+
+
+//- template(name='layout')
+//-   //- Navigation1
+//-   header.navigation
+//-     .navigation-wrapper
+//-       a.logo(href="{{pathFor 'map'}}")
+//-         img(src='RedBarsLogo.png', alt='')
+//-       a#js-mobile-menu.navigation-menu-button(href='') Red Bars
+//-       .nav
+//-         ul#navigation-menu
+//-           li.nav-link
+//-             a(href='javascript:void(0)') about
+//-           li.nav-link
+//-             a(href='javascript:void(0)') contact
+//-           li.nav-link.more
+//-             a(href='javascript:void(0)') more
+//-             ul.submenu
+//-               li
+//-                 a(href='javascript:void(0)') Submenu Item
+//-               li
+//-                 a(href='javascript:void(0)') Another Item
+//-       .navigation-tools
+//-         .search-bar
+//-           .search-and-submit
+//-             input(type='search', placeholder='Enter Search')
+//-             button(type='submit')
+//-               img(src='https://openclipart.org/image/2400px/svg_to_png/188650/search_ideogram.png', alt='')
+//-         a.sign-up(href='javascript:void(0)') Sign Up
+//-   .container
+//-     //- Available Bike Map
+//-     +map
+//-     //- Sample Admin Panel
+//-     //- +bikesList
