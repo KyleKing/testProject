@@ -5,7 +5,7 @@ Template.map.rendered = ->
 # Wait for subscription to plot bikes data
 Meteor.subscribe "bikesData", -> # Callback fired when data received
   if Meteor.isClient # double check to make sure Meteor is client
-    L.Icon.Default.imagePath = 'packages/mrt:leaflet/images'
+    L.Icon.Default.imagePath = 'packages/mrt_leaflet/images'
     # L.Icon.Default.imagePath = "packages/mrt:leaflet/images" # Added to help Meteor locate the marker icon
     # Start Minimum working code:
     map = L.map("map").setView([ # Center on Mckeldin
