@@ -8,9 +8,9 @@ template(name='layout')
       li.left
         a(href="{{pathFor 'map'}}") map
       li.left
-        a(href='javascript:void(0)') about
+        a(href="{{pathFor 'about'}}") about
       li.right
-        a(href='javascript:void(0)') sign up/login
+        a(href="{{pathFor 'map'}}") sign up/login
   //- Available Bike Map
   +map
   //- Sample Admin Panel
