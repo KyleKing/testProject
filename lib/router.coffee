@@ -1,15 +1,18 @@
 Router.configure
-  layoutTemplate: "layout"
+  layoutTemplate: "map-layout"
   waitOn: ->
     Meteor.subscribe "Bikes"
 
-Router.route "/", ->
-  @render "map"
-  return
+Router.map ->
+  @route "map",
+    path: "/"
 
-Router.route "/about", ->
-  @render "about"
-  return
+# Router.route "/", ->
+#   @render "map"
+
+# Router.route "/about", ->
+#   layoutTemplate: "about-layout"
+#   @render "about"
 
 
 # Router.route "/items/:_id", ->

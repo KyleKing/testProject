@@ -1,5 +1,4 @@
-template(name='layout')
-  //- Navigation1
+template(name="menu")
   .navMenu
     .navIcon
       a(href='javascript:void(0)')
@@ -10,8 +9,4 @@ template(name='layout')
       li.left
         a(href="{{pathFor 'about'}}") about
       li.right
-        a(href="{{pathFor 'map'}}") sign up/login
-  //- Available Bike Map
-  +map
-  //- Sample Admin Panel
-  //- +bikesList
+        a(href="{{pathFor 'signup'}}") sign up/login

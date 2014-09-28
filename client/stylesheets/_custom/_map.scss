@@ -1,3 +1,8 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 // Nav Bar
 // Red bar with altered opaciity with list of nav items across and white bottom border
 .navMenu {
@@ -23,11 +28,10 @@
 .navItems {
   list-style-type: none;
   li {
-    display: inline-block; // Keep it all inline, get it?
     // Add some crumbs
-    margin-left: 10px;
     z-index: 99; // Keep on top of map element
     a {
+      display: inline-block; // Keep it all inline, get it?
       cursor: pointer;
       // Mess with Text
       font-weight: bold;
@@ -38,14 +42,17 @@
       border-bottom: 5px solid white;
       // Space everything out
       position: relative;
-      padding: 25px;
+      padding: 10px;
       &:hover {
-        color: shade(white, 60%);;
-        background: tint(red, 35%);
-        border-color:  shade(white, 60%);
+        color: shade(white, 70%);;
+        background: tint(red, 25%);
+        border-color:  shade(white, 70%);
+        padding: 15px 10px 15px 10px;
       }
     }
-    &.left { float: left; }
+    &.left {
+      margin-left: 10px;
+      float: left; }
     &.left:first-child { margin-left: 60px; } // give space for icon
     &.right {
       // push content to right side
@@ -61,7 +68,7 @@
 #map {
   position: absolute;
   // Fill screen
-  width: 100%;
+  width: 110%;
   height: 700px; // Chrome likes a number, so I overwrite it with a percent in the next line #workaround
   height: 100%;
   z-index: 1;
