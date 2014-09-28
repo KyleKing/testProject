@@ -1,14 +1,15 @@
 template(name='layout')
   //- Navigation1
   .navMenu
+    .navIcon
+      a(href='javascript:void(0)')
+          img(src='RedBarsLogo.png')
     ul.navItems
-      li
-        a(href='javascript:void(0)') menu
-      li
+      li.left
+        a(href="{{pathFor 'map'}}") map
+      li.left
         a(href='javascript:void(0)') about
-      li
-        a(href='javascript:void(0)') contact
-      li
+      li.right
         a(href='javascript:void(0)') sign up/login
   //- Available Bike Map
   +map

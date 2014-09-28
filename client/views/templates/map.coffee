@@ -5,13 +5,19 @@ Template.map.rendered = ->
 # Wait for subscription to plot bikes data
 Meteor.subscribe "bikesData", -> # Callback fired when data received
   if Meteor.isClient # double check to make sure Meteor is client
-    L.Icon.Default.imagePath = 'packages/mrt_leaflet/images'
-    # L.Icon.Default.imagePath = "packages/mrt:leaflet/images" # Added to help Meteor locate the marker icon
+    L.Icon.Default.imagePath = 'packages/mrt_leaflet/images' # Added to help Meteor locate the marker icon
     # Start Minimum working code:
-    map = L.map("map").setView([ # Center on Mckeldin
-      38.987701
-      -76.940989
-    ], 14)
+
+    map = new L.Map('map', {
+        # layers: [openStreetMap]
+        center: new L.LatLng(38.987701, -76.940989)
+        zoom: 17
+        zoomControl: false
+    })
+    # map = L.map("map").setView([ # Center on Mckeldin
+    #   38.987701
+    #   -76.940989
+    # ], 14)
     # L.tileLayer('http://{s}.tiles.mapbox.com/v3/kyleking.icaokpd6/{z}/{x}/{y}.png', {
     #     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     #     maxZoom: 20,
@@ -21,6 +27,11 @@ Meteor.subscribe "bikesData", -> # Callback fired when data received
     OpenCycleMap = L.tileLayer("http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
       attribution: "&copy; <a href=\"http://www.opencyclemap.org\">OpenCycleMap</a>, &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>"
     ).addTo(map)
+
+
+    # Add our zoom control manually where we want to
+    zoomControl = L.control.zoom({ position: 'bottomleft' })
+    map.addControl(zoomControl)
 
     # End Minimum working code:
     bikesData = Bikes.find().fetch() # Fetch collection data
