@@ -1,0 +1,35 @@
+
+/* Admin Bike Table Styles*/
+.data-set {
+  width: 100%;
+  max-width: 900px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+tr:first-child td {
+  color: #ffffff;
+  background-color: #387fb1;
+  font-weight: bold;
+}
+
+
+// About Page
+h1.why {
+  font-size: 30px;
+  color: white;
+}
+
+
+
+// Repeated Rows
+@mixin box-row($color) {
+  @include outer-container;
+  width: 100%;
+  background-color: $color;
+}
+
+.colorRow {
+  @include box-row(green);
+}

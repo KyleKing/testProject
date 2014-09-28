@@ -1,22 +1,5 @@
-// Basic Stuff
-
-/* Admin Bike Table Styles*/
-.data-set {
-  width: 100%;
-  max-width: 900px;
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-tr:first-child td {
-  color: #ffffff;
-  background-color: #387fb1;
-  font-weight: bold;
-}
-
-
 // Nav Bar
+// Red bar with altered opaciity with list of nav items across and white bottom border
 .navMenu {
   position: absolute; top: 0px;
   z-index: 99; // Keep on top of map element
@@ -67,7 +50,8 @@ tr:first-child td {
 }
 
 
-/* Leaflet Full Screen Basic */
+// Leaflet Map Full-Screen
+
 #map {
   position: absolute;
   // Fill screen
