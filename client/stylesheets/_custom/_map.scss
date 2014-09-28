@@ -6,7 +6,7 @@ html, body {
 // Nav Bar
 // Red bar with altered opaciity with list of nav items across and white bottom border
 .navMenu {
-  position: absolute; top: 0px;
+  position: fixed; top: 0px;
   z-index: 99; // Keep on top of map element
   // red background bar
   width: 100%;

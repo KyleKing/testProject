@@ -1,11 +1,22 @@
 Router.configure
-  layoutTemplate: "map-layout"
   waitOn: ->
     Meteor.subscribe "Bikes"
 
 Router.map ->
   @route "map",
-    path: "/"
+    path: "/",
+    template: "map-layout"
+
+Router.map ->
+  @route "about",
+    path: "/about",
+    template: "about-layout"
+
+
+
+
+
+
 
 # Router.route "/", ->
 #   @render "map"

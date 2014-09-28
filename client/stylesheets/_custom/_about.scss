@@ -14,12 +14,6 @@ tr:first-child td {
   font-weight: bold;
 }
 
-.contentBlock{
-  width: 100%;
-  height: 100%;
-  background-color: black;
-}
-
 // About Page
 h1.why {
   font-size: 30px;
@@ -32,12 +26,26 @@ h1.why {
 
 
 // Repeated Rows
-@mixin box-row($color) {
-  @include outer-container;
+.full-row {
   width: 100%;
-  background-color: $color;
+  &.top {
+    margin-top: 50px;
+  }
 }
 
+@mixin box-row($color) {
+  @include outer-container;
+  padding: 20px 20px 20px 20px;
+  background-color: $color;
+  text-align: center;
+}
+
+.colorRowWhy {
+  @include box-row(tint(blue, 65%));
+}
+.colorRowWhat {
+  @include box-row(tint(green, 60%));
+}
 .colorRow {
-  @include box-row(green);
+  @include box-row(tint(blue, 5%));
 }
