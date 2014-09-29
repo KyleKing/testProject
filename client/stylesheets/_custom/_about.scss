@@ -14,38 +14,89 @@ tr:first-child td {
   font-weight: bold;
 }
 
-// About Page
-h1.why {
-  font-size: 30px;
-  color: black;
-}
 
 
 
 
+
+//
+//
+// Global Things
+//
+//
+
+// .about_content { margin-top: 50px; } // For the nav bar
+.first { padding-top: 50px; } // For the nav bar
+
+.outerBox { @include outer-container; }
+
+.col_twelve { @include span-columns(12); }
+
+.col_five { @include span-columns(5); }
+
+.cntr { text-align: center; }
+
+//
+//
+// Mixins and stuff
+//
+//
 
 
 // Repeated Rows
-.full-row {
+@mixin full-row($r, $g, $b, $opacity) {
+  background-color: rgba($r,$g,$b,$opacity);
   width: 100%;
-  &.top {
-    margin-top: 50px;
-  }
 }
 
-@mixin box-row($color) {
+@mixin box-row($r, $g, $b, $opacity) {
   @include outer-container;
   padding: 20px 20px 20px 20px;
-  background-color: $color;
+  background-color: rgba($r,$g,$b,$opacity);
   text-align: center;
+  vertical-align: middle;
 }
 
-.colorRowWhy {
-  @include box-row(tint(blue, 65%));
+
+//
+//
+// About Page Specific
+//
+//
+
+// Image to attract attention
+.fullWhy {
+   // @include full-row(227,104,100, 0.55);
+   .imgBox {
+      img {
+         // width: 68em;
+         width: 100%;
+      }
+   }
 }
-.colorRowWhat {
-  @include box-row(tint(green, 60%));
+
+
+// Explanation of the system
+.fullWhat {
+   @include full-row(255, 255, 255, 1);
+   .colorRowWhat {
+     @include box-row(255, 255, 255, 1);
+   }
 }
-.colorRow {
-  @include box-row(tint(blue, 5%));
+
+.fullQuotes {
+   @include full-row(127,200,223, 1);
+   .quoteBox {
+      height: 500px;
+      @include box-row(127,200,223, 1);
+      padding-top: 210px;
+   }
+}
+
+.fullPricing {
+   @include full-row(186,217,100, 1);
+}
+
+.fullFAQ {
+ @include full-row(131,203,197, 1);
 }
