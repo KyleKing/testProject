@@ -2,15 +2,26 @@ Router.configure
   waitOn: ->
     Meteor.subscribe "Bikes"
 
+# Data context from a collection
 Router.map ->
   @route "map",
     path: "/",
-    template: "map-layout"
+    template: "map-layout",
+    # When switching to home from /about, the map isn't loading - likely data issue
+    # More help here: http://www.manuel-schoebel.com/blog/iron-router-tutorial
+    # data: ->
+    #   Bikes = status: status.find({}), latitude: latitude.find({}), longitude: longitude.find({})
+    #   Bikes
 
 Router.map ->
   @route "about",
     path: "/about",
     template: "about-layout"
+
+Router.map ->
+  @route "signup",
+    path: "/signup",
+    template: "layout"
 
 
 

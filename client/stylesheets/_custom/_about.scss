@@ -66,7 +66,7 @@ tr:first-child td {
 
 // Image to attract attention
 .fullWhy {
-   // @include full-row(227,104,100, 0.55);
+   // @include full-row(227,104,100, 0.55); // red
    .imgBox {
       img {
          // width: 68em;
@@ -78,25 +78,28 @@ tr:first-child td {
 
 // Explanation of the system
 .fullWhat {
-   @include full-row(255, 255, 255, 1);
+   @include full-row(255, 255, 255, 1); // white
    .colorRowWhat {
-     @include box-row(255, 255, 255, 1);
+     @include box-row(255, 255, 255, 1); // white
    }
 }
 
 .fullQuotes {
-   @include full-row(127,200,223, 1);
+  @include full-row(227,104,100, 0.55); // red from what
+   // @include full-row(127,200,223, 1); // bright blue 2
    .quoteBox {
       height: 500px;
-      @include box-row(127,200,223, 1);
+      @include full-row(227,104,100, 0.1); // red from what
+      // @include box-row(127,200,223, 1); // bright blue 2
       padding-top: 210px;
    }
 }
 
 .fullPricing {
-   @include full-row(186,217,100, 1);
+   // @include full-row(186,217,100, 1); // bright green
 }
 
 .fullFAQ {
- @include full-row(131,203,197, 1);
+     @include full-row(227,104,100, 0.55); // red from what
+ // @include full-row(131,203,197, 1); // bright blue 1
 }
