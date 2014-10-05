@@ -12,7 +12,8 @@ html, body {
   width: 100%;
   height: 80px; // Testing more responsive height
   // height: 50px;
-  background: tint(red, 30%);
+  // background: tint(red, 30%);
+  background: white;
   opacity: 0.75;
 }
 .navIcon {
@@ -37,16 +38,17 @@ html, body {
       cursor: pointer;
       // Mess with Text
       font-weight: bold;
-      color: white;
+      color: tint(red, 30%);
       text-decoration: none;
       // Add Colors
-      background: tint(red, 25%);
-      border-bottom: 5px solid white;
+      background-color: white;
+      // background: tint(red, 25%);
+      border-bottom: 5px solid tint(red, 30%);
       // Space everything out
       position: relative;
       padding: 15px;
       &:hover {
-        background-color: shade(red, 0.1);
+        background-color: white;
         padding: 25px 15px 25px 15px;
       }
     }
