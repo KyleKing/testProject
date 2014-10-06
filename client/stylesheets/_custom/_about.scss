@@ -89,17 +89,27 @@ tr:first-child td {
    // @include full-row(127,200,223, 1); // bright blue 2
    .quoteBox {
       height: 500px;
-      @include full-row(227,104,100, 0.1); // red from what
-      // @include box-row(127,200,223, 1); // bright blue 2
+      @include full-row(227,104,100, 0); // red from what
       padding-top: 210px;
    }
 }
 
 .fullPricing {
-   // @include full-row(186,217,100, 1); // bright green
+   @include full-row(242,242,242, 1); // bright green
 }
 
 .fullFAQ {
-     @include full-row(227,104,100, 0.55); // red from what
- // @include full-row(131,203,197, 1); // bright blue 1
+  // @include full-row(227,104,100, 0.55); // red from what
+}
+
+//
+//
+// Testing Neat Grids
+//
+//
+
+.wrapper {
+@include outer-container;
+.primary { @include span-columns(8); }
+.secondary { @include span-columns(4); }
 }
