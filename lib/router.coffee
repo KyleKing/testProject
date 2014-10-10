@@ -18,9 +18,14 @@ Router.map ->
     path: "/about",
     template: "about-layout"
 
+# Router.map ->
+#   @route "signup",
+#     path: "/signup",
+#     template: "layout"
+
 Router.map ->
-  @route "signup",
-    path: "/signup",
+  @route "d3DEMO",
+    path: "/d3ISfun",
     template: "layout"
 
 
