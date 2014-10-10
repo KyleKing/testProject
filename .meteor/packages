@@ -5,11 +5,10 @@
 
 standard-app-packages
 mrt:leaflet
-d3
 mquandalle:jade
 fourseven:scss
 aldeed:simple-schema
 iron:router
 coffeescript
-mrt:dc.js-package
+d3
 

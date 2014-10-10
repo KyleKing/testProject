@@ -28,6 +28,11 @@ Router.map ->
     path: "/d3ISfun",
     template: "layout"
 
+Router.map ->
+  @route "d3DEMO2",
+    path: "/d3ISfun2",
+    template: "layout2"
+
 
 
 
