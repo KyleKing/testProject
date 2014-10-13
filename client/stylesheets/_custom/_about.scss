@@ -65,7 +65,7 @@ tr:first-child td {
 //
 
 // Image to attract attention
-.fullWhy {
+.fullIntro {
    // @include full-row(227,104,100, 0.55); // red
    .imgBox {
       img {
@@ -75,9 +75,20 @@ tr:first-child td {
    }
 }
 
+// Comparison with other transit systems
+.fullEvolution {
 
-// Explanation of the system
-.fullWhat {
+
+}
+
+// Explanation of our system
+.fullWhat{
+
+}
+
+
+// How to use the system
+.fullHow {
    @include full-row(255, 255, 255, 1); // white
    .colorRowWhat {
      @include box-row(255, 255, 255, 1); // white
