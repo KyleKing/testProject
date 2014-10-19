@@ -3,7 +3,7 @@ Template.d3DEMO2.rendered = function() {
 
   Deps.autorun(function () {
     // alert("Hello " + Session.get("name"));
-    alert("Hello");
+    // alert("Hello");
 
 
     'use strict';
