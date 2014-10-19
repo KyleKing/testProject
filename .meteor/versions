@@ -1,3 +1,7 @@
+accounts-base@1.1.2
+accounts-facebook@1.0.2
+accounts-oauth@1.1.2
+accounts-password@1.0.3
 aldeed:simple-schema@1.0.3
 application-configuration@1.0.3
 autoupdate@1.1.2
@@ -15,9 +19,11 @@ d3@1.0.0
 ddp@1.0.10
 deps@1.0.5
 ejson@1.0.4
+email@1.0.4
+facebook@1.1.1
 fastclick@1.0.1
 follower-livedata@1.0.2
-fourseven:scss@0.9.6
+fourseven:scss@1.0.0
 geojson-utils@1.0.1
 html-tools@1.0.2
 htmljs@1.0.2
@@ -30,6 +36,7 @@ iron:router@0.9.4
 jquery@1.0.1
 json@1.0.1
 livedata@1.0.11
+localstorage@1.0.1
 logging@1.0.4
 meteor-platform@1.1.2
 meteor@1.1.2
@@ -38,7 +45,12 @@ minimongo@1.0.4
 mobile-status-bar@1.0.1
 mongo@1.0.7
 mquandalle:jade@0.2.8
+mrt:crossfilter@0.0.2
+mrt:dc.js-package@0.0.1
 mrt:leaflet@0.3.8
+npm-bcrypt@0.7.7
+oauth2@1.1.1
+oauth@1.1.1
 observe-sequence@1.0.3
 ordered-dict@1.0.1
 random@1.0.1
@@ -47,9 +59,12 @@ reactive-var@1.0.3
 reload@1.1.1
 retry@1.0.1
 routepolicy@1.0.2
+service-configuration@1.0.2
 session@1.0.3
+sha@1.0.1
 spacebars-compiler@1.0.3
 spacebars@1.0.3
+srp@1.0.1
 standard-app-packages@1.0.3
 templating@1.0.8
 tracker@1.0.3

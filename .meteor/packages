@@ -11,4 +11,8 @@ aldeed:simple-schema
 iron:router
 coffeescript
 d3
+mrt:dc.js-package
+mrt:crossfilter
+accounts-facebook
+accounts-password
 
