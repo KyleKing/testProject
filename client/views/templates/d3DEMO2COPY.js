@@ -1,3 +1,17 @@
+// template(name='d3DEMO2')
+//       h4 Scatter Plot
+//             small
+//                   a(href="http://chimera.labs.oreilly.com/books/1230000000345/ch11.html#_pie_layout") View Original
+//       svg#scatterPlot
+//       input(type="button" id="add" value="Add a Value")
+//       input(type="button" id="remove" value="Remove a Value")
+//       input(type="button" id="randomize" value="Randomize Values")
+//       input(type="button" id="toggleSort" value="Toggle Sorting")
+
+
+
+
+
 var Points = new Meteor.Collection(null);
 
 if(Points.find({}).count() === 0){

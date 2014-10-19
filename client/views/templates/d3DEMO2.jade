@@ -1,9 +1,25 @@
 template(name='d3DEMO2')
-      h4 Scatter Plot
-            small
-                  a(href="http://chimera.labs.oreilly.com/books/1230000000345/ch11.html#_pie_layout") View Original
-      svg#scatterPlot
-      input(type="button" id="add" value="Add a Value")
-      input(type="button" id="remove" value="Remove a Value")
-      input(type="button" id="randomize" value="Randomize Values")
-      input(type="button" id="toggleSort" value="Toggle Sorting")
+  h2 Nasdaq 100 Index 1985/11/01-2012/06/29
+  #your-chart
+  #chart
+    span Days by Gain or Loss
+  #chart
+    a.reset(href='javascript:myChart.filterAll();dc.redrawAll();', style='display: none;') reset
+  #chart
+    span.reset(style='display: none;') Current filter:
+      span.filter
+  #data-count
+    span.filter-count selected out of
+      span.total-count records
+  // anchor div for data table
+  #data-table
+    // create a custom header
+    .header
+      span Date
+      span Open
+      span Close
+      span Change
+      span Volume
+      // data rows will filled in here
+
+
