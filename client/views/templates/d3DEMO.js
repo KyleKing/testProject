@@ -1,5 +1,5 @@
 // api.use('mrt:crossfilter', ['client']) {
-    alert("Hello");
+    //alert("Hello");
 
       var chartGroup = "chartGroup";
       var heatmapChart = dc.heatMap("#heatmap", chartGroup);

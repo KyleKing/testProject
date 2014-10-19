@@ -77,6 +77,10 @@ tr:first-child td {
 
 // Comparison with other transit systems
 .fullEvolution {
+
+    h1 {
+      text-align: center;
+    }
     // Code for horizontal scroll bar
     /*
     .imgBox {
@@ -95,7 +99,6 @@ tr:first-child td {
     }
     */
     //
-    width: 25%;
 
   /*
    .imgBox {
@@ -114,6 +117,10 @@ tr:first-child td {
 
 // Explanation of our system
 .fullWhat{
+  p {
+    text-align: center;
+    font-size: 200%;
+  }
 
 }
 
