@@ -1,135 +1,101 @@
-var Slices = new Meteor.Collection(null);
-Session.setDefault('pieChartSort','none');
-Session.setDefault('pieChartSortModifier',undefined);
+// api.use('mrt:crossfilter', ['client']) {
+    alert("Hello");
 
-if(Slices.find({}).count() === 0){
-  for(i = 0; i < 5; i++)
-    Slices.insert({
-      value:Math.floor(Math.random() * 100)
-    });
-}
-
-Template.d3DEMO.events({
-  'click #add':function(){
-    Slices.insert({
-      value:Math.floor(Math.random() * 100)
-    });
-  },
-  'click #remove':function(){
-    var toRemove = Random.choice(Slices.find().fetch());
-    Slices.remove({_id:toRemove._id});
-  },
-  'click #randomize':function(){
-    //loop through bars
-    Slices.find({}).forEach(function(bar){
-      //update the value of the bar
-      Slices.update({_id:bar._id},{$set:{value:Math.floor(Math.random() * 100)}});
-    });
-  },
-  'click #toggleSort':function(){
-    if(Session.equals('pieChartSort', 'none')){
-      Session.set('pieChartSort','asc');
-      Session.set('pieChartSortModifier',{sort:{value:1}});
-    }else if(Session.equals('pieChartSort', 'asc')){
-      Session.set('pieChartSort','desc');
-      Session.set('pieChartSortModifier',{sort:{value:-1}});
-    }else{
-      Session.set('pieChartSort','none');
-      Session.set('pieChartSortModifier',{});
-    }
-  }
-});
-
-Template.d3DEMO.rendered = function(){
-  //Width and height
-  var w = 300;
-  var h = 300;
-
-  var outerRadius = w / 2;
-  var innerRadius = 0;
-  var arc = d3.svg.arc()
-          .innerRadius(innerRadius)
-          .outerRadius(outerRadius);
-
-  var pie = d3.layout.pie()
-    .sort(null)
-    .value(function(d) {
-      return d.value;
-    });
-
-  //Easy colors accessible via a 10-step ordinal scale
-  var color = d3.scale.category10();
-
-  //Create SVG element
-  var svg = d3.select("#pieChart")
-        .attr("width", w)
-        .attr("height", h);
-
-  var key = function(d){
-    return d.data._id;
-  };
-
-  Deps.autorun(function(){
-    var modifier = {fields:{value:1}};
-    var sortModifier = Session.get('pieChartSortModifier');
-    if(sortModifier && sortModifier.sort)
-      modifier.sort = sortModifier.sort;
-
-    var dataset = Slices.find({},modifier).fetch();
-
-    var arcs = svg.selectAll("g.arc")
-            .data(pie(dataset), key);
-
-    var newGroups =
-      arcs
-        .enter()
-        .append("g")
-        .attr("class", "arc")
-        .attr("transform", "translate(" + outerRadius + "," + outerRadius + ")");
-
-    //Draw arc paths
-    newGroups
-      .append("path")
-      .attr("fill", function(d, i) {
-        return color(i);
-      })
-      .attr("d", arc);
-
-    //Labels
-    newGroups
-      .append("text")
-      .attr("transform", function(d) {
-        return "translate(" + arc.centroid(d) + ")";
-      })
-      .attr("text-anchor", "middle")
-      .text(function(d) {
-        return d.value;
+      var chartGroup = "chartGroup";
+      var heatmapChart = dc.heatMap("#heatmap", chartGroup);
+      var barChart = dc.barChart("#barchart", chartGroup);
+      d3.csv("../ndx.csv", function(error, data) {
+      var dateFormat = d3.time.format("%m/%d/%Y");
+      data.forEach(function (d) {
+      d.dd = dateFormat.parse(d.date);
+      d.month = d3.time.month(d.dd).getMonth(); // pre-calculate month for better performance
+      d.year = d3.time.year(d.dd).getFullYear();
+      d.close = +d.close; // coerce to number
+      d.open = +d.open;
       });
-
-    arcs
-      .transition()
-      .select('path')
-      .attrTween("d", function(d) {
-        this._current = this._current || d;
-        var interpolate = d3.interpolate(this._current, d);
-        this._current = interpolate(0);
-        return function(t) {
-          return arc(interpolate(t));
-        };
+      var ndx = crossfilter(data),
+      monthOfTheYearDimension = ndx.dimension(function(d) { return [+d.month, +d.year]; }),
+      percentageGainByMonthOfYearGroup = monthOfTheYearDimension.group().reduce(
+      /* callback for when data is added to the current filter results */
+      function (p, v) {
+      ++p.count;
+      p.absGain += v.close - v.open;
+      p.fluctuation += Math.abs(v.close - v.open);
+      p.sumIndex += (v.open + v.close) / 2;
+      p.avgIndex = p.count ? p.sumIndex / p.count : 0;
+      p.percentageGain = p.avgIndex ? (p.absGain / p.avgIndex) * 100 : 0;
+      p.fluctuationPercentage = p.avgIndex ? (p.fluctuation / p.avgIndex) * 100 : 0;
+      return p;
+      },
+      /* callback for when data is removed from the current filter results */
+      function (p, v) {
+      --p.count;
+      p.absGain -= v.close - v.open;
+      p.fluctuation -= Math.abs(v.close - v.open);
+      p.sumIndex -= (v.open + v.close) / 2;
+      p.avgIndex = p.count ? p.sumIndex / p.count : 0;
+      p.percentageGain = p.avgIndex ? (p.absGain / p.avgIndex) * 100 : 0;
+      p.fluctuationPercentage = p.avgIndex ? (p.fluctuation / p.avgIndex) * 100 : 0;
+      return p;
+      },
+      /* initialize p */
+      function () {
+      return {count: 0, absGain: 0, fluctuation: 0, fluctuationPercentage: 0, sumIndex: 0, avgIndex: 0, percentageGain: 0};
+      }
+      );
+      var heatColorMapping = function(d) {
+      if (d < 0) {
+      return d3.scale.linear().domain([-23,0]).range(["red", "#e5e5e5"])(d);
+      }
+      else {
+      return d3.scale.linear().domain([0,23]).range(["#e5e5e5", "green"])(d);
+      }
+      };
+      heatColorMapping.domain = function() {
+      return [-23,23];
+      };
+      heatmapChart
+      .width(12 * 80 + 80)
+      .height(27 * 10 + 40)
+      .dimension(monthOfTheYearDimension)
+      .group(percentageGainByMonthOfYearGroup)
+      .keyAccessor(function(d) { return +d.key[0]; })
+      .valueAccessor(function(d) { return +d.key[1]; })
+      .colorAccessor(function(d) { return +d.value.percentageGain; })
+      .title(function(d) {
+      return " Month:   " + d.key[0] + "\\n" +
+      "  Year:   " + d.key[1] + "\\n" +
+      "  Gain:   " + d.value.percentageGain + "%";})
+      .colors(heatColorMapping)
+      .calculateColorDomain();
+      heatmapChart.xBorderRadius(0);
+      heatmapChart.yBorderRadius(0);
+      heatmapChart.render();
+      var monthlyDimension = ndx.dimension(function (d) { return +d.month; });
+      var percentageGainByMonthArrayGroup = monthlyDimension.group().reduce(
+      function(p,v) {
+      var absGain = v.close - v.open;
+      var percentageGain = v.open ? (absGain / v.open) * 100 : 0;
+      return p + percentageGain;
+      },
+      function(p,v) {
+      var absGain = v.close - v.open;
+      var percentageGain = v.open ? (absGain / v.open) * 100 : 0;
+      return p - percentageGain;
+      },
+      function() {
+      return 0;
+      }
+      );
+      barChart
+      .dimension(monthlyDimension)
+      .group(percentageGainByMonthArrayGroup)
+      .width(12 * 80 + 80)
+      .height(480)
+      .y(d3.scale.linear().domain([-10.0,100.0]))
+      .x(d3.scale.linear().domain([-0.5,11.5]))
+      .elasticY(true)
+      .centerBar(true);
+      barChart.render();
       });
-
-    arcs
-      .transition()
-      .select('text')
-      .attr("transform", function(d) {
-        return "translate(" + arc.centroid(d) + ")";
-      })
-      .text(function(d) {
-        return d.value;
-      });
-
-    arcs
-      .exit()
-      .remove();
-  });
-};
+// })
