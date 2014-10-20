@@ -2,7 +2,7 @@ template(name='about')
       .fullIntro
             //- .outerBox
             .imgBox
-                  img(src='will.png')
+                  img(src='/about/heroImage/will.png')
 
       .fullEvolution
             //- Code for horizontal scrolling
@@ -17,17 +17,17 @@ template(name='about')
 
             //- Title text; centered
             br
-            br          
+            br
             h1 Currently Available Modes of Transportation
 
             //- Side-by-side images
-            img(src="/evolution/walk.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
-            img(src="/evolution/green-fancy-line-md1.png" style="float: left; width: 2%; margin-right: 1%; margin-bottom: 0.5em;")                 
-            img(src="/evolution/car1.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
-            img(src="/evolution/green-fancy-line-md1.png" style="float: left; width: 2%; margin-right: 1%; margin-bottom: 0.5em;")                  
-            img(src="/evolution/bus.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
-            img(src="/evolution/green-fancy-line-md1.png" style="float: left; width: 2%; margin-right: 1%; margin-bottom: 0.5em;")                  
-            img(src="/evolution/bike.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
+            img(src="/about/evolution/walk.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
+            img(src="/about/evolution/green-fancy-line-md1.png" style="float: left; width: 2%; margin-right: 1%; margin-bottom: 0.5em;")                 
+            img(src="/about/evolution/car1.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
+            img(src="/about/evolution/green-fancy-line-md1.png" style="float: left; width: 2%; margin-right: 1%; margin-bottom: 0.5em;")                  
+            img(src="/about/evolution/bus.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
+            img(src="/about/evolution/green-fancy-line-md1.png" style="float: left; width: 2%; margin-right: 1%; margin-bottom: 0.5em;")                  
+            img(src="/about/evolution/bike.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
 
             p(style="clear: both;")
 
@@ -38,11 +38,11 @@ template(name='about')
             p What if we create a balanced mode that is affordable, fast, and flexible at the same time?
 
             .outerBox
-                  img(src='bikesharetemp.svg')
+                  img(src='/about/bikesharetemp.svg')
       .fullHow
             .outerBox
-                  img(src='whatImage.png')
-                  img(src='howImage.png')
+                  img(src='/about/whatImage.png')
+                  img(src='/about/howImage.png')
       .fullQuotes
             .outerBox
                   .col_twelve.quoteBox
@@ -61,26 +61,18 @@ template(name='about')
                   .secondary
                        h1 Long Rides
                        p $4 per day
-                  br
-                  br
-                  br
-                  br
-                  br
-                  #signIn
-                  .tertiary.cntr
-                        h1 Yeah, it is that easy
-                        p Get started for free
-                        label(for="password") Password:
-                        input(type="email" class="password" name="@terpmail.umd.edu")
-                        input(type="password" class="password" name="password")
-                        input(class="button" type="submit" value="Submit")
-                        .success
-                              span This is a success message
-                                    a(href="#") with a link
-                  br
-                  br
-                  br
-                  br
+                  //- #signIn
+      .wrapper
+            .tertiary.cntr
+                  h1 Yeah, it is that easy
+                  p Get started for free
+                  label(for="password") Password:
+                  input(type="email" class="password" name="@terpmail.umd.edu")
+                  input(type="password" class="password" name="password")
+                  input(class="button" type="submit" value="Submit")
+                  .success
+                        span This is a success message
+                              a(href="#") with a link
       .fullFAQ
             .outerBox.cntr
                   br
@@ -91,23 +83,45 @@ template(name='about')
                         p Answer
                   br
                   br
-                  br
-                  br
-                  br
-                  br
-                  blockquote.twitter-tweet(lang='en')
-                        p
-                              | What programming in NodeJS is like.
-                              a(href='http://t.co/sE9z1FMQSk') http://t.co/sE9z1FMQSk
-                        | &mdash; Ian Jennings (@sw1tch)
-                        a(href='https://twitter.com/sw1tch/status/513363051987218432') September 20, 2014
-                  script(async='async', src='//platform.twitter.com/widgets.js', charset='utf-8')
-                  br
-                  br
-                  br
-                  br
-                  h1 Test Neat Grid
-                        a(href='http://neat.bourbon.io') docs
-                        | and
-                        a(href='http://www.creativebloq.com/css3/create-responsive-grid-layouts-bourbon-neat-31410907') support
-                  br
+      //- IconBulletPoints
+      .bullets
+        .bullet.three-col-bullet
+          .bullet-icon.bullet-icon-1
+            img(src='http://www.honors.umd.edu/images/HCMark3.png', alt='')
+          .bullet-content
+            h2 Gemstone:
+              br
+              | Team BIKES
+            p
+              | We are building the future of biking. We have space-age bike locks. We are taking the internet of things and next generation realtime web apps to instantly locate rental bikes. Owning a bike will be a thing of the past.
+              a(href="http://teambikes.weebly.com")  Learn more here.
+        .bullet.three-col-bullet
+          .bullet-icon.bullet-icon-2
+            img(src='http://mathclub.math.umd.edu/UMDGlobe.gif', alt='')
+          .bullet-content
+            h2 MML:
+              br
+              | Researcher
+            p
+              | From using MEMS for acoustophoresis sorting of small particles to producing biosensors for on-chip analysis, the future of medicine will be because of innovations like these. See what my lab is up to and
+              a(href="http://mml.umd.edu/mml/")  Learn more here.
+        .bullet.three-col-bullet
+          .bullet-icon.bullet-icon-3
+            img(src='/src/public/quest.png', alt='')
+          .bullet-content
+            h2 Quest:
+              br
+              | Innovator
+            p
+              | We are the fearless idea center of Maryland. Bringing together business, STEM, and computer science, we are developing the products of the future with a strong emphasis on building
+              a(href='http://hbr.org/1987/11/competing-on-the-eight-dimensions-of-quality/ar/1')  Quality products.
+              a(href='http://www.rhsmith.umd.edu/programs/undergraduate-programs/academics/fellows-special-programs/quest')  Learn more here
+                  //- br
+                  //- br
+                  //- br
+                  //- br
+                  //- h1 Test Neat Grid
+                  //-       a(href='http://neat.bourbon.io') docs
+                  //-       | and
+                  //-       a(href='http://www.creativebloq.com/css3/create-responsive-grid-layouts-bourbon-neat-31410907') support
+                  //- br
