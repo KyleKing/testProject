@@ -1,4 +1,9 @@
-template(name='d3DEMO')
-    h2 Michelson–Morley experiment
-    #heatmap
-    #barchart
+template(name='lineChart')
+  h4 Line Chart -
+    small
+      a(href='http://bl.ocks.org/mbostock/3883245') View Original
+  svg#lineChart
+  input#add(type='button', value='Add a Value')
+  input#remove(type='button', value='Remove a Value')
+  input#randomize(type='button', value='Randomize Values')
+

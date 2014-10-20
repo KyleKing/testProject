@@ -24,7 +24,7 @@ Router.map ->
 #     template: "layout"
 
 Router.map ->
-  @route "d3DEMO",
+  @route "lineChart",
     path: "/d3ISfun",
     template: "layout"
 
