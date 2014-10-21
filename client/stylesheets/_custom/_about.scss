@@ -235,3 +235,25 @@ tr:first-child td {
     display: inline-block;
   }
 }
+
+
+//
+//
+// FAQ
+//
+//
+
+.FAQ {
+  &:hover {
+    .short { display: none; }
+    .long { display: block; }
+  }
+  .long { display: none; }
+  .short { display: block; }
+}
+  // background-image: url(http://www.localhost:3000.com/about/FAQShort.png);
+  // height: 100%;
+  // width: auto;
+  // &:hover {
+  //   background-image: url(http://www.localhost:3000.com/about/FAQLong.png);
+  // }

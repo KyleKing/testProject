@@ -1,161 +1,148 @@
 template(name='about')
-      .fullIntro
-            //- .outerBox
-            .imgBox
-                  img(src='/about/heroImage/will.png')
+    .fullIntro
+          //- .outerBox
+          .imgBox
+                img(src='/about/heroImage/will.png')
 
-      .fullEvolution
-            //- Code for horizontal scrolling
-            //-.imgBox
-            //-   li
-                        img(src="walk.png" style="width: 50%;")
-            //-   li
-                        img(src="drive.png" style="width: 50%;")
-            //-
+    .fullEvolution
+          //- Code for horizontal scrolling
+          //- .imgBox
+          //-   li
+          //-             img(src="walk.png" style="width: 50%;")
+          //-   li
+          //-             img(src="drive.png" style="width: 50%;")
+          //-
 
-            //- Align images side-by-side
+          //- Align images side-by-side
 
-            //- Title text; centered
+          //- Title text; centered
+          br
+          br
+          h1 Currently Available Modes of Transportation
+
+          //- Side-by-side images
+          img(src="/about/evolution/walk.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
+          img(src="/about/evolution/green-fancy-line-md1.png" style="float: left; width: 2%; margin-right: 1%; margin-bottom: 0.5em;")
+          img(src="/about/evolution/car1.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
+          img(src="/about/evolution/green-fancy-line-md1.png" style="float: left; width: 2%; margin-right: 1%; margin-bottom: 0.5em;")
+          img(src="/about/evolution/bus.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
+          img(src="/about/evolution/green-fancy-line-md1.png" style="float: left; width: 2%; margin-right: 1%; margin-bottom: 0.5em;")
+          img(src="/about/evolution/bike.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
+
+          p(style="clear: both;")
+
+    .fullWhat
+          br
+          p Each mode has a substantial tradeoff...
+          br
+          p What if we create a balanced mode that is affordable, fast, and flexible at the same time?
+
+          .outerBox
+                img(src='/about/bikesharetemp.svg')
+    .fullHow
+          .outerBox
+                img(src='/about/whatImage.png')
+                //-
+                //-
+                //- For Eric
+                //-
+                //- We can improve this later
+                //-
+                //-
+                //- For Eric
+                //-
+                //- This isn'showing up?
+                //- img(src='/about/howImage.png')
+    .fullQuotes
+        //-
+        //-
+        //- For Eric
+        //-
+        //- Should we change the terminology below...?
+        .outerBox
+              .col_twelve.quoteBox
+                   blockquote.cntr
+                    h2 I was so hungover on Tuesday morning, but red bars and red bull got me to English ten minutes early
+                    cite President Loh
+    .fullPricing
+          //-
+          //-
+          //- For Eric
+          //-
+          //- This section needs Bourbon Neat. If you can focus on this that would be awesome!
+          .outerBox.cntr
+                br
+                br
+                br
+                br
+                .primary
+                     h1 Short Rides
+                     p $0.05 per minute*
+                .secondary
+                     h1 Long Rides
+                     p $4 per day
+                //- #signIn
+    .wrapper
+          .tertiary.cntr
+                h1 Yeah, it is that easy
+                p Get started for free
+                label(for="password") Password:
+                input(type="email" class="password" name="@terpmail.umd.edu")
+                input(type="password" class="password" name="password")
+                input(class="button" type="submit" value="Submit")
+                br
+                br
+                br
+                br
+                br
+                br
+    .fullFAQ
+          .outerBox.cntr
+            .FAQ
+              img(src="/about/FAQShort.png").short
+              img(src="/about/FAQLong.png").long
+
+
+
+    //-
+    //-
+    //- For Eric
+    //-
+    //- This is from my site and it should be working, so this would be a good way to test to see if Bourbon Neat is working
+    //- The source code for my site is here: https://github.com/KyleKing/KyleKing.github.io
+    //- IconBulletPoints
+    br
+    br
+    br
+    .bullets
+      .bullet.three-col-bullet
+        .bullet-icon.bullet-icon-1
+          img(src='http://www.honors.umd.edu/images/HCMark3.png', alt='')
+        .bullet-content
+          h2 Gemstone:
             br
+            | Team BIKES
+          p
+            | We are building the future of biking. We have space-age bike locks. We are taking the internet of things and next generation realtime web apps to instantly locate rental bikes. Owning a bike will be a thing of the past.
+            a(href="http://teambikes.weebly.com")  Learn more here.
+      .bullet.three-col-bullet
+        .bullet-icon.bullet-icon-2
+          img(src='http://mathclub.math.umd.edu/UMDGlobe.gif', alt='')
+        .bullet-content
+          h2 MML:
             br
-            h1 Currently Available Modes of Transportation
-
-            //- Side-by-side images
-            img(src="/about/evolution/walk.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
-            img(src="/about/evolution/green-fancy-line-md1.png" style="float: left; width: 2%; margin-right: 1%; margin-bottom: 0.5em;")                 
-            img(src="/about/evolution/car1.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
-            img(src="/about/evolution/green-fancy-line-md1.png" style="float: left; width: 2%; margin-right: 1%; margin-bottom: 0.5em;")                  
-            img(src="/about/evolution/bus.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
-            img(src="/about/evolution/green-fancy-line-md1.png" style="float: left; width: 2%; margin-right: 1%; margin-bottom: 0.5em;")                  
-            img(src="/about/evolution/bike.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
-
-            p(style="clear: both;")
-
-      .fullWhat
+            | Researcher
+          p
+            | From using MEMS for acoustophoresis sorting of small particles to producing biosensors for on-chip analysis, the future of medicine will be because of innovations like these. See what my lab is up to and
+            a(href="http://mml.umd.edu/mml/")  Learn more here.
+      .bullet.three-col-bullet
+        .bullet-icon.bullet-icon-3
+          img(src='http://kyleking.me/src/public/quest.png', alt='')
+        .bullet-content
+          h2 Quest:
             br
-            p Each mode has a substantial tradeoff...
-            br
-            p What if we create a balanced mode that is affordable, fast, and flexible at the same time?
-
-            .outerBox
-                  img(src='/about/bikesharetemp.svg')
-      .fullHow
-            .outerBox
-
-
-                    //-
-                    //-
-                    //- For Eric
-                    //-
-                    //- We can improve this later
-                  img(src='/about/whatImage.png')
-
-
-                    //-
-                    //-
-                    //- For Eric
-                    //-
-                    //- This isn'showing up?
-                  img(src='/about/howImage.png')
-      .fullQuotes
-
-
-                    //-
-                    //-
-                    //- For Eric
-                    //-
-                    //- Should we change the terminology below...?
-            .outerBox
-                  .col_twelve.quoteBox
-                       blockquote.cntr
-                        h2 I was so hungover on Tuesday morning, but red bars and red bull got me to English ten minutes early
-                        cite President Loh
-      .fullPricing
-
-
-                    //-
-                    //-
-                    //- For Eric
-                    //-
-                    //- This section needs Bourbon Neat. If you can focus on this that would be awesome!
-            .outerBox.cntr
-                  br
-                  br
-                  br
-                  br
-                  .primary
-                       h1 Short Rides
-                       p $0.05 per minute*
-                  .secondary
-                       h1 Long Rides
-                       p $4 per day
-                  //- #signIn
-      .wrapper
-            .tertiary.cntr
-                  h1 Yeah, it is that easy
-                  p Get started for free
-                  label(for="password") Password:
-                  input(type="email" class="password" name="@terpmail.umd.edu")
-                  input(type="password" class="password" name="password")
-                  input(class="button" type="submit" value="Submit")
-                  .success
-                        span This is a success message
-                              a(href="#") with a link
-      .fullFAQ
-
-
-                    //-
-                    //-
-                    //- For Eric
-                    //-
-                    //- I GOT THIS!
-            .outerBox.cntr
-                  br
-                  br
-                  h1 FAQ Section
-                  blockquote
-                        h2 Question?
-                        p Answer
-                  br
-                  br
-
-
-                    //-
-                    //-
-                    //- For Eric
-                    //-
-                    //- This is from my site and it should be working, so this would be a good way to test to see if Bourbon Neat is working
-                    //- The source code for my site is here: https://github.com/KyleKing/KyleKing.github.io
-      //- IconBulletPoints
-      .bullets
-        .bullet.three-col-bullet
-          .bullet-icon.bullet-icon-1
-            img(src='http://www.honors.umd.edu/images/HCMark3.png', alt='')
-          .bullet-content
-            h2 Gemstone:
-              br
-              | Team BIKES
-            p
-              | We are building the future of biking. We have space-age bike locks. We are taking the internet of things and next generation realtime web apps to instantly locate rental bikes. Owning a bike will be a thing of the past.
-              a(href="http://teambikes.weebly.com")  Learn more here.
-        .bullet.three-col-bullet
-          .bullet-icon.bullet-icon-2
-            img(src='http://mathclub.math.umd.edu/UMDGlobe.gif', alt='')
-          .bullet-content
-            h2 MML:
-              br
-              | Researcher
-            p
-              | From using MEMS for acoustophoresis sorting of small particles to producing biosensors for on-chip analysis, the future of medicine will be because of innovations like these. See what my lab is up to and
-              a(href="http://mml.umd.edu/mml/")  Learn more here.
-        .bullet.three-col-bullet
-          .bullet-icon.bullet-icon-3
-            img(src='/src/public/quest.png', alt='')
-          .bullet-content
-            h2 Quest:
-              br
-              | Innovator
-            p
-              | We are the fearless idea center of Maryland. Bringing together business, STEM, and computer science, we are developing the products of the future with a strong emphasis on building
-              a(href='http://hbr.org/1987/11/competing-on-the-eight-dimensions-of-quality/ar/1')  Quality products.
-              a(href='http://www.rhsmith.umd.edu/programs/undergraduate-programs/academics/fellows-special-programs/quest')  Learn more here
+            | Innovator
+          p
+            | We are the fearless idea center of Maryland. Bringing together business, STEM, and computer science, we are developing the products of the future with a strong emphasis on building
+            a(href='http://hbr.org/1987/11/competing-on-the-eight-dimensions-of-quality/ar/1')  Quality products.
+            a(href='http://www.rhsmith.umd.edu/programs/undergraduate-programs/academics/fellows-special-programs/quest')  Learn more here
