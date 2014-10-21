@@ -29,7 +29,7 @@ html, body {
 }
 .navItems {
   list-style-type: none;
-  li {
+  li.navButton {
     // Add some crumbs
     z-index: 99; // Keep on top of map element
     font-size: 1.5em;

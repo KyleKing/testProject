@@ -24,28 +24,28 @@
 // $tablet: new-breakpoint(max-width 768px 8);
 // $mobile: new-breakpoint(max-width 480px 4);
 
-/* Next, include the outer-container mixin in the topmost container (to which the max-width setting will be applied): */
-div.container {
-  @include outer-container;
-}
+// /* Next, include the outer-container mixin in the topmost container (to which the max-width setting will be applied): */
+// div.container {
+//   @include outer-container;
+// }
 
-/* Then use span-columns on any element to specify the number of columns it should span: */
-div.element {
-  @include span-columns(6);
-}
+// /* Then use span-columns on any element to specify the number of columns it should span: */
+// div.element {
+//   @include span-columns(6);
+// }
 
-/* If the element's parent isn't the top-most container, you need to add the number of columns of the parent element to keep the right proportions: */
-div.container {
-  @include outer-container;
+// /* If the element's parent isn't the top-most container, you need to add the number of columns of the parent element to keep the right proportions: */
+// div.container {
+//   @include outer-container;
 
-  div.parent-element {
-    @include span-columns(8);
+//   div.parent-element {
+//     @include span-columns(8);
 
-    div.element {
-      @include span-columns(6 of 8);
-    }
-  }
-}
+//     div.element {
+//       @include span-columns(6 of 8);
+//     }
+//   }
+// }
 
 /* To make your layout responsive, use the media() mixin to modify both the grid and the layout: */
 // .my-class {
