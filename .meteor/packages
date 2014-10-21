@@ -13,6 +13,6 @@ coffeescript
 d3
 mrt:dc.js-package
 mrt:crossfilter
-accounts-facebook
+ian:accounts-ui-bootstrap-3
 accounts-password
 
