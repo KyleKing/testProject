@@ -36,7 +36,7 @@ Template.map.rendered = ->
       # End Minimum working code:
       bikesData = Bikes.find().fetch() # Fetch collection data
 
-      # Use Jquery to proper;y size the map for any browser
+      # Use Jquery to properly size the map for any browser
       # var w = window.innerWidth;
       # var h = window.innerHeight;
       # $('#map_container').css({width: w+'px', height: h+'px'});

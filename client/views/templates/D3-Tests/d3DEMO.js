@@ -1,112 +1,33 @@
-var Points = new Meteor.Collection(null);
-
-if(Points.find({}).count() === 0){
-    for(i = 0; i < 20; i++)
-        Points.insert({
-            date:moment().startOf('day').subtract('days', Math.floor(Math.random() * 1000)).toDate(),
-            value:Math.floor(Math.random() * 100)+500
-        });
-}
-
-Template.lineChart.events({
-    'click #add':function(){
-        Points.insert({
-            date:moment().startOf('day').subtract('days', Math.floor(Math.random() * 1000)).toDate(),
-            value:Math.floor(Math.random() * 100)+500
-        });
-    },
-    'click #remove':function(){
-        var toRemove = Random.choice(Points.find().fetch());
-        Points.remove({_id:toRemove._id});
-    },
-    'click #randomize':function(){
-        //loop through bars
-        Points.find({}).forEach(function(point){
-            Points.update({_id:point._id},{$set:{value:Math.floor(Math.random() * 100)+500}});
-        });
-    }
-});
-
-
 Template.lineChart.rendered = function(){
-    //Width and height
-    var margin = {top: 20, right: 20, bottom: 30, left: 50},
-        width = 600 - margin.left - margin.right,
-        height = 400 - margin.top - margin.bottom;
+  if(Meteor.isClient) {
 
-    var x = d3.time.scale()
-        .range([0, width]);
+    // We'll first need some data. This data was pulled from the Crossfilter API documentation:
 
-    var y = d3.scale.linear()
-        .range([height, 0]);
+    var data = [
+      {date: "2011-11-14T16:17:54Z", quantity: 2, total: 190, tip: 100, type: "tab"},
+      {date: "2011-11-14T16:20:19Z", quantity: 2, total: 190, tip: 100, type: "tab"},
+      {date: "2011-11-14T16:28:54Z", quantity: 1, total: 300, tip: 200, type: "visa"},
+      {date: "2011-11-14T16:30:43Z", quantity: 2, total: 90, tip: 0, type: "tab"},
+      {date: "2011-11-14T16:48:46Z", quantity: 2, total: 90, tip: 0, type: "tab"},
+      {date: "2011-11-14T16:53:41Z", quantity: 2, total: 90, tip: 0, type: "tab"},
+      {date: "2011-11-14T16:54:06Z", quantity: 1, total: 100, tip: 0, type: "cash"},
+      {date: "2011-11-14T16:58:03Z", quantity: 2, total: 90, tip: 0, type: "tab"},
+      {date: "2011-11-14T17:07:21Z", quantity: 2, total: 90, tip: 0, type: "tab"},
+      {date: "2011-11-14T17:22:59Z", quantity: 2, total: 90, tip: 0, type: "tab"},
+      {date: "2011-11-14T17:25:45Z", quantity: 2, total: 200, tip: 0, type: "cash"},
+      {date: "2011-11-14T17:29:52Z", quantity: 1, total: 200, tip: 100, type: "visa"}
+    ];
 
-    var xAxis = d3.svg.axis()
-        .scale(x)
-        .orient("bottom");
+    // We'll make our Crossfilter instance.
 
-    var yAxis = d3.svg.axis()
-        .scale(y)
-        .orient("left");
+     var ndx = crossfilter(data);
 
-    var line = d3.svg.line()
-        .x(function(d) {
-            return x(d.date);
-        })
-        .y(function(d) {
-            return y(d.value);
-        });
+     // For our first example, we'll setup a filter using one of the integer columns. Say we want to get all the transactions with a total equal to 90. To do this, we need to setup a dimension.
 
-    var svg = d3.select("#lineChart")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+     var totalDim = ndx.dimension(function(d) { return d.total; });
 
-    svg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")");
+     var total_90 = totalDim.filter(90);
 
-    svg.append("g")
-        .attr("class", "y axis")
-        .append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("text-anchor", "end")
-        .text("Price ($)");
-
-    Deps.autorun(function(){
-        var dataset = Points.find({},{sort:{date:-1}}).fetch();
-
-        var paths = svg.selectAll("path.line")
-            .data([dataset]); //todo - odd syntax here - should use a key function, but can't seem to get that working
-
-        x.domain(d3.extent(dataset, function(d) { return d.date; }));
-        y.domain(d3.extent(dataset, function(d) { return d.value; }));
-
-        //Update X axis
-        svg.select(".x.axis")
-            .transition()
-            .duration(1000)
-            .call(xAxis);
-
-        //Update Y axis
-        svg.select(".y.axis")
-            .transition()
-            .duration(1000)
-            .call(yAxis);
-
-        paths
-            .enter()
-            .append("path")
-            .attr("class", "line")
-            .attr('d', line);
-
-        paths
-            .attr('d', line); //todo - should be a transisition, but removed it due to absence of key
-
-        paths
-            .exit()
-            .remove();
-    });
+     print_filter("total_90");
+  };
 };
