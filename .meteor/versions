@@ -1,6 +1,4 @@
 accounts-base@1.1.2
-accounts-facebook@1.0.2
-accounts-oauth@1.1.2
 accounts-password@1.0.3
 aldeed:simple-schema@1.0.3
 anti:i18n@0.4.3
@@ -21,7 +19,6 @@ ddp@1.0.10
 deps@1.0.5
 ejson@1.0.4
 email@1.0.4
-facebook@1.1.1
 fastclick@1.0.1
 follower-livedata@1.0.2
 fourseven:scss@1.0.0
@@ -52,8 +49,6 @@ mrt:crossfilter@0.0.2
 mrt:dc.js-package@0.0.1
 mrt:leaflet@0.3.8
 npm-bcrypt@0.7.7
-oauth2@1.1.1
-oauth@1.1.1
 observe-sequence@1.0.3
 ordered-dict@1.0.1
 random@1.0.1

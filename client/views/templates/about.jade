@@ -4,6 +4,7 @@ template(name='about')
           .imgBox
                 img(src='/about/heroImage/will.png')
 
+
     .fullEvolution
           //- Code for horizontal scrolling
           //- .imgBox
@@ -96,10 +97,12 @@ template(name='about')
           .secondary.cntr
                 h1 Yeah, it is that easy
                 p Get started for free
-                label(for="password") Password:
-                input(type="email" class="password" name="@terpmail.umd.edu")
-                input(type="password" class="password" name="password")
-                input(class="button" type="submit" value="Submit")
+                .nav.navbar-nav.navbar-right
+                  +loginButtons
+                //- label(for="password") Password:
+                //- input(type="email" class="password" name="@terpmail.umd.edu")
+                //- input(type="password" class="password" name="password")
+                //- input(class="button" type="submit" value="Submit")
                 br
                 br
                 br
