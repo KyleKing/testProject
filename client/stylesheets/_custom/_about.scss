@@ -142,11 +142,13 @@ tr:first-child td {
 }
 
 .fullQuotes {
-  @include full-row(227,104,100, 0.55); // red from what
+    @include box-row(255, 255, 255, 1); // white
+  // @include full-row(227,104,100, 0.55); // red from what
    // @include full-row(127,200,223, 1); // bright blue 2
    .quoteBox {
       height: 500px;
-      @include full-row(227,104,100, 0); // red from what
+      @include box-row(255, 255, 255, 1); // white
+      // @include full-row(227,104,100, 0); // red from what
       padding-top: 210px;
    }
 }
@@ -167,12 +169,17 @@ tr:first-child td {
 
 .wrapper {
   @include outer-container;
-  .primary { @include span-columns(5); }
-  .secondary { @include span-columns(5); }
+  .primary {
+      @include span-columns(12);
+    }
+  .secondary {
+    @include span-columns(4);
+  }
 }
 
 
 .bullets {
+  // @include outer-container;
   $icon-bullet-size: 4em;
 
   overflow: auto;

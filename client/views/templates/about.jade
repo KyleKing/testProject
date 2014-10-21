@@ -33,10 +33,15 @@ template(name='about')
 
     .fullWhat
           br
+          hr
+          br
+          br
           p Each mode has a substantial tradeoff...
           br
           p What if we create a balanced mode that is affordable, fast, and flexible at the same time?
-
+          br
+          br
+          hr
           .outerBox
                 img(src='/about/bikesharetemp.svg')
     .fullHow
@@ -54,6 +59,7 @@ template(name='about')
                 //- This isn'showing up?
                 //- img(src='/about/howImage.png')
     .fullQuotes
+        hr
         //-
         //-
         //- For Eric
@@ -62,28 +68,32 @@ template(name='about')
         .outerBox
               .col_twelve.quoteBox
                    blockquote.cntr
-                    h2 I was so hungover on Tuesday morning, but red bars and red bull got me to English ten minutes early
+                    h2 I've always wanted a better way to get aroud campus. Red Bars was the answer for me.
                     cite President Loh
+        hr
     .fullPricing
           //-
           //-
           //- For Eric
           //-
           //- This section needs Bourbon Neat. If you can focus on this that would be awesome!
-          .outerBox.cntr
-                br
-                br
-                br
-                br
-                .primary
-                     h1 Short Rides
-                     p $0.05 per minute*
-                .secondary
-                     h1 Long Rides
-                     p $4 per day
-                //- #signIn
+          //- .outerBox.cntr
+    .wrapper.cntr
+        br
+        br
+        br
+        br
+        .primary
+             h1 Short Rides
+             p $0.05 per minute*
+        .primary
+             h1 Long Rides
+             p $4 per day
+        //- #signIn
     .wrapper
-          .tertiary.cntr
+          .secondary
+            h1 &nbsp;
+          .secondary.cntr
                 h1 Yeah, it is that easy
                 p Get started for free
                 label(for="password") Password:
@@ -111,38 +121,36 @@ template(name='about')
     //- This is from my site and it should be working, so this would be a good way to test to see if Bourbon Neat is working
     //- The source code for my site is here: https://github.com/KyleKing/KyleKing.github.io
     //- IconBulletPoints
-    br
-    br
-    br
-    .bullets
-      .bullet.three-col-bullet
-        .bullet-icon.bullet-icon-1
-          img(src='http://www.honors.umd.edu/images/HCMark3.png', alt='')
-        .bullet-content
-          h2 Gemstone:
-            br
-            | Team BIKES
-          p
-            | We are building the future of biking. We have space-age bike locks. We are taking the internet of things and next generation realtime web apps to instantly locate rental bikes. Owning a bike will be a thing of the past.
-            a(href="http://teambikes.weebly.com")  Learn more here.
-      .bullet.three-col-bullet
-        .bullet-icon.bullet-icon-2
-          img(src='http://mathclub.math.umd.edu/UMDGlobe.gif', alt='')
-        .bullet-content
-          h2 MML:
-            br
-            | Researcher
-          p
-            | From using MEMS for acoustophoresis sorting of small particles to producing biosensors for on-chip analysis, the future of medicine will be because of innovations like these. See what my lab is up to and
-            a(href="http://mml.umd.edu/mml/")  Learn more here.
-      .bullet.three-col-bullet
-        .bullet-icon.bullet-icon-3
-          img(src='http://kyleking.me/src/public/quest.png', alt='')
-        .bullet-content
-          h2 Quest:
-            br
-            | Innovator
-          p
-            | We are the fearless idea center of Maryland. Bringing together business, STEM, and computer science, we are developing the products of the future with a strong emphasis on building
-            a(href='http://hbr.org/1987/11/competing-on-the-eight-dimensions-of-quality/ar/1')  Quality products.
-            a(href='http://www.rhsmith.umd.edu/programs/undergraduate-programs/academics/fellows-special-programs/quest')  Learn more here
+    //- br
+    //- .bullets
+    //-     .bullet.three-col-bullet
+    //-       .bullet-icon.bullet-icon-1
+    //-         img(src='http://www.honors.umd.edu/images/HCMark3.png', alt='')
+    //-       .bullet-content
+    //-         h2 Gemstone:
+    //-           br
+    //-           | Team BIKES
+    //-         p
+    //-           | We are building the future of biking. We have space-age bike locks. We are taking the internet of things and next generation realtime web apps to instantly locate rental bikes. Owning a bike will be a thing of the past.
+    //-           a(href="http://teambikes.weebly.com")  Learn more here.
+    //-     .bullet.three-col-bullet
+    //-       .bullet-icon.bullet-icon-2
+    //-         img(src='http://mathclub.math.umd.edu/UMDGlobe.gif', alt='')
+    //-       .bullet-content
+    //-         h2 MML:
+    //-           br
+    //-           | Researcher
+    //-         p
+    //-           | From using MEMS for acoustophoresis sorting of small particles to producing biosensors for on-chip analysis, the future of medicine will be because of innovations like these. See what my lab is up to and
+    //-           a(href="http://mml.umd.edu/mml/")  Learn more here.
+    //-     .bullet.three-col-bullet
+    //-       .bullet-icon.bullet-icon-3
+    //-         img(src='http://kyleking.me/src/public/quest.png', alt='')
+    //-       .bullet-content
+    //-         h2 Quest:
+    //-           br
+    //-           | Innovator
+    //-         p
+    //-           | We are the fearless idea center of Maryland. Bringing together business, STEM, and computer science, we are developing the products of the future with a strong emphasis on building
+    //-           a(href='http://hbr.org/1987/11/competing-on-the-eight-dimensions-of-quality/ar/1')  Quality products.
+    //-           a(href='http://www.rhsmith.umd.edu/programs/undergraduate-programs/academics/fellows-special-programs/quest')  Learn more here
