@@ -8,5 +8,16 @@ template(name="menu")
         a(href="{{pathFor 'map'}}") map
       li.left
         a(href="{{pathFor 'about'}}") about
-      li.right
-        a(href="http://localhost:3000/about#signIn") sign up/login
+      li.right.collapse.navbar-collapse#navigation
+        +loginButtons
+
+    //- <div class="container-fluid">
+    //-   <div class="navbar-header">
+    //-     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+    //-       <span class="sr-only">Toggle navigation</span>
+    //-       <span class="icon-bar"></span>
+    //-       <span class="icon-bar"></span>
+    //-       <span class="icon-bar"></span>
+    //-     </button>
+    //-     <a class="navbar-brand" href="{{pathFor 'postsList'}}">Microscope</a>
+    //-   </div>

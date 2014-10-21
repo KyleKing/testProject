@@ -61,7 +61,17 @@ html, body {
       margin-right: 10px;
       float: right;
     }
+    &:hover {
+      .dropdown-menu {
+        display: block;
+      }
+    }
   }
+}
+
+
+.dropdown-menu {
+  display: none;
 }
 
 
