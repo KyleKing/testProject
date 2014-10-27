@@ -20,18 +20,33 @@ template(name='about')
           br
           br
           h1 Currently Available Modes of Transportation
-          p Each mode has a substantial tradeoff...
+          p Each mode has a substantial 
+            span.p1 tradeoff...
 
           //- Side-by-side images
-          img(src="/about/evolution/walk.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
-          img(src="/about/evolution/green-fancy-line-md1.png" style="float: left; width: 2%; margin-right: 1%; margin-bottom: 0.5em;")
-          img(src="/about/evolution/car.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
-          img(src="/about/evolution/green-fancy-line-md1.png" style="float: left; width: 2%; margin-right: 1%; margin-bottom: 0.5em;")
-          img(src="/about/evolution/bus.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
-          img(src="/about/evolution/green-fancy-line-md1.png" style="float: left; width: 2%; margin-right: 1%; margin-bottom: 0.5em;")
-          img(src="/about/evolution/bike.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
-
-          p(style="clear: both;")
+          //- img(src="/about/evolution/walk.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
+          //- img(src="/about/evolution/green-fancy-line-md1.png" style="float: left; width: 2%; margin-right: 1%; margin-bottom: 0.5em;")
+          //- img(src="/about/evolution/car.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
+          //- img(src="/about/evolution/green-fancy-line-md1.png" style="float: left; width: 2%; margin-right: 1%; margin-bottom: 0.5em;")
+          //- img(src="/about/evolution/bus.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
+          //- img(src="/about/evolution/green-fancy-line-md1.png" style="float: left; width: 2%; margin-right: 1%; margin-bottom: 0.5em;")
+          //- img(src="/about/evolution/bike.png" style="float: left; width: 20%; margin-right: 1%; margin-bottom: 0.5em;")
+          //- p(style="clear: both;")
+          .mode
+            img(src="/about/evolution/walk.png")
+          .line
+            img(src="/about/evolution/line.png")
+            //- img(src="/about/evolution/green-fancy-line-md1.png")
+          .mode
+            img(src="/about/evolution/car.png")
+          .line
+            img(src="/about/evolution/line.png")
+          .mode
+            img(src="/about/evolution/bus.png")
+          .line
+            img(src="/about/evolution/line.png")
+          .mode
+            img(src="/about/evolution/bike.png")
 
     .fullWhat
           br
@@ -39,7 +54,9 @@ template(name='about')
           br
           br
           br
-          p What if we create a balanced mode that is affordable, fast, and flexible at the same time?
+          p What if we create a <b> balanced </b> mode that is 
+            br
+            span.p1 affordable, fast, and flexible at the same time?
           br
           br
           hr

@@ -93,7 +93,29 @@ tr:first-child td {
     p {
     text-align: center;
     font-size: 200%;
-  }
+    }
+
+    .p1 {
+    color: #FF0000;
+    font-weight: bold;
+    }
+
+    @include outer-container;
+
+    .mode { 
+      @include span-columns(4 of 19);
+      img {
+        width: 100%;
+      }
+    }
+
+    .line { 
+      @include span-columns(1 of 19);
+      img {
+        width: 50%; 
+      }
+    }  
+       
     // Code for horizontal scroll bar
     /*
     .imgBox {
@@ -133,7 +155,13 @@ tr:first-child td {
     p {
     text-align: center;
     font-size: 200%;
-  }
+    }
+
+    .p1 {
+    color: #0B7300;
+    font-weight: bolder;
+    }
+
 }
 
 
