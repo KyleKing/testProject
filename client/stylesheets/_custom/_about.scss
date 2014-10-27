@@ -89,6 +89,11 @@ tr:first-child td {
     h1 {
       text-align: center;
     }
+
+    p {
+    text-align: center;
+    font-size: 200%;
+  }
     // Code for horizontal scroll bar
     /*
     .imgBox {
@@ -125,11 +130,10 @@ tr:first-child td {
 
 // Explanation of our system
 .fullWhat{
-  p {
+    p {
     text-align: center;
     font-size: 200%;
   }
-
 }
 
 
