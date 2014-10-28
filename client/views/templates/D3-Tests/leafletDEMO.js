@@ -5,8 +5,8 @@ Template.leafletDEMO.rendered = function() {
 
     if (Meteor.isClient) {
 
-      L.Icon.Default.imagePath = 'packages/mrt_leaflet/images';
-
+      // L.Icon.Default.imagePath = 'packages/mrt_leaflet/images';
+      L.Icon.Default.imagePath = '/';
 
       map = new L.Map('map', {
         center: new L.LatLng(38.987701, -76.940989),
@@ -22,10 +22,9 @@ Template.leafletDEMO.rendered = function() {
       //   golden    = L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.');
       // var cities = L.layerGroup([littleton, denver, aurora, golden]);
 
-      var markers = new L.MarkerClusterGroup();
-      markers.addLayer( new L.Marker(new L.LatLng(38.987701, -76.940989) ) );
-      markers.addLayer( new L.Marker(new L.LatLng(38.987701, -76.940969) ) );
-      map.addLayer(markers);
+      // var markers = new L.MarkerClusterGroup();
+      // markers.addLayer( new L.Marker(new L.LatLng(38.987701, -76.940969) ) );
+      // map.addLayer(markers);
 
       // var markers = L.markerClusterGroup();
       // var points_rand = L.geoJson(points, {
@@ -46,7 +45,20 @@ Template.leafletDEMO.rendered = function() {
 
       map.addControl(zoomControl);
 
-    //   bikesData = Bikes.find().fetch();
+      var markers = new L.MarkerClusterGroup();
+      bikesData = Bikes.find().fetch();
+
+      i = bikesData.length - 1;
+      while (i >= 0) {
+        if (bikesData[i].status === "Good") {
+          markers.addLayer( new L.Marker(new L.LatLng(bikesData[i].latitude, bikesData[i].longitude) ) );
+        } else {
+          console.log("else scenario");
+        }
+        i--;
+      }
+
+    map.addLayer(markers);
 
     //   i = bikesData.length - 1;
     //   while (i >= 0) {
