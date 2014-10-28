@@ -5,13 +5,12 @@ Template.leafletDEMO.rendered = function() {
 
     if (Meteor.isClient) {
 
-      // L.Icon.Default.imagePath = 'packages/mrt_leaflet/images';
-      L.Icon.Default.imagePath = '/';
+      L.Icon.Default.imagePath = 'packages/mrt_leaflet/images';
 
       map = new L.Map('map', {
         center: new L.LatLng(38.987701, -76.940989),
-        maxZoom: 25,
-        zoom: 17,
+        maxZoom: 19,
+        zoom: 16,
         zoomControl: false
       });
 
@@ -45,6 +44,7 @@ Template.leafletDEMO.rendered = function() {
 
       map.addControl(zoomControl);
 
+      // Use Leaflet cluster group plugin
       var markers = new L.MarkerClusterGroup();
       bikesData = Bikes.find().fetch();
 
@@ -53,12 +53,12 @@ Template.leafletDEMO.rendered = function() {
         if (bikesData[i].status === "Good") {
           markers.addLayer( new L.Marker(new L.LatLng(bikesData[i].latitude, bikesData[i].longitude) ) );
         } else {
-          console.log("else scenario");
+          console.log("Bad Bike");
         }
         i--;
       }
 
-    map.addLayer(markers);
+      map.addLayer(markers);
 
     //   i = bikesData.length - 1;
     //   while (i >= 0) {
