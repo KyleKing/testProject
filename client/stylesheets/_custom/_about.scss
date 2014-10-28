@@ -102,20 +102,40 @@ tr:first-child td {
 
     @include outer-container;
 
-    .mode { 
-      @include span-columns(4 of 19);
-      img {
-        width: 100%;
-      }
+
+    @include media($large-screen-down) {
+        .mode {
+          img {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+            padding-right: 60px;
+            padding-left: 60px;
+          }
+        }
+
+        .line {
+          display: none;
+        }
     }
 
-    .line { 
-      @include span-columns(1 of 19);
-      img {
-        width: 50%; 
-      }
-    }  
-       
+    // The norm
+    @include media($large-screen-up) {
+        .mode {
+          @include span-columns(4 of 19);
+          img {
+            width: 100%;
+          }
+        }
+
+        .line {
+          @include span-columns(1 of 19);
+          img {
+            width: 50%;
+          }
+        }
+    }
+
     // Code for horizontal scroll bar
     /*
     .imgBox {

@@ -33,6 +33,10 @@ Template.map.rendered = ->
       zoomControl = L.control.zoom({ position: 'bottomleft' })
       map.addControl(zoomControl)
 
+      markers = new L.MarkerClusterGroup()
+      markers.addLayer new L.Marker(getRandomLatLng(map))
+      map.addLayer markers
+
       # End Minimum working code:
       bikesData = Bikes.find().fetch() # Fetch collection data
 
