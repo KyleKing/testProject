@@ -1,37 +1,37 @@
-Router.configure
-  waitOn: ->
-    Meteor.subscribe "Bikes"
+# Router.configure
+#   waitOn: ->
+#     Meteor.subscribe "Bikes"
 
-# Data context from a collection
-Router.map ->
-  @route "map",
-    path: "/",
-    template: "map-layout",
-    # When switching to home from /about, the map isn't loading - likely data issue
-    # More help here: http://www.manuel-schoebel.com/blog/iron-router-tutorial
-    # data: ->
-    #   Bikes = status: status.find({}), latitude: latitude.find({}), longitude: longitude.find({})
-    #   Bikes
-
-Router.map ->
-  @route "about",
-    path: "/about",
-    template: "about-layout"
+# # Data context from a collection
+# Router.map ->
+#   @route "map",
+#     path: "/",
+#     template: "map-layout",
+#     # When switching to home from /about, the map isn't loading - likely data issue
+#     # More help here: http://www.manuel-schoebel.com/blog/iron-router-tutorial
+#     # data: ->
+#     #   Bikes = status: status.find({}), latitude: latitude.find({}), longitude: longitude.find({})
+#     #   Bikes
 
 # Router.map ->
-#   @route "signup",
-#     path: "/signup",
+#   @route "about",
+#     path: "/about",
+#     template: "about-layout"
+
+# # Router.map ->
+# #   @route "signup",
+# #     path: "/signup",
+# #     template: "layout"
+
+# Router.map ->
+#   @route "lineChart",
+#     path: "/d3ISfun",
 #     template: "layout"
 
-Router.map ->
-  @route "lineChart",
-    path: "/d3ISfun",
-    template: "layout"
-
-Router.map ->
-  @route "d3DEMO2",
-    path: "/d3ISfun2",
-    template: "layout2"
+# Router.map ->
+#   @route "d3DEMO2",
+#     path: "/d3ISfun2",
+#     template: "layout2"
 
 
 
@@ -39,33 +39,33 @@ Router.map ->
 
 
 
-# Router.route "/", ->
-#   @render "map"
+# # Router.route "/", ->
+# #   @render "map"
 
-# Router.route "/about", ->
-#   layoutTemplate: "about-layout"
-#   @render "about"
+# # Router.route "/about", ->
+# #   layoutTemplate: "about-layout"
+# #   @render "about"
 
 
-# Router.route "/items/:_id", ->
-#   item = Items.findOne(_id: @params._id)
-#   @render "ShowItem",
-#     data: item
+# # Router.route "/items/:_id", ->
+# #   item = Items.findOne(_id: @params._id)
+# #   @render "ShowItem",
+# #     data: item
 
-#   return
+# #   return
 
-# Router.route "/files/:filename", (->
-#   @response.end "hi from the server\n"
-#   return
-# ),
-#   where: "server"
+# # Router.route "/files/:filename", (->
+# #   @response.end "hi from the server\n"
+# #   return
+# # ),
+# #   where: "server"
 
-# Router.route("/restful",
-#   where: "server"
-# ).get(->
-#   @response.end "get request\n"
-#   return
-# ).post ->
-#   @response.end "post request\n"
-#   return
+# # Router.route("/restful",
+# #   where: "server"
+# # ).get(->
+# #   @response.end "get request\n"
+# #   return
+# # ).post ->
+# #   @response.end "post request\n"
+# #   return
 
