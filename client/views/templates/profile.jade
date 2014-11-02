@@ -1,0 +1,15 @@
+template(name="profile")
+  .profile-bar
+    .profile-img
+      img(src="profile/Prof_Pic_Placeholder.png")
+    .content
+      h1 Kyle King
+      p User since March 12, 2014
+      p Remaining Balance $21.50
+  .data
+    .last-rides
+      img(src="profile/Route_Map.png")
+    .stats
+      h3 Miles biked
+      +barChart
+      +lineChart

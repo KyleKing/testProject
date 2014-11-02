@@ -1,19 +1,19 @@
 template(name="menu")
   .navMenu
     .navIcon
-      a(href="{{pathFor 'map'}}")
+      a(href="/")
           img(src='logo/RedBarsLogo.png')
     ul.navItems
       li.navButton.left
-        a(href="{{pathFor 'map'}}") map
+        a(href="/") map
       li.navButton.left
-        a(href="{{pathFor 'about'}}") about
+        a(href="{{pathFor route='about'}}") about
       li.navButton.left
-        a(href="{{pathFor 'admin'}}") admin
+        a(href="{{pathFor route='admin'}}") admin
       li.navButton.left
-        a(href="{{pathFor 'student'}}") student
+        a(href="{{pathFor route='student'}}") student
       li.navButton.left
-        a(href="{{pathFor 'mechanic'}}") mechanic
+        a(href="{{pathFor route='mechanic'}}") mechanic
       li.navButton.right
         //- .collapse.navbar-collapse#navigation
         +loginButtons
