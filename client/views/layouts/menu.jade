@@ -1,24 +1,19 @@
 template(name="menu")
   .navMenu
     .navIcon
-      a(href='javascript:void(0)')
+      a(href="{{pathFor 'map'}}")
           img(src='logo/RedBarsLogo.png')
     ul.navItems
       li.navButton.left
         a(href="{{pathFor 'map'}}") map
       li.navButton.left
         a(href="{{pathFor 'about'}}") about
+      li.navButton.left
+        a(href="{{pathFor 'admin'}}") admin
+      li.navButton.left
+        a(href="{{pathFor 'student'}}") student
+      li.navButton.left
+        a(href="{{pathFor 'mechanic'}}") mechanic
       li.navButton.right
         //- .collapse.navbar-collapse#navigation
         +loginButtons
-
-    //- <div class="container-fluid">
-    //-   <div class="navbar-header">
-    //-     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
-    //-       <span class="sr-only">Toggle navigation</span>
-    //-       <span class="icon-bar"></span>
-    //-       <span class="icon-bar"></span>
-    //-       <span class="icon-bar"></span>
-    //-     </button>
-    //-     <a class="navbar-brand" href="{{pathFor 'postsList'}}">Microscope</a>
-    //-   </div>

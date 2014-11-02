@@ -1,8 +1,3 @@
-html, body {
-    margin: 0;
-    padding: 0;
-}
-
 // Nav Bar
 // Red bar with altered opaciity with list of nav items across and white bottom border
 .navMenu {
@@ -70,18 +65,4 @@ html, body {
   .dropdown-menu {
     display: none;
   }
-}
-
-
-
-
-// Leaflet Map Full-Screen
-
-#map {
-  position: absolute;
-  // Fill screen
-  width: 110%;
-  height: 700px; // Chrome likes a number, so I overwrite it with a percent in the next line #workaround
-  height: 100%;
-  z-index: 1;
 }

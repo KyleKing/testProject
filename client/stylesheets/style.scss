@@ -12,6 +12,7 @@
 @import 'neat/neat';
 @import 'base/base';
 
+// Remove browser-imposed css
 @import '_custom/normalize';
 
 // Bourbon Neat Setup File
@@ -21,5 +22,9 @@
                Custom stylization
 ------------------------------------------------------------*/
 
+// Team BIKES page styles
 @import '_custom/_map';
+@import '_custom/_nav';
+@import '_custom/_admin';
+@import '_custom/_student';
 @import '_custom/_about';
