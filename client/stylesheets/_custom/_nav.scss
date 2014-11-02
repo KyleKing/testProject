@@ -37,14 +37,12 @@
       text-decoration: none;
       // Add Colors
       background-color: white;
-      // background: tint(red, 25%);
-      border-bottom: 5px solid tint(red, 30%);
       // Space everything out
       position: relative;
       padding: 15px;
       &:hover {
         background-color: white;
-        padding: 25px 15px 25px 15px;
+        border-bottom: 5px solid tint(red, 30%);
       }
     }
     &.left {
