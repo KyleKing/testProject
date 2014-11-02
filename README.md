@@ -25,7 +25,9 @@ testProject
 5. If it doesn't work, let me know!
 
 ### Todo
-1. [See Usage Info](http://atmospherejs.com/mquandalle/jade)
+1. Add better map distribution in fixture.js file
+2. custom good/bad bike icons, not linking from public folder?
+lots...
 
 ### Tutorials, StackOverflow - basically everything that has kept this project alive:
 1. [Great explanation of loading behavior of Meteor ](http://www.kingkryn.com/?p=1697#comment-5018)
