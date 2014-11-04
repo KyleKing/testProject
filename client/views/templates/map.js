@@ -1,4 +1,4 @@
-Template.map.rendered = function() {
+Template.map.created = function() {
   return Meteor.subscribe("bikesData", function() {
 
     var OpenCycleMap, bikesData, circle, i, map, zoomControl;

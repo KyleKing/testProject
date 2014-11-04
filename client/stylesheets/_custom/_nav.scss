@@ -8,8 +8,7 @@
   height: 80px; // Testing more responsive height
   // height: 50px;
   // background: tint(red, 30%);
-  background: white;
-  opacity: 0.75;
+  background: rgba(255, 255, 255, 0.75);
 }
 .navIcon {
   // Push icon to the left
@@ -35,13 +34,10 @@
       font-weight: bold;
       color: tint(red, 30%);
       text-decoration: none;
-      // Add Colors
-      background-color: white;
       // Space everything out
       position: relative;
       padding: 15px;
       &:hover {
-        background-color: white;
         border-bottom: 5px solid tint(red, 30%);
       }
     }
@@ -54,13 +50,23 @@
       margin-right: 10px;
       float: right;
     }
+    .dropdown-toggle {
+      float: right;
+      margin: 0px;
+    }
     &:hover {
       .dropdown-menu {
         display: block;
       }
     }
   }
+  // Sign in dropdown
   .dropdown-menu {
     display: none;
+    margin-top: 80px;
+    background: rgba(255, 255, 255, 0.75);
+    button {
+      //
+    }
   }
 }
