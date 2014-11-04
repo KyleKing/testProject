@@ -15,4 +15,7 @@ mrt:dc.js-package
 mrt:crossfilter
 ian:accounts-ui-bootstrap-3
 accounts-password
+mdg:camera
+mdg:geolocation
+mrt:moment
 
