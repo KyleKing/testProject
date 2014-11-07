@@ -1,17 +1,20 @@
 // Student Profile Page style sheet
+.nav {
+  margin-top: em(80);
+}
 
-// #lineChart .axis path,
-// #lineChart .axis line {
-//   fill: none;
-//   stroke: #000;
-//   shape-rendering: crispEdges;
-// }
-// #lineChart .x.axis path {
-//   display: none;
-// }
-// #lineChart .line {
-//   fill: none;
-//   stroke: steelblue;
-//   stroke-width: 1.5px;
-// }
-
+.profile-bar {
+  @include outer-container;
+  .profile-img {
+      @include span-columns(2);
+    }
+  .user-info {
+    @include span-columns(4);
+  }
+  .stats {
+    @include span-columns(5);
+  }
+  .data {
+    @include span-columns(12);
+  }
+}
