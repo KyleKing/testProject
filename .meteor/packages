@@ -10,12 +10,9 @@ fourseven:scss
 aldeed:simple-schema
 iron:router
 coffeescript
-d3
-mrt:dc.js-package
-mrt:crossfilter
 ian:accounts-ui-bootstrap-3
 accounts-password
 mdg:camera
 mdg:geolocation
 mrt:moment
-
+maazalik:highcharts
