@@ -4,24 +4,24 @@
 function builtArea() {
 
     $('#container-area').highcharts({
-        
+
         chart: {
             type: 'area'
         },
-        
+
         title: {
-            text: 'US and USSR nuclear stockpiles'
+            text: 'Bike Quantities'
         },
-        
+
         credits: {
             enabled: false
         },
-        
-        subtitle: {
-            text: 'Source: <a href="http://thebulletin.metapress.com/content/c4120650912x74k7/fulltext.pdf">' +
-                'thebulletin.metapress.com</a>'
-        },
-        
+
+        // subtitle: {
+        //     text: 'Source: <a href="http://thebulletin.metapress.com/content/c4120650912x74k7/fulltext.pdf">' +
+        //         'thebulletin.metapress.com</a>'
+        // },
+
         xAxis: {
             allowDecimals: false,
             labels: {
@@ -30,10 +30,10 @@ function builtArea() {
                 }
             }
         },
-        
+
         yAxis: {
             title: {
-                text: 'Nuclear weapon states'
+                text: 'Number of Bikes'
             },
             labels: {
                 formatter: function () {
@@ -41,11 +41,11 @@ function builtArea() {
                 }
             }
         },
-        
+
         tooltip: {
             pointFormat: '{series.name} produced <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
         },
-        
+
         plotOptions: {
             area: {
                 pointStart: 1940,
@@ -61,7 +61,7 @@ function builtArea() {
                 }
             }
         },
-        
+
         series: [{
             name: 'USA',
             data: [null, null, null, null, null, 6, 11, 32, 110, 235, 369, 640,
@@ -87,6 +87,6 @@ function builtArea() {
 /*
  * Call the function to built the chart when the template is rendered
  */
-Template.areaDemo.rendered = function() {    
+Template.areaDemo.rendered = function() {
     builtArea();
 }

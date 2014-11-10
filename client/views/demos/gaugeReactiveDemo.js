@@ -2,14 +2,14 @@
  * Function to draw the gauge
  */
 function builtGaugeReactive() {
-    
+
     var data = new Array();
-    
+
     data[0] = 80;
-    
+
     if(Session.get('reactive') !== undefined)
         data[0] = Session.get('reactive');
-    
+
     $('#container-gauge-reactive').highcharts({
         chart: {
             type: 'solidgauge'
@@ -100,7 +100,7 @@ Template.gaugeReactiveDemo.rendered = function () {
  * Template events
  */
 Template.gaugeReactiveDemo.events = {
-    
+
     'change #reactive': function (event, template) {
         var newValue = $(event.target).val();
         Session.set('reactive', parseInt(newValue));
