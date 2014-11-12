@@ -1,30 +1,30 @@
 /*
  * Function to draw the pie chart
  */
-function builtPie() {
+function builtPieUsers() {
 
     // 'external' data
-    var data = new Array();
+    var dataUsers = new Array();
 
-    data.push({
-        name: 'In Use',
-        y: 10,
+    dataUsers.push({
+        name: 'Under 5 rides/week',
+        y: 900,
         color: '#55BF3B'
     });
 
-    data.push({
-        name: 'Unused',
-        y: 40,
+    dataUsers.push({
+        name: '5 -  30 rides/week',
+        y: 1500,
         color: '#DDDF0D'
     });
 
-    data.push({
-        name: 'Broken',
-        y: 29,
+    dataUsers.push({
+        name: '30+ rides/week',
+        y: 270,
         color: '#DF5353'
     });
 
-    $('#container-pie').highcharts({
+    $('#container-pie-users').highcharts({
 
         chart: {
             plotBackgroundColor: null,
@@ -57,8 +57,8 @@ function builtPie() {
 
         series: [{
             type: 'pie',
-            name: 'Bikes',
-            data: data
+            name: 'Users',
+            data: dataUsers
         }]
     });
 }
@@ -66,6 +66,6 @@ function builtPie() {
 /*
  * Call the function to built the chart when the template is rendered
  */
-Template.pieDemo.rendered = function() {
-    builtPie();
+Template.pieDemoUsers.rendered = function() {
+    builtPieUsers();
 }
