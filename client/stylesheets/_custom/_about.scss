@@ -33,6 +33,22 @@ tr:first-child td {
 //
 //
 
+button {
+  border-radius: 8px;
+  /* Rectangle 1: */
+  background: #4A90E2;
+  border: 1px solid #3468A5;
+  -moz-box-shadow:    0px 3px 0px 0px #3468A5, inset 0px 2px 0px 0px #FFFFFF;
+  box-shadow:         0px 3px 0px 0px #3468A5, inset 0px 2px 0px 0px #FFFFFF;
+
+  font-family: AvenirNext-Regular;
+  font-size: 20px;
+  color: #FFFFFF;
+  line-height: 27px;
+  /* Flat Button: */
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.50);
+}
+
 // .about_content { margin-top: 50px; } // For the nav bar
 .first { padding-top: 50px; } // For the nav bar
 
