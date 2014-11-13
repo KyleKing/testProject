@@ -9,7 +9,7 @@ Template.map.created = function() {
 
       map = new L.Map('map', {
         center: new L.LatLng(38.987701, -76.940989),
-        maxZoom: 19,
+        maxZoom: 50,
         zoom: 16,
         zoomControl: false
       });

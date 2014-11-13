@@ -5,16 +5,39 @@
 
 .profile-bar {
   @include outer-container;
-  .profile-img {
+  .user-info {
+    text-align: center;
+    img {
+      max-width: em(200);
+    }
+    @include media($large-screen-down) {
+      @include span-columns(8);
+      max-width: 100%;
+    }
+    @include media($large-screen-up) {
       @include span-columns(2);
     }
-  .user-info {
-    @include span-columns(4);
   }
   .stats {
-    @include span-columns(5);
+    @include media($large-screen-down) {
+      @include span-columns(8);
+      max-width: 100%;
+    }
+    @include media($large-screen-up) {
+      @include span-columns(5);
+    }
   }
   .data {
     @include span-columns(12);
+    #map {
+      max-width: 1000px;
+      max-height: 400px;
+      @include media($large-screen-down) {
+        display: none;
+      }
+      @include media($large-screen-up) {
+        display: box;
+      }
+    }
   }
 }
