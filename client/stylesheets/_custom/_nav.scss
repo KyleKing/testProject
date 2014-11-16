@@ -1,6 +1,13 @@
 // Mobile selector
-.navMenu {
-  display: none;
+@include media($large-screen-down) {
+  .navMenu {
+    display: none;
+  }
+}
+@include media($large-screen-up) {
+  .navMenu {
+    display: none;
+  }
 }
 
 // Mobile Nav
