@@ -1,36 +1,24 @@
 template(name="menu")
-  .navMenu
-    .navIcon
-      a(href="/")
-          img(src='logo/RedBarsLogo.png')
-    ul.navItems
-      li.navButton.left
-        a(href="/") map
-      li.navButton.left
-        a(href="{{pathFor route='about'}}") about
-      li.navButton.left
-        a(href="{{pathFor route='admin'}}") admin
-      li.navButton.left
-        a(href="{{pathFor route='student'}}") student
-      li.navButton.left
-        a(href="{{pathFor route='mechanic'}}") mechanic
-      li.navButton.right
-        //- .collapse.navbar-collapse#navigation
-        +loginButtons
+  //- li.navButton.right
+  //-   //- .collapse.navbar-collapse#navigation
+  //-   +loginButtons
   .mobile_nav
     button.js-menu-trigger.sliding-menu-button(type='button')
       img(src='https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/menu-white.png', alt='Menu Icon')
+    .navIcon
+      a(href="/")
+          img(src='logo/RedBarsLogo.png')
     nav.js-menu.sliding-menu-content
-      ul
-        li
+      ul.navItems
+        li.navButton.left
           a(href="/") map
-        li
+        li.navButton.left
           a(href="{{pathFor route='about'}}") about
-        li
+        li.navButton.left
           a(href="{{pathFor route='admin'}}") admin
-        li
+        li.navButton.left
           a(href="{{pathFor route='student'}}") student
-        li
+        li.navButton.left
           a(href="{{pathFor route='mechanic'}}") mechanic
     .js-menu-screen.menu-screen
 

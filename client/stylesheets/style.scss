@@ -6,17 +6,17 @@
                 https://github.com/thoughtbot/bitters
 ------------------------------------------------------------*/
 
+// Flat colors
+@import '_custom/_flat-colors';
+
 // Import files for Bourbon
 @import 'bourbon/bourbon';
-@import 'base/grid-settings';
+@import 'base/grid-settings'; // Bourbon Neat Setup File
 @import 'neat/neat';
 @import 'base/base';
 
 // Remove browser-imposed css
 @import '_custom/normalize';
-
-// Bourbon Neat Setup File
-@import '_custom/_layout';
 
 /* ------------------------------------------------------------
                Custom stylization
