@@ -6,11 +6,9 @@
 standard-app-packages
 mquandalle:jade
 fourseven:scss
-aldeed:simple-schema
 iron:router
 coffeescript
 ian:accounts-ui-bootstrap-3
-accounts-password
 mdg:camera
 maazalik:highcharts
 mrt:leaflet
