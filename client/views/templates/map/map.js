@@ -1,15 +1,13 @@
 Template.map.created = function() {
   return Meteor.subscribe("bikesData", function() {
 
-    var OpenCycleMap, bikesData, circle, i, map, zoomControl;
-
     if (Meteor.isClient) {
 
-      L.Icon.Default.imagePath = 'packages/mrt_leaflet/images';
+      L.Icon.Default.imagePath = 'leaflet/images';
 
-      map = new L.Map('map', {
+      var map = new L.Map('map', {
         center: new L.LatLng(38.987701, -76.940989),
-        maxZoom: 50,
+        maxZoom: 20,
         zoom: 16,
         zoomControl: false
       });
@@ -34,11 +32,22 @@ Template.map.created = function() {
       // });
 
 
-      OpenCycleMap = L.tileLayer("http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png", {
-        attribution: "&copy; <a href=\"http://www.opencyclemap.org\">OpenCycleMap</a>, &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>"
+      var HERE_hybridDayMobile = L.tileLayer('http://{s}.{base}.maps.cit.api.here.com/maptile/2.1/maptile/{mapID}/hybrid.day.mobile/{z}/{x}/{y}/256/png8?app_id={app_id}&app_code={app_code}', {
+        attribution: 'Map &copy; 1987-2014 <a href="http://developer.here.com">HERE</a>',
+        subdomains: '1234',
+        mapID: 'newest',
+        app_id: 'JIX0epTdHneK1hQlqfkr',
+        app_code: 'PchnUPPBcZ5VAuHmovac8g',
+        base: 'aerial',
+        minZoom: 0,
+        maxZoom: 20
       }).addTo(map);
 
-      zoomControl = L.control.zoom({
+      // var OpenCycleMap = L.tileLayer("http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png", {
+      //   attribution: "&copy; <a href=\"http://www.opencyclemap.org\">OpenCycleMap</a>, &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>"
+      // }).addTo(map);
+
+      var zoomControl = L.control.zoom({
         position: 'bottomleft'
       });
 
@@ -48,7 +57,7 @@ Template.map.created = function() {
       var markers = new L.MarkerClusterGroup();
       bikesData = Bikes.find().fetch();
 
-      i = bikesData.length - 1;
+      var i = bikesData.length - 1;
       while (i >= 0) {
         if (bikesData[i].status === "Good") {
           markers.addLayer( new L.Marker(new L.LatLng(bikesData[i].latitude, bikesData[i].longitude) ) );
