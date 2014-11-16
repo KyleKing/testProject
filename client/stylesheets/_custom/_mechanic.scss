@@ -1,0 +1,39 @@
+@mixin mechanic_chart_scaling($width, $ratio) {
+    @include media($mobile) {
+      text-align: center;
+      @include span-columns($width/$ratio);
+    }
+    @include media($desktop) {
+      @include span-columns($width);
+    }
+}
+
+
+/* Admin Bike Table Styles*/
+.data-set {
+  @include outer-container;
+}
+
+tr:first-child td {
+  font-weight: bold;
+  color: white;
+  background-color: $flat-red-1;
+}
+
+// Hide unnecessary position data on mobile
+@include media($mobile) {
+  .pos {
+    display: none;
+  }
+}
+
+
+.mechanic-info {
+  @include outer-container;
+  .info {
+    @include admin_chart_scaling(6, 1.5);
+  }
+  .pics {
+    @include admin_chart_scaling(6, 1.5);
+  }
+}

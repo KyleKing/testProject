@@ -1,3 +1,15 @@
+@mixin admin_chart_scaling($width, $ratio) {
+    @include media($mobile) {
+      text-align: center;
+      @include span-columns($width/$ratio);
+    }
+    @include media($desktop) {
+      @include span-columns($width);
+    }
+}
+
+
+
 // Admin style sheet
 .nav {
   margin-top: em(100);
@@ -6,18 +18,18 @@
 .dataFacts {
   @include outer-container;
     .Quick-Info {
-      @include span-columns(3);
+      @include admin_chart_scaling(4, 1);
     }
     #container-pie {
-      @include span-columns(4);
+      @include admin_chart_scaling(4, 1);
     }
     #container-pie-users {
-      @include span-columns(4);
+      @include admin_chart_scaling(4, 1);
     }
     #container-column {
-      @include span-columns(12);
+      @include admin_chart_scaling(12, 3);
     }
     #container-area {
-      @include span-columns(12);
+      @include admin_chart_scaling(12, 3);
     }
 }

@@ -1,8 +1,7 @@
 template(name="pics")
-  h1 &nbsp;
-  h1 &nbsp;
-  button Take Photo
+  .pics
+    button Take Photo
 
-  if photo
-    .image
-      img(src='{{photo}}')
+    if photo
+      .image
+        img(src='{{photo}}')

@@ -1,32 +1,3 @@
-
-/* Admin Bike Table Styles*/
-.data-set {
-  width: 100%;
-  max-width: 900px;
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-tr:first-child td {
-  color: #ffffff;
-  background-color: #387fb1;
-  font-weight: bold;
-}
-
-
-
-//
-//
-// LineChart Styles
-//
-//
-
-
-
-
-
-
 //
 //
 // Global Things
@@ -197,72 +168,6 @@ tr:first-child td {
 }
 
 
-// .bullets {
-//   // @include outer-container;
-//   $icon-bullet-size: 4em;
-
-//   overflow: auto;
-//   margin-bottom: $base-line-height;
-
-//   // change ".three-col-bullet" class to this for two bullet layout
-//   .two-col-bullet {
-//     @include media($large-screen) {
-//       @include span-columns(6);
-//       @include omega(2n);
-//     }
-//   }
-
-//   .three-col-bullet {
-//     @include media($large-screen) {
-//       @include span-columns(4);
-//       @include omega(3n);
-//     }
-//   }
-
-//   // change ".three-col-bullet" class to this for four bullet layout
-//   .four-col-bullet {
-//     @include media($large-screen) {
-//       @include span-columns(3);
-//       @include omega(4n);
-//     }
-//   }
-
-//   .bullet-icon {
-//     float: left;
-//     // background: $base-accent-color;
-//     padding: $icon-bullet-size/20;
-//     // border-radius: 50%;
-//     width: $icon-bullet-size;
-//     height: $icon-bullet-size;
-//   }
-
-//   .bullet-icon-1 {
-//     // background: $base-accent-color;
-//   }
-
-//   .bullet-icon-2 {
-//     // background: adjust-hue($base-accent-color, -50);
-//   }
-
-//   .bullet-icon-3 {
-//     // background: adjust-hue($base-accent-color, -140);
-//   }
-
-//   .bullet-content {
-//     margin-left: $icon-bullet-size *1.4;
-//     margin-bottom: 2em;
-//   }
-
-//   h2 {
-//     font-size: $icon-bullet-size /2.5;
-//     padding-top: $icon-bullet-size /7;
-//     margin-bottom: $icon-bullet-size /6;
-//     border-bottom: 1px solid transparentize($base-font-color, .8);
-//     display: inline-block;
-//   }
-// }
-
-
 //
 //
 // FAQ
@@ -277,9 +182,3 @@ tr:first-child td {
   .long { display: none; }
   .short { display: block; }
 }
-  // background-image: url(http://www.localhost:3000.com/about/FAQShort.png);
-  // height: 100%;
-  // width: auto;
-  // &:hover {
-  //   background-image: url(http://www.localhost:3000.com/about/FAQLong.png);
-  // }
