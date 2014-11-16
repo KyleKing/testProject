@@ -1,43 +1,41 @@
 // Student Profile Page style sheet
 .nav {
-  margin-top: em(80);
+  margin-top: em(100);
 }
 
-.profile-bar {
+.profile-info {
   @include outer-container;
   .user-info {
     text-align: center;
     img {
       max-width: em(200);
     }
-    @include media($large-screen-down) {
-      @include span-columns(8);
-      max-width: 100%;
+    @include media($mobile) {
+      @include span-columns(4);
     }
-    @include media($large-screen-up) {
-      @include span-columns(2);
-    }
-  }
-  .stats {
-    @include media($large-screen-down) {
-      @include span-columns(8);
-      max-width: 100%;
-    }
-    @include media($large-screen-up) {
+    @include media($desktop) {
       @include span-columns(5);
     }
   }
-  .data {
-    @include span-columns(12);
-    #map {
-      max-width: 1000px;
-      max-height: 400px;
-      @include media($large-screen-down) {
-        display: none;
-      }
-      @include media($large-screen-up) {
-        display: box;
-      }
+  .stats {
+    @include media($mobile) {
+      @include span-columns(4);
+    }
+    @include media($desktop) {
+      @include span-columns(7);
+    }
+  }
+}
+
+.profile-data {
+  @include outer-container;
+  #map {
+    @include span-columns(10);
+    @include media($mobile) {
+      display: none;
+    }
+    @include media($desktop) {
+      display: inline-block;
     }
   }
 }

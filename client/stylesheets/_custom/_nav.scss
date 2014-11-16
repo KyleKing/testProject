@@ -13,7 +13,7 @@ $sliding-menu-color-hover: $flat-gray-1;
   z-index: 99; // Keep on top of map element
   // red background bar
   width: 100%;
-  min-height: em(100); // Testing more responsive height
+  min-height: em(90); // Testing more responsive height
   background: rgba(255, 255, 255, 0.75);
   .navIcon {
     // Push icon to the left
@@ -43,10 +43,10 @@ $sliding-menu-color-hover: $flat-gray-1;
   }
 }
 
-@include media($large-screen-down) {
+@include media($mobile) {
   .sliding-menu-content {
     @include position(fixed, 0px auto 0px 0px);
-    @include size(220px 100%);
+    @include size(em(220) 100%);
     @include transform(translateX(-220px));
     @include transition(all .25s linear);
     background: $sliding-menu-background;
@@ -91,7 +91,7 @@ $sliding-menu-color-hover: $flat-gray-1;
 
 // Desktop Version
 
-@include media($large-screen-up) {
+@include media($desktop) {
   button.js-menu-trigger.sliding-menu-button {
     display: none;
   }
@@ -116,7 +116,7 @@ $sliding-menu-color-hover: $flat-gray-1;
       &.left {
         margin-left: em(10);
         float: left; }
-      &.left:first-child { margin-left: em(70); } // give space for icon
+      &.left:first-child { margin-left: em(50); } // give space for icon
       &.right {
         // push content to right side
         margin-right: em(10);

@@ -103,7 +103,7 @@ tr:first-child td {
     @include outer-container;
 
 
-    @include media($large-screen-down) {
+    @include media($mobile) {
         .mode {
           img {
             width: 100%;
@@ -120,7 +120,7 @@ tr:first-child td {
     }
 
     // The norm
-    @include media($large-screen-up) {
+    @include media($desktop) {
         .mode {
           @include span-columns(4 of 19);
           img {
