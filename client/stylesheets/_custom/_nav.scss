@@ -45,9 +45,9 @@ $sliding-menu-color-hover: $flat-gray-1;
 
 @include media($mobile) {
   .sliding-menu-content {
-    @include position(fixed, 0px auto 0px 0px);
+    @include position(fixed, 0px 0px 0px auto);
     @include size(em(220) 100%);
-    @include transform(translateX(-220px));
+    @include transform(translateX(em(220)));
     @include transition(all .25s linear);
     background: $sliding-menu-background;
     z-index: 999999;

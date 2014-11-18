@@ -1,9 +1,10 @@
 @import 'neat/neat-helpers'; // or '../neat/neat-helpers' when not in Rails
 
 // Neat Breakpoints
-$mobile: new-breakpoint(max-device-width 480px 4);
+// $mobile: new-breakpoint(max-device-width 480px 4);
+$mobile: new-breakpoint(max-device-width em(800) 4);
 $tablet: new-breakpoint(min-device-width 480px max-device-width 800px 8);
-$desktop: new-breakpoint(min-device-width 800px 12);
+$desktop: new-breakpoint(min-device-width em(800) 12);
 
 /* CSS for the content of page. I am giving top and bottom padding of 80px to make sure the header and footer do not overlap the content.*/
 // #content_container {

@@ -9,8 +9,7 @@ html, body {
 #map {
   position: absolute;
   // Fill screen
-  width: 110%;
-  height: 700px; // Chrome likes a number, so I overwrite it with a percent in the next line #workaround
+  width: 100%; // Chrome likes a number, so I overwrite it with a percent in the next line #workaround
   height: 100%;
   z-index: 1;
 }

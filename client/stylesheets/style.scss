@@ -29,3 +29,18 @@
 @import '_custom/_profile';
 @import '_custom/_about';
 @import '_custom/_mechanic';
+
+// body {
+//   @include hidpi(3) {
+//     font-size: 3*$base-font-size;
+//   }
+//   @include hidpi(2) {
+//     font-size: 2*$base-font-size;
+//   }
+//   @include hidpi(1.5) {
+//     font-size: 1.5*$base-font-size;
+//   }
+//   @include hidpi(1.33) {
+//     font-size: 1.33*$base-font-size;
+//   }
+// }
