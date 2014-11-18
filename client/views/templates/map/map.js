@@ -3,7 +3,7 @@ Template.map.created = function() {
 
     if (Meteor.isClient) {
 
-      L.Icon.Default.imagePath = 'leaflet/images';
+      L.Icon.Default.imagePath = 'leaflet/bikes';
 
       var map = new L.Map('map', {
         center: new L.LatLng(38.987701, -76.940989),
