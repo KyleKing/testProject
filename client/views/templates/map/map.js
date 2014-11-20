@@ -3,7 +3,7 @@ Template.map.created = function() {
 
     if (Meteor.isClient) {
 
-      L.Icon.Default.imagePath = 'leaflet/bikes';
+      L.Icon.Default.imagePath = 'leaflet/images';
 
       var map = new L.Map('map', {
         center: new L.LatLng(38.987701, -76.940989),
@@ -57,10 +57,22 @@ Template.map.created = function() {
       var markers = new L.MarkerClusterGroup();
       bikesData = Bikes.find().fetch();
 
+      var bikeIconGR = L.icon({
+          iconUrl: 'leaflet/bikes/marker-icon.png',
+          shadowUrl: 'leaflet/bikes/marker-icon.png',
+
+          iconSize:     [50, 50], // size of the icon
+          shadowSize:   [0, 0], // size of the shadow
+          iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+          shadowAnchor: [0, 0],  // the same for the shadow
+          popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+      });
+
       var i = bikesData.length - 1;
       while (i >= 0) {
         if (bikesData[i].status === "Good") {
-          markers.addLayer( new L.Marker(new L.LatLng(bikesData[i].latitude, bikesData[i].longitude) ) );
+          markers.addLayer( new L.Marker(new L.LatLng(bikesData[i].latitude, bikesData[i].longitude), {icon: bikeIconGR} ) );
+          // L.Marker([L.LatLng(bikesData[i].latitude, bikesData[i].longitude], {icon: greenIcon})
         } else {
           console.log("Bad Bike");
         }

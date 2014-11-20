@@ -23,8 +23,8 @@ $sliding-menu-color-hover: $flat-gray-1;
     display: inline-block; // Avoid skipping a line
     img {
       // Cap the size normally 400px square
-      height: em(70);
-      width: em(70);
+      height: em(65);
+      width: em(65);
     }
   }
   .sliding-menu-button {
@@ -38,7 +38,7 @@ $sliding-menu-color-hover: $flat-gray-1;
     outline: none;
 
     img {
-      height: em(40);
+      height: em(35);
     }
   }
 }
