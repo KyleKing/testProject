@@ -37,3 +37,9 @@ tr:first-child td {
     @include admin_chart_scaling(6, 1.5);
   }
 }
+
+a {
+  button {
+    color: white;
+  }
+}

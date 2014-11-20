@@ -44,6 +44,12 @@ $sliding-menu-color-hover: $flat-gray-1;
 }
 
 @include media($mobile) {
+  .content {
+    &.is-hidden {
+      @include transform(translateX(em(-220)));
+      @include transition(all .25s linear);
+    }
+  }
   .sliding-menu-content {
     @include position(fixed, 0px 0px 0px auto);
     @include size(em(220) 100%);
