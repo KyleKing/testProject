@@ -13,7 +13,7 @@ $sliding-menu-color-hover: $flat-gray-1;
   z-index: 99; // Keep on top of map element
   // red background bar
   width: 100%;
-  min-height: em(90); // Testing more responsive height
+  min-height: em(85); // Testing more responsive height
   background: rgba(255, 255, 255, 0.75);
   .navIcon {
     // Push icon to the left

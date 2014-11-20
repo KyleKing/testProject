@@ -3,5 +3,7 @@ template(name='mechanicView')
     .info
       h1 Hello Mechanic
       p you have a ton of broken bikes. Get to it
+      a(href="{{pathFor route='mechanicMap'}}")
+        button See broken bike locations here
     +pics
   +bikesList
