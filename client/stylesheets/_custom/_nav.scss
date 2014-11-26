@@ -8,7 +8,12 @@ $sliding-menu-border: 1px solid $sliding-menu-border-color;
 $sliding-menu-background-hover: $base-accent-color;
 $sliding-menu-color-hover: $flat-gray-1;
 
+// Add spacing to avoid nav overlapping certain templates
+.nav { margin-top: em(100); }
+
 .mobile_nav {
+  // Add translucent background element
+  background: rgba(white, 0.95);
   position: fixed; top: 0px;
   z-index: 99; // Keep on top of map element
   // red background bar
