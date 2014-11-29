@@ -1,6 +1,6 @@
 Template.menu.rendered = function() {
   $(document).ready(function(){
-    $('.js-menu-trigger').on('click touchstart', function(e){
+    $('.js-menu-trigger').on('click touchup', function(e){
       $('.content').toggleClass('is-hidden');
       $('.js-menu').toggleClass('is-visible');
       $('.js-menu-screen').toggleClass('is-visible');
