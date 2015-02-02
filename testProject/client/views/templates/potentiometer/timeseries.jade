@@ -6,7 +6,8 @@ template(name="timeseries")
       td User
       td Lat
       td Long
-    each timeseries.Day.[12] // every recording of bike __ at noon (i.e. 12 am) on above date
+    //- every recording of bike __ at noon (i.e. 12 am) on above date
+    each timeseries.Day.[12]
       tr
         td #{User}
         td #{Lat}
