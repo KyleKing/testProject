@@ -9,13 +9,12 @@ blaze-tools@1.0.2
 boilerplate-generator@1.0.2
 callback-hook@1.0.2
 check@1.0.4
-coffeescript@1.0.5
 ddp@1.0.14
 deps@1.0.6
 ejson@1.0.5
 fastclick@1.0.2
 follower-livedata@1.0.3
-fourseven:scss@1.0.0
+fourseven:scss@0.9.6
 geojson-utils@1.0.2
 handlebars@1.0.2
 html-tools@1.0.3
