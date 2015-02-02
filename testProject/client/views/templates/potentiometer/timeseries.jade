@@ -3,11 +3,11 @@ template(name="timeseries")
   table.data-set
     //- Labels Row
     tr
+      td User
       td Lat
       td Long
-    tr
-      each timeseries.Lat
-        tr #{this}
-      td
-        each timeseries.Long
-          tr #{this}
+    each timeseries.Day.[12] // every recording of bike __ at noon (i.e. 12 am) on above date
+      tr
+        td #{User}
+        td #{Lat}
+        td #{Long}

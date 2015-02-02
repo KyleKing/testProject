@@ -3,16 +3,23 @@
 if (Meteor.isServer) {
   // Insert database of bikes for first commit
   if (TimeSeries.find().count() === 0) {
-    for (var i = 0; i < 10; i++) {
-      for (var d = 0; d < 30; d++) {
-        var filler = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    for (var i = 0; i < 10; i++) { // For 10 bikes
+      for (var d = 0; d < 30; d++) { // and 30 days ***need to correct for different length months**
+        var blank = {User: NaN, Lat: NaN, Long: NaN}; // create template for each timeseries data stored
+        var hourArray = [];
+        for (var countTime = 0; countTime < 60; countTime++) { // For 60 minutes in an hour
+          hourArray.push(blank); // create array of minutes in an hour
+        }
+        var dayArray = [];
+        for (var countTime = 0; countTime < 24; countTime++) { // For 24 hours in a day
+          dayArray.push(hourArray); // create array of hours in a day
+        }
         TimeSeries.insert({
           Bike: i,
           YYYY: 2014,
           MM: 2,
           DD: d,
-          Lat: filler,
-          Long: filler
+          Day: dayArray
         });
       }
     }
