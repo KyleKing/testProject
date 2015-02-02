@@ -5,10 +5,10 @@
 
 standard-app-packages
 mquandalle:jade
-fourseven:scss@=2.0.0-beta_1
 iron:router
 coffeescript
 ian:accounts-ui-bootstrap-3
 mdg:camera
 maazalik:highcharts
 mrt:leaflet
+fourseven:scss@=1.0.0
