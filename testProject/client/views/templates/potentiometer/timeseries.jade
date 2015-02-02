@@ -1,0 +1,13 @@
+template(name="timeseries")
+  h3.cntr Bike Number #{timeseries.Bike} on Day: #{timeseries.DD}, #{timeseries.MM}, #{timeseries.YYYY}
+  table.data-set
+    //- Labels Row
+    tr
+      td Lat
+      td Long
+    tr
+      each timeseries.Lat
+        tr #{this}
+      td
+        each timeseries.Long
+          tr #{this}

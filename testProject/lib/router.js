@@ -19,9 +19,9 @@ Router.route('/mechanic');
 
 Router.route('/mechanicMap');
 
+Router.route('/potentiometer');
+
 Router.route('/cool');
-
-
 
 
 // To be added to about, if needed:
