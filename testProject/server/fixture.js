@@ -3,9 +3,9 @@
 if (Meteor.isServer) {
   // Insert database of bikes for first commit
   if (TimeSeries.find().count() === 0) {
-    for (var i = 0; i < 10; i++) { // For 10 bikes
-      for (var d = 0; d < 30; d++) { // and 30 days ***need to correct for different length months**
-        var blank = {User: NaN, Lat: NaN, Long: NaN}; // create template for each timeseries data stored
+    // for (var i = 0; i < 10; i++) { // For 10 bikes
+      // for (var DD = 0; DD < 30; DD++) { // and 30 days ***need to correct for different length months**
+        var blank = {User: "Me", Lat: 12, Long: 15}; // create template for each timeseries data stored
         var hourArray = [];
         for (var countTime = 0; countTime < 60; countTime++) { // For 60 minutes in an hour
           hourArray.push(blank); // create array of minutes in an hour
@@ -14,31 +14,36 @@ if (Meteor.isServer) {
         for (var countTime = 0; countTime < 24; countTime++) { // For 24 hours in a day
           dayArray.push(hourArray); // create array of hours in a day
         }
+        console.log("Starting MongoDB with math!");
         TimeSeries.insert({
-          Bike: i,
+          // Bike: i,
+          Bike: 4,
           YYYY: 2014,
           MM: 2,
-          DD: d,
+          // DD: DD,
           Day: dayArray
         });
-      }
-    }
+      // }
+    // }
   }
 
   Meteor.methods({
-    'loop': function (cleanArray, schema) {
-      // Print out schema of received data
-      for (var i = 0; i < cleanArray.length; i++) {
-        console.log(i + ' = ' + schema[i] + ' : ' + cleanArray[i]);
+    'loop': function (dataSet, schema) {
+      // Print out schema of received data]
+      for (var key in dataSet) {
+        if (dataSet.hasOwnProperty(key)) {
+          console.log(key + " -> " + dataSet[key]);
+        }
       }
 
       // Prepare fields to udpate MongoDB
       var fields = {};
-      fields["Lat." + cleanArray[4]] = cleanArray[1];
-      fields["Long." + cleanArray[4]] = cleanArray[2];
+      fields["Lat." + dataSet.timemm] = dataSet.Lat;
+      fields["Long." + dataSet.timemm] = dataSet.Long;
 
       // Update MongoDB data based on bike number
-      var record = TimeSeries.findOne({Bike: cleanArray[0]});
+      // var record = TimeSeries.findOne({Bike: dataSet.BikeNumber, DD: 8, HH: 12});
+      var record = TimeSeries.findOne({Bike: 4, YYYY: 2014, MM: 2});
       TimeSeries.update(
         record,
         { $set: fields }
