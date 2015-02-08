@@ -6,6 +6,7 @@ Template.timeseries.rendered = function() {
 Template.timeseries.helpers({
   timeseries: function () {
     Session.set("currentBike", 4);
-    return TimeSeries.findOne({Bike: Session.get("currentBike"), DD: 2});
+    // return TimeSeries.findOne({Bike: Session.get("currentBike"), DD: 8});
+    return TimeSeries.findOne({Bike: Session.get("currentBike")});
   }
 });

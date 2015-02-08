@@ -5,23 +5,23 @@ if (Meteor.isServer) {
   if (TimeSeries.find().count() === 0) {
     // for (var i = 0; i < 10; i++) { // For 10 bikes
       // for (var DD = 0; DD < 30; DD++) { // and 30 days ***need to correct for different length months**
-        var blank = {User: "Me", Lat: 12, Long: 15}; // create template for each timeseries data stored
+        var blank = {User: NaN, Lat: NaN, Long: NaN}; // create template for each timeseries data stored
         var hourArray = [];
         for (var countTime = 0; countTime < 60; countTime++) { // For 60 minutes in an hour
           hourArray.push(blank); // create array of minutes in an hour
         }
-        var dayArray = [];
-        for (var countTime = 0; countTime < 24; countTime++) { // For 24 hours in a day
-          dayArray.push(hourArray); // create array of hours in a day
-        }
+        // var dayArray = [];
+        // for (var countTime = 0; countTime < 24; countTime++) { // For 24 hours in a day
+        //   // dayArray.push(hourArray); // create array of hours in a day
+        // }
         console.log("Starting MongoDB with math!");
         TimeSeries.insert({
           // Bike: i,
           Bike: 4,
           YYYY: 2014,
           MM: 2,
-          // DD: DD,
-          Day: dayArray
+          // DD: 8,
+          Time: hourArray
         });
       // }
     // }
@@ -32,14 +32,17 @@ if (Meteor.isServer) {
       // Print out schema of received data]
       for (var key in dataSet) {
         if (dataSet.hasOwnProperty(key)) {
-          console.log(key + " -> " + dataSet[key]);
+          // console.log(key + " -> " + dataSet[key]);
         }
       }
 
       // Prepare fields to udpate MongoDB
       var fields = {};
-      fields["Lat." + dataSet.timemm] = dataSet.Lat;
-      fields["Long." + dataSet.timemm] = dataSet.Long;
+      // Set to seconds for faster testing speed
+      var root = ["Time." + dataSet.times];
+      fields[root + ".User"] = dataSet.User;
+      fields[root + ".Lat"] = dataSet.Lat;
+      fields[root + ".Long"] = dataSet.Long;
 
       // Update MongoDB data based on bike number
       // var record = TimeSeries.findOne({Bike: dataSet.BikeNumber, DD: 8, HH: 12});
