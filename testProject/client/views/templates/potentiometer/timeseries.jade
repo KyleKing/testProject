@@ -8,7 +8,8 @@ template(name="timeseries")
       td Long
     //- every recording of bike __ at noon (i.e. 12 am) on above date
     each timeseries.Time
-      tr
-        td #{User}
-        td #{Lat}
-        td #{Long}
+      each this
+        tr
+          td #{User}
+          td #{Lat}
+          td #{Long}

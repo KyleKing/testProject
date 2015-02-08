@@ -5,24 +5,30 @@ if (Meteor.isServer) {
   if (TimeSeries.find().count() === 0) {
     console.log("Starting MongoDB with math!");
     for (var i = 0; i < 10; i++) { // For 10 bikes
-      for (var DD = 0; DD < 30; DD++) { // and 30 days ***need to correct for different length months**
-        var blank = {User: NaN, Lat: NaN, Long: NaN}; // create template for each timeseries data stored
-        var hourArray = [];
-        for (var countTime = 0; countTime < 60; countTime++) { // For 60 minutes in an hour
-          hourArray.push(blank); // create array of minutes in an hour
-        }
-        // var dayArray = [];
-        // for (var countTime = 0; countTime < 24; countTime++) { // For 24 hours in a day
-        //   // dayArray.push(hourArray); // create array of hours in a day
+      // for (var YYYY = 2015; YYYY < 2017; YYYY++) { // For just one year
+      var YYYY = 2015;
+        // for (var MM = 0; MM < 30; MM++) { // 12 Months
+        var MM = 2;
+          for (var DD = 0; DD < 30; DD++) { //  30 days ***need to correct for different length months**
+            var blank = {User: NaN, Lat: NaN, Long: NaN}; // create template for each timeseries data stored
+            var hourArray = [];
+            for (var countTime = 0; countTime < 60; countTime++) { // For 60 minutes in an hour
+              hourArray.push(blank); // create array of minutes in an hour
+            }
+            var dayArray = [];
+            for (var countTime = 0; countTime < 24; countTime++) { // For 24 hours in a day
+              dayArray.push(hourArray); // create array of hours in a day
+            }
+            TimeSeries.insert({
+              Bike: i,
+              YYYY: YYYY,
+              MM: MM,
+              DD: DD,
+              Time: dayArray
+            });
+          }
         // }
-        TimeSeries.insert({
-          Bike: i,
-          YYYY: 2015,
-          MM: 2,
-          DD: DD,
-          Time: hourArray
-        });
-      }
+      // }
     }
   }
 
@@ -37,8 +43,7 @@ if (Meteor.isServer) {
 
       // Prepare fields to udpate MongoDB
       var fields = {};
-      // Set to seconds for faster testing speed
-      var root = ["Time." + dataSet.times];
+      var root = ["Time." + dataSet.timeHH + '.' + dataSet.timemm];
       fields[root + ".User"] = dataSet.User;
       fields[root + ".Lat"] = dataSet.Lat;
       fields[root + ".Long"] = dataSet.Long;
