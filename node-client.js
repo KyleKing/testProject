@@ -77,6 +77,7 @@ ddpclient.connect(function(error) {
     }
 
     var dataSet = {
+      User: "Kyle",
       BikeNumber: cleanArray[0],
       Lat: cleanArray[1],
       Long: cleanArray[2],

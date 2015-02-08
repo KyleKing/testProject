@@ -3,8 +3,9 @@
 if (Meteor.isServer) {
   // Insert database of bikes for first commit
   if (TimeSeries.find().count() === 0) {
-    // for (var i = 0; i < 10; i++) { // For 10 bikes
-      // for (var DD = 0; DD < 30; DD++) { // and 30 days ***need to correct for different length months**
+    console.log("Starting MongoDB with math!");
+    for (var i = 0; i < 10; i++) { // For 10 bikes
+      for (var DD = 0; DD < 30; DD++) { // and 30 days ***need to correct for different length months**
         var blank = {User: NaN, Lat: NaN, Long: NaN}; // create template for each timeseries data stored
         var hourArray = [];
         for (var countTime = 0; countTime < 60; countTime++) { // For 60 minutes in an hour
@@ -14,17 +15,15 @@ if (Meteor.isServer) {
         // for (var countTime = 0; countTime < 24; countTime++) { // For 24 hours in a day
         //   // dayArray.push(hourArray); // create array of hours in a day
         // }
-        console.log("Starting MongoDB with math!");
         TimeSeries.insert({
-          // Bike: i,
-          Bike: 4,
-          YYYY: 2014,
+          Bike: i,
+          YYYY: 2015,
           MM: 2,
-          // DD: 8,
+          DD: DD,
           Time: hourArray
         });
-      // }
-    // }
+      }
+    }
   }
 
   Meteor.methods({
@@ -32,7 +31,7 @@ if (Meteor.isServer) {
       // Print out schema of received data]
       for (var key in dataSet) {
         if (dataSet.hasOwnProperty(key)) {
-          // console.log(key + " -> " + dataSet[key]);
+          console.log(key + " -> " + dataSet[key]);
         }
       }
 
@@ -45,8 +44,7 @@ if (Meteor.isServer) {
       fields[root + ".Long"] = dataSet.Long;
 
       // Update MongoDB data based on bike number
-      // var record = TimeSeries.findOne({Bike: dataSet.BikeNumber, DD: 8, HH: 12});
-      var record = TimeSeries.findOne({Bike: 4, YYYY: 2014, MM: 2});
+      var record = TimeSeries.findOne({Bike: dataSet.BikeNumber, YYYY: dataSet.timeYYYY, MM: dataSet.timeMM, DD: dataSet.timeDD});
       TimeSeries.update(
         record,
         { $set: fields }

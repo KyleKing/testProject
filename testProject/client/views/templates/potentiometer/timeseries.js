@@ -6,7 +6,9 @@ Template.timeseries.rendered = function() {
 Template.timeseries.helpers({
   timeseries: function () {
     Session.set("currentBike", 4);
-    // return TimeSeries.findOne({Bike: Session.get("currentBike"), DD: 8});
-    return TimeSeries.findOne({Bike: Session.get("currentBike")});
+    if (TimeSeries.find({Bike: 4, DD: 8}).count() === 1) {
+      return TimeSeries.findOne({Bike: Session.get("currentBike"), YYYY: 2015, MM: 2, DD: 8});
+    }
+    console.log("uhoh");
   }
 });
