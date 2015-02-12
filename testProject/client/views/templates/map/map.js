@@ -1,5 +1,5 @@
 Template.map.created = function() {
-  return Meteor.subscribe("bikesData", function() {
+  return Meteor.subscribe("currentData", function() {
 
     if (Meteor.isClient) {
 
@@ -55,7 +55,7 @@ Template.map.created = function() {
 
       // Use Leaflet cluster group plugin
       var markers = new L.MarkerClusterGroup();
-      bikesData = Bikes.find().fetch();
+      bikesData = Current.find().fetch();
 
       var bikeIconGR = L.icon({
           iconUrl: 'leaflet/bikes/marker-icon.png',
@@ -68,17 +68,31 @@ Template.map.created = function() {
           popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
       });
 
+      // Old stable version
+      // var i = bikesData.length - 1;
+      // while (i >= 0) {
+      //   if (bikesData[i].status === "Good") {
+      //     markers.addLayer( new L.Marker(new L.LatLng(bikesData[i].latitude, bikesData[i].longitude), {icon: bikeIconGR} ) );
+      //     // L.Marker([L.LatLng(bikesData[i].latitude, bikesData[i].longitude], {icon: greenIcon})
+      //   } else {
+      //     console.log("Bad Bike");
+      //   }
+      //   i--;
+      // }
+
+      // map.addLayer(markers);
+
+      // New serial port connection:
       var i = bikesData.length - 1;
-      while (i >= 0) {
-        if (bikesData[i].status === "Good") {
-          markers.addLayer( new L.Marker(new L.LatLng(bikesData[i].latitude, bikesData[i].longitude), {icon: bikeIconGR} ) );
-          // L.Marker([L.LatLng(bikesData[i].latitude, bikesData[i].longitude], {icon: greenIcon})
+      while (i >= 1) {
+        if (!isNaN(bikesData[i].Lat)) {
+          markers.addLayer( new L.Marker(new L.LatLng(bikesData[i].Lat, bikesData[i].Long), {icon: bikeIconGR} ) );
+          console.log(bikesData[i]);
         } else {
-          console.log("Bad Bike");
+          console.log("Bad Bike Location (NaN)");
         }
         i--;
       }
-
       map.addLayer(markers);
 
     //   i = bikesData.length - 1;
@@ -109,7 +123,7 @@ Template.map.created = function() {
     var marker;
       marker = L.marker([e.latitude, e.longitude]).addTo(map);
     });
-  };
+  }
 });
 };
 

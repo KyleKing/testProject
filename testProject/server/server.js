@@ -5,3 +5,7 @@ Meteor.publish("bikesData", function() {
 Meteor.publish("timeseriesData", function() {
   return TimeSeries.find();
 });
+
+Meteor.publish("currentData", function() {
+  return Current.find();
+});

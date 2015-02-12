@@ -1,12 +1,21 @@
 // Name serial port - there should be a smarter way to do this, but this seems easiest
 // var currentPort = "/dev/ttyACM0"; // A PC serial port
-// var currentPort = "/dev/cu.usbmodem" + "1411"; // direct left port
+var currentPort = "/dev/cu.usbmodem" + "1411"; // direct left port
 // var currentPort = "/dev/cu.usbmodem" + "1421"; // direct right port
-var currentPort = "/dev/cu.usbmodem" + "14211"; // indirect right port: closest to aux power
+// var currentPort = "/dev/cu.usbmodem" + "14211"; // indirect right port: closest to aux power
 
 var DDPClient = require("ddp");
 var moment = require('moment');
 moment().format();
+
+// Remote connections:
+// var ddpclient = new DDPClient({
+//   host: "gw2event.meteor.com",
+//   port: 80,
+//   auto_reconnect: true,
+//   auto_reconnect_timer: 500
+// });
+// Source: https://github.com/oortcloud/node-ddp-client/issues/21
 
 // Connect to Meteor
 var ddpclient = new DDPClient({
@@ -65,17 +74,41 @@ ddpclient.connect(function(error) {
     for (var count = 0; count < array.length; count++) {
       cleanArray[count] =  parseFloat(array[count]);
       // console.log(count + ' at: ' + cleanArray[count]);
-      if (~~cleanArray[count] === 0) {
-        // console.log("*****************NaN PROBLEM*****************");
-        countError++;
-      }
+      // if (~~cleanArray[count] === 0) {
+      //   console.log("*****************NaN PROBLEM*****************");
+      //   console.log(array[count])
+      //   countError++;
+      // }
     }
+    if (cleanArray.length !== 10) {
+      console.log('*****************' + cleanArray + '*****************');
+      countError++;
+    }
+
+    var dataSet = {
+      User: "Kyle",
+      BikeNumber: cleanArray[0],
+      Lat: cleanArray[1],
+      Long: cleanArray[2],
+      Potentiometer: cleanArray[3],
+      times: cleanArray[4],
+      timemm: cleanArray[5],
+      timeHH: cleanArray[6],
+      timeDD: cleanArray[7],
+      timeMM: cleanArray[8],
+      timeYYYY: cleanArray[9]
+    };
 
     if (countError === 0) { // no number errors
       // Call Meteor actions with "data"
-      ddpclient.call('loop', [cleanArray, schema], function(err, result) {
+      ddpclient.call('loop', [dataSet, schema], function(err, result) {
         console.log('data sent: ' + cleanArray);
         console.log('called Loop function, result: ' + result);
+        console.log(' ');
+      });
+      ddpclient.call('current', [dataSet, schema], function(err, result) {
+        console.log('data sent: ' + cleanArray);
+        console.log('called Current function, result: ' + result);
         console.log(' ');
       });
     }

@@ -1,5 +1,5 @@
 template(name="timeseries")
-  h3.cntr Bike Number #{timeseries.Bike} on Day: #{timeseries.DD}, #{timeseries.MM}, #{timeseries.YYYY}
+  h3.cntr Bike Number #{timeseries.Bike} on Day: #{timeseries.MM}, #{timeseries.DD}, #{timeseries.YYYY}
   table.data-set
     //- Labels Row
     tr
@@ -7,8 +7,9 @@ template(name="timeseries")
       td Lat
       td Long
     //- every recording of bike __ at noon (i.e. 12 am) on above date
-    each timeseries.Day.[12]
-      tr
-        td #{User}
-        td #{Lat}
-        td #{Long}
+    each timeseries.Time
+      each this
+        tr
+          td #{User}
+          td #{Lat}
+          td #{Long}
