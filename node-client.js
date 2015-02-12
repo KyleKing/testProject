@@ -8,6 +8,15 @@ var DDPClient = require("ddp");
 var moment = require('moment');
 moment().format();
 
+// Remote connections:
+// var ddpclient = new DDPClient({
+//   host: "gw2event.meteor.com",
+//   port: 80,
+//   auto_reconnect: true,
+//   auto_reconnect_timer: 500
+// });
+// Source: https://github.com/oortcloud/node-ddp-client/issues/21
+
 // Connect to Meteor
 var ddpclient = new DDPClient({
   host: "localhost",
@@ -95,6 +104,11 @@ ddpclient.connect(function(error) {
       ddpclient.call('loop', [dataSet, schema], function(err, result) {
         console.log('data sent: ' + cleanArray);
         console.log('called Loop function, result: ' + result);
+        console.log(' ');
+      });
+      ddpclient.call('current', [dataSet, schema], function(err, result) {
+        console.log('data sent: ' + cleanArray);
+        console.log('called Current function, result: ' + result);
         console.log(' ');
       });
     }

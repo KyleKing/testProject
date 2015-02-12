@@ -32,15 +32,25 @@ if (Meteor.isServer) {
       // }
     }
   }
+  if (Current.find().count() === 0) {
+    // console.log("Starting MongoDB with math!");
+    for (var i = 0; i < 10; i++) { // For 10 bikes
+      Current.insert({
+        Bike: i,
+        Lat: NaN,
+        Long: NaN
+      });
+    }
+  }
 
   Meteor.methods({
     'loop': function (dataSet, schema) {
       // Print out schema of received data]
-      for (var key in dataSet) {
-        if (dataSet.hasOwnProperty(key)) {
-          console.log(key + " -> " + dataSet[key]);
-        }
-      }
+      // for (var key in dataSet) {
+      //   if (dataSet.hasOwnProperty(key)) {
+      //     console.log(key + " -> " + dataSet[key]);
+      //   }
+      // }
 
       // Prepare fields to udpate MongoDB
       var fields = {};
@@ -52,6 +62,31 @@ if (Meteor.isServer) {
       // Update MongoDB data based on bike number
       var record = TimeSeries.findOne({Bike: dataSet.BikeNumber, YYYY: dataSet.timeYYYY, MM: dataSet.timeMM, DD: dataSet.timeDD});
       TimeSeries.update(
+        record,
+        { $set: fields }
+      );
+
+      return "ok";
+    }
+  });
+
+  Meteor.methods({
+    'current': function (dataSet, schema) {
+      // Print out schema of received data]
+      for (var key in dataSet) {
+        if (dataSet.hasOwnProperty(key)) {
+          console.log(key + " -> " + dataSet[key]);
+        }
+      }
+
+      // Prepare fields to udpate MongoDB
+      var fields = {};
+      fields["Lat"] = dataSet.Lat;
+      fields["Long"] = dataSet.Long;
+
+      // Update MongoDB data based on bike number
+      var record = Current.findOne({Bike: dataSet.BikeNumber});
+      Current.update(
         record,
         { $set: fields }
       );
