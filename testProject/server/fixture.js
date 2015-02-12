@@ -5,6 +5,7 @@ if (Meteor.isServer) {
   if (TimeSeries.find().count() === 0) {
     console.log("Starting MongoDB with math!");
     for (var i = 0; i < 10; i++) { // For 10 bikes
+      // simplified the initial process for faster initializatino on reset
       // for (var YYYY = 2015; YYYY < 2017; YYYY++) { // For just one year
       var YYYY = 2015;
         // for (var MM = 0; MM < 30; MM++) { // 12 Months
