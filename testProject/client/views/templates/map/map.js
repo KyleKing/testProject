@@ -81,18 +81,19 @@ Template.map.created = function() {
       // }
 
       // map.addLayer(markers);
+
       // New serial port connection:
       var i = bikesData.length - 1;
       while (i >= 1) {
-        // if (bikesData[i].Lat.isNaN) {
-          // markers.addLayer( new L.Marker(new L.LatLng(bikesData[i].latitude, bikesData[i].longitude), {icon: bikeIconGR} ) );
-        console.log(bikesData[i]);
-        L.marker([bikesData[i].Lat, bikesData[i].Long]).addTo(map);
-        // } else {
-          // console.log("Bad Bike Location");
-        // }
+        if (!isNaN(bikesData[i].Lat)) {
+          markers.addLayer( new L.Marker(new L.LatLng(bikesData[i].Lat, bikesData[i].Long), {icon: bikeIconGR} ) );
+          console.log(bikesData[i]);
+        } else {
+          console.log("Bad Bike Location (NaN)");
+        }
         i--;
       }
+      map.addLayer(markers);
 
     //   i = bikesData.length - 1;
     //   while (i >= 0) {
@@ -122,7 +123,7 @@ Template.map.created = function() {
     var marker;
       marker = L.marker([e.latitude, e.longitude]).addTo(map);
     });
-  };
+  }
 });
 };
 
