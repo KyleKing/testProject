@@ -4,6 +4,10 @@
 int val;
 int last;
 
+// stringOutput
+String stringOutput;
+
+
 // Test Sending GPS Data
 char *staticGPSData[] = { "1,38.99209793,-76.95336578",
                                 "2,38.98859656,-76.94251287",
@@ -27,8 +31,12 @@ void setup()
 void loop()
 {
   for (int i = 0; i < 10; i++) {
-    Serial.print(staticGPSData[i]);
-    Serial.print(","); // element break
+
+    // stringOutput.concat(string, string2)
+    stringOutput += staticGPSData[i];
+    stringOutput += ",";
+    // Serial.print(staticGPSData[i]);
+    // Serial.print(","); // element break
 
     // Update Counter Variable
     // if (counter == 25) {
@@ -41,9 +49,12 @@ void loop()
 
     // Read potentiometer
     val = analogRead(2);
-    Serial.print(val);
-    Serial.print(";"); // data break
+    stringOutput += val;
+    stringOutput += ";";
+    // Serial.print(val);
+    // Serial.print(";"); // data break
 
+    Serial.print(stringOutput);
     delay(1000); // at < 100, data overlaps and is hard to parse
   }
 }

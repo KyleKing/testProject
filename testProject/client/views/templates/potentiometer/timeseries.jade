@@ -3,6 +3,7 @@ template(name="timeseries")
   table.data-set
     //- Labels Row
     tr
+      td this
       td User
       td Lat
       td Long
@@ -10,6 +11,7 @@ template(name="timeseries")
     each timeseries.Time
       each this
         tr
+          td #{this}
           td #{User}
           td #{Lat}
           td #{Long}
