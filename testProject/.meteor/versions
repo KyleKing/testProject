@@ -20,7 +20,7 @@ handlebars@1.0.2
 html-tools@1.0.3
 htmljs@1.0.3
 http@1.0.10
-ian:accounts-ui-bootstrap-3@1.2.25
+ian:accounts-ui-bootstrap-3@1.2.27
 id-map@1.0.2
 iron:controller@1.0.7
 iron:core@1.0.7
@@ -47,6 +47,7 @@ mobile-status-bar@1.0.2
 mongo@1.0.11
 mquandalle:jade@0.4.1
 mrt:leaflet@0.3.8
+nsmeta:zurb-foundation@0.2.0
 observe-sequence@1.0.4
 ordered-dict@1.0.2
 random@1.0.2
