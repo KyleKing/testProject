@@ -81,8 +81,8 @@ if (Meteor.isServer) {
 
       // Prepare fields to udpate MongoDB
       var fields = {};
-      fields["Lat"] = dataSet.Lat;
-      fields["Long"] = dataSet.Long;
+      fields.Lat = dataSet.Lat;
+      fields.Long = dataSet.Long;
 
       // Update MongoDB data based on bike number
       var record = Current.findOne({Bike: dataSet.BikeNumber});
