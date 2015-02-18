@@ -95,36 +95,36 @@ Template.map.created = function() {
       }
       map.addLayer(markers);
 
-    //   i = bikesData.length - 1;
-    //   while (i >= 0) {
-    //     if (bikesData[i].status === "Good") {
-    //       circle = L.circle([bikesData[i].latitude, bikesData[i].longitude], 10, {
-    //         color: "green",
-    //         fillColor: "#43ff6c",
-    //         fillOpacity: 0.9
-    //       }).addTo(map);
-    //     } else {
-    //       circle = L.circle([bikesData[i].latitude, bikesData[i].longitude], 30, {
-    //         color: "red",
-    //         fillColor: "#f03",
-    //         fillOpacity: 0.9
-    //       }).addTo(map);
-    //     }
-    //     i--;
-    //   }
-    // } else {
-    //   console.log("loading");
-    // }
+      //   i = bikesData.length - 1;
+      //   while (i >= 0) {
+      //     if (bikesData[i].status === "Good") {
+      //       circle = L.circle([bikesData[i].latitude, bikesData[i].longitude], 10, {
+      //         color: "green",
+      //         fillColor: "#43ff6c",
+      //         fillOpacity: 0.9
+      //       }).addTo(map);
+      //     } else {
+      //       circle = L.circle([bikesData[i].latitude, bikesData[i].longitude], 30, {
+      //         color: "red",
+      //         fillColor: "#f03",
+      //         fillOpacity: 0.9
+      //       }).addTo(map);
+      //     }
+      //     i--;
+      //   }
+      // } else {
+      //   console.log("loading");
+      // }
 
-    map.locate({
-      setView: true
-    }).on("locationfound", function(e) {
+      map.locate({
+        setView: true
+      }).on("locationfound", function(e) {
 
-    var marker;
-      marker = L.marker([e.latitude, e.longitude]).addTo(map);
-    });
-  }
-});
+      var marker;
+        marker = L.marker([e.latitude, e.longitude]).addTo(map);
+      });
+    }
+  });
 };
 
 

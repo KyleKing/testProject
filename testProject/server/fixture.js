@@ -43,6 +43,13 @@ if (Meteor.isServer) {
     }
   }
 
+  if (BarChart.find().count() === 0) {
+    console.log("Starting MongoDB with math!");
+    BarChart.insert({
+      Data: [21.2, 12.5, 19.4, 12.2, 30.0, 15.0, 28.6]
+    });
+  }
+
   Meteor.methods({
     'loop': function (dataSet, schema) {
       // Print out schema of received data]

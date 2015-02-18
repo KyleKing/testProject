@@ -9,3 +9,8 @@ Meteor.publish("timeseriesData", function() {
 Meteor.publish("currentData", function() {
   return Current.find();
 });
+
+
+Meteor.publish("BarChartData", function() {
+  return BarChart.find();
+});

@@ -1,7 +1,7 @@
 /*
  * Function to draw the column chart
  */
-function builtColumn() {
+function builtColumn(BarData) {
 
     $('#container-column-profile').highcharts({
 
@@ -45,7 +45,7 @@ function builtColumn() {
 
         series: [{
             name: '< 10 Minute Rides',
-            data: [21.2, 12.5, 19.4, 12.2, 30.0, 15.0, 28.6]
+            data: BarData.Data
         }]
     });
 }
@@ -54,5 +54,11 @@ function builtColumn() {
  * Call the function to built the chart when the template is rendered
  */
 Template.columnDemoProfile.rendered = function() {
-    builtColumn();
-}
+    return Meteor.subscribe("BarChartData", function() {
+        if (Meteor.isClient) {
+            BarData = BarChart.findOne();
+            // console.log(BarData.Data);
+            builtColumn(BarData);
+        }
+    });
+};
