@@ -67,6 +67,15 @@ if (Meteor.isServer) {
       });
   }
 
+
+  if (AdminAreaChart.find().count() === 0) {
+    console.log("Starting AdminAreaChart with math!");
+    AdminAreaChart.insert({
+        name: 'Potentiometer Data',
+        data: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50]
+    });
+  }
+
   Meteor.methods({
     'loop': function (dataSet, schema) {
       // Print out schema of received data]
@@ -111,6 +120,24 @@ if (Meteor.isServer) {
       // Update MongoDB data based on bike number
       var record = Current.findOne({Bike: dataSet.BikeNumber});
       Current.update(
+        record,
+        { $set: fields }
+      );
+
+      return "ok";
+    }
+  });
+
+  Meteor.methods({
+    'chart': function (dataSet) {
+      // Prepare fields to udpate MongoDB
+      var fields = {};
+      fields["data." + dataSet.BikeNumber] = dataSet.Potentiometer;
+      console.log(dataSet.Potentiometer);
+
+      // Update MongoDB data based on bike number
+      var record = AdminAreaChart.findOne();
+      AdminAreaChart.update(
         record,
         { $set: fields }
       );

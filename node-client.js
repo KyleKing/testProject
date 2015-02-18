@@ -96,19 +96,25 @@ ddpclient.connect(function(error) {
       timeHH: cleanArray[6],
       timeDD: cleanArray[7],
       timeMM: cleanArray[8],
-      timeYYYY: cleanArray[9]
+      timeYYYY: cleanArray[9],
+      x: (new Date()).getTime()
     };
 
     if (countError === 0) { // no number errors
       // Call Meteor actions with "data"
-      ddpclient.call('loop', [dataSet, schema], function(err, result) {
+      // ddpclient.call('loop', [dataSet, schema], function(err, result) {
+      //   console.log('data sent: ' + cleanArray);
+      //   console.log('called Loop function, result: ' + result);
+      //   console.log(' ');
+      // });
+      // ddpclient.call('current', [dataSet, schema], function(err, result) {
+      //   console.log('data sent: ' + cleanArray);
+      //   console.log('called Current function, result: ' + result);
+      //   console.log(' ');
+      // });
+      ddpclient.call('chart', [dataSet], function(err, result) {
         console.log('data sent: ' + cleanArray);
-        console.log('called Loop function, result: ' + result);
-        console.log(' ');
-      });
-      ddpclient.call('current', [dataSet, schema], function(err, result) {
-        console.log('data sent: ' + cleanArray);
-        console.log('called Current function, result: ' + result);
+        console.log('called chart function, result: ' + result);
         console.log(' ');
       });
     }

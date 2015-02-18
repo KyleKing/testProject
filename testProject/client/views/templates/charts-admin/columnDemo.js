@@ -87,7 +87,7 @@ Template.columnDemo.rendered = function() {
     return Meteor.subscribe("AdminBarChartData", function() {
         if (Meteor.isClient) {
             BarData = AdminBarChart.find().fetch();
-            console.log(BarData);
+            // console.log(BarData);
             builtColumn(BarData);
         }
     });
