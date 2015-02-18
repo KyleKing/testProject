@@ -12,14 +12,13 @@ $sliding-menu-color-hover: $flat-gray-1;
 .nav { margin-top: em(100); }
 
 .mobile_nav {
-  // Add translucent background element
-  background: rgba(white, 0.95);
   position: fixed; top: 0px;
   z-index: 99; // Keep on top of map element
   // red background bar
   width: 100%;
   min-height: em(85); // Testing more responsive height
-  background: rgba(255, 255, 255, 0.75);
+  // Add translucent background element
+  background: rgba(255, 255, 255, 0.9);
   .navIcon {
     // Push icon to the left
     position: fixed;
