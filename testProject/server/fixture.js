@@ -133,6 +133,7 @@ if (Meteor.isServer) {
       // Prepare fields to udpate MongoDB
       var fields = {};
       fields["data." + dataSet.BikeNumber] = dataSet.Potentiometer;
+      fields.x = dataSet.x;
       console.log(dataSet.Potentiometer);
 
       // Update MongoDB data based on bike number
