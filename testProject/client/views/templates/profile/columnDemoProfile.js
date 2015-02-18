@@ -45,6 +45,7 @@ function builtColumn(BarData) {
 
         series: [{
             name: '< 10 Minute Rides',
+            // Data: [21.2, 12.5, 19.4, 12.2, 30.0, 15.0, 28.6]
             data: BarData.Data
         }]
     });

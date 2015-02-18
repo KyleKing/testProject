@@ -14,3 +14,8 @@ Meteor.publish("currentData", function() {
 Meteor.publish("BarChartData", function() {
   return BarChart.find();
 });
+
+
+Meteor.publish("AdminBarChartData", function() {
+  return AdminBarChart.find();
+});

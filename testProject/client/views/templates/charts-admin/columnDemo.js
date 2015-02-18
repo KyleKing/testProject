@@ -1,7 +1,7 @@
 /*
  * Function to draw the column chart
  */
-function builtColumn() {
+function builtColumn(BarData) {
 
     $('#container-column').highcharts({
 
@@ -46,10 +46,12 @@ function builtColumn() {
         },
 
         tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-            footerFormat: '</table>',
+            headerFormat: '<h4>{point.key}</h4>',
+            // This styling is really screwy
+            // headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            // pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            //     '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+            // footerFormat: '</table>',
             shared: true,
             useHTML: true
         },
@@ -61,19 +63,20 @@ function builtColumn() {
             }
         },
 
-        series: [{
-            name: '< 10 Minute Rides',
-            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+        series: BarData
+        // [{
+        //     name: '< 10 Minute Rides',
+        //     data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
 
-        }, {
-            name: '10+ Minute Rides',
-            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+        // }, {
+        //     name: '10+ Minute Rides',
+        //     data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
 
-        }, {
-            name: 'Off Campus Rides',
-            data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+        // }, {
+        //     name: 'Off Campus Rides',
+        //     data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
 
-        }]
+        // }]
     });
 }
 
@@ -81,5 +84,11 @@ function builtColumn() {
  * Call the function to built the chart when the template is rendered
  */
 Template.columnDemo.rendered = function() {
-    builtColumn();
-}
+    return Meteor.subscribe("AdminBarChartData", function() {
+        if (Meteor.isClient) {
+            BarData = AdminBarChart.find().fetch();
+            console.log(BarData);
+            builtColumn(BarData);
+        }
+    });
+};

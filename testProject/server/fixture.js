@@ -10,7 +10,8 @@ if (Meteor.isServer) {
       var YYYY = 2015;
         // for (var MM = 0; MM < 30; MM++) { // 12 Months
         var MM = 2;
-          for (var DD = 0; DD < 30; DD++) { //  30 days ***need to correct for different length months**
+          // for (var DD = 0; DD < 30; DD++) { //  30 days ***need to correct for different length months**
+          var DD = 1;
             var blank = {User: NaN, Lat: NaN, Long: NaN}; // create template for each timeseries data stored
             var hourArray = [];
             for (var countTime = 0; countTime < 60; countTime++) { // For 60 minutes in an hour
@@ -27,7 +28,7 @@ if (Meteor.isServer) {
               DD: DD,
               Time: dayArray
             });
-          }
+          // }
         // }
       // }
     }
@@ -44,10 +45,26 @@ if (Meteor.isServer) {
   }
 
   if (BarChart.find().count() === 0) {
-    console.log("Starting MongoDB with math!");
+    console.log("Starting BarChart with math!");
     BarChart.insert({
       Data: [21.2, 12.5, 19.4, 12.2, 30.0, 15.0, 28.6]
     });
+  }
+
+  if (AdminBarChart.find().count() === 0) {
+    console.log("Starting AdminBarChart with math!");
+    AdminBarChart.insert({
+          name: '< 10 Minute Rides',
+          data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+          });
+    AdminBarChart.insert({
+          name: '10+ Minute Rides',
+          data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+        });
+    AdminBarChart.insert({
+          name: 'Off Campus Rides',
+          data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+      });
   }
 
   Meteor.methods({
