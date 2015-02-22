@@ -85,6 +85,8 @@ ddpclient.connect(function(error) {
       countError++;
     }
 
+    cleanArray[10] = (new Date()).getTime();
+
     var dataSet = {
       User: "Kyle",
       BikeNumber: cleanArray[0],
@@ -97,7 +99,7 @@ ddpclient.connect(function(error) {
       timeDD: cleanArray[7],
       timeMM: cleanArray[8],
       timeYYYY: cleanArray[9],
-      x: (new Date()).getTime()
+      x: cleanArray[10]
     };
 
     if (countError === 0) { // no number errors
