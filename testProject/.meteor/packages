@@ -6,7 +6,6 @@
 standard-app-packages
 mquandalle:jade
 iron:router
-ian:accounts-ui-bootstrap-3
 mdg:camera
 maazalik:highcharts
 mrt:leaflet
@@ -14,3 +13,4 @@ fourseven:scss@=0.9.6
 nsmeta:zurb-foundation
 underscore
 clinical:accounts-famous-dead-people
+meteorhacks:aggregate

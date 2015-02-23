@@ -3,6 +3,7 @@ Meteor.publish("bikesData", function() {
 });
 
 Meteor.publish("timeseriesData", function() {
+  // return TestResult;
   return TimeSeries.find();
 });
 
