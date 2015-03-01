@@ -64,9 +64,6 @@ Information = new Meteor.Collection('information');
 //         // { $out: "sortedTime" } // Not yet supported in Meteor
 //       ];
 //       var TestResult = TimeSeries.aggregate(pipeline);
-//       // console.log(TestResult);
-//       // return TimeSeries.aggregate(pipeline);
-//       // return TestResult;
 //     }
 //   });
 // }

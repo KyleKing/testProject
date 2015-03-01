@@ -5,12 +5,16 @@ Meteor.publish("bikesData", function() {
 Meteor.publish("timeseriesData", function() {
 
   var pipeline = [
-    {$match: {bike: 4}},
-    {$group: {_id : "$position.timestamp"} }
+    { $match: {bike: 4} },
+    { $unwind: '$position' },
+    { $sort: {'position.timestamp': -1} },
+    { $group: {_id : "$bike", position: {$push: '$position'}} }
   ];
   var TestResult = TimeSeries.aggregate(pipeline);
-  // console.log("TestResult");
-  // console.log(TestResult);
+  // console.log(TestResult[0].position);
+  // _(TestResult[0].position).each(function(eachSelf){
+  //   console.log('_each: ' + eachSelf.timestamp);
+  // });
 
   // information needs to be the lowercase version from the collection, not the Meteor version
   this.added('information', Random.id(), {email: 'Kyle@email.com', userId: this.userId, data: TestResult[0]._id });
