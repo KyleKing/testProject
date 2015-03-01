@@ -5,6 +5,8 @@ BarChart = new Meteor.Collection('barchart');
 AdminBarChart = new Meteor.Collection('adminbarchart');
 AdminAreaChart = new Meteor.Collection('adminareachart');
 
+Information = new Meteor.Collection('information');
+
 // // package example
 // // Source: https://github.com/meteorhacks/meteor-aggregate/
 // var metrics = new Mongo.Collection('metrics');
@@ -50,13 +52,21 @@ AdminAreaChart = new Meteor.Collection('adminareachart');
 //     }}
 // )
 
-// Testing sorting of array of documents
-if (Meteor.isServer) {
-  var pipeline = [
-    { $match: { bike: 4} },
-    { $unwind: '$position' },
-    { $sort: {'position.timestamp': -1} }
-  ];
-  var TestResult = TimeSeries.aggregate(pipeline);
-  console.log(TestResult);
-}
+// // Testing sorting of array of documents
+// if (Meteor.isServer) {
+//   Meteor.methods({
+//     sortTime: function (num) {
+//       var pipeline = [
+//         { $group : { _id : "$position.timestamp", position: { $push: "$position.Lat" } } }
+//         // { $match: { bike: num} },
+//         // { $unwind: '$position' },
+//         // { $sort: {'position.timestamp': -1} }
+//         // { $out: "sortedTime" } // Not yet supported in Meteor
+//       ];
+//       var TestResult = TimeSeries.aggregate(pipeline);
+//       // console.log(TestResult);
+//       // return TimeSeries.aggregate(pipeline);
+//       // return TestResult;
+//     }
+//   });
+// }
