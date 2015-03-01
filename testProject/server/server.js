@@ -6,6 +6,23 @@ Meteor.publish("SortTime", function() {
   return SortTime.find();
 });
 
+// Meteor.publish('previousInviteContacts', function() {
+//   contacts = Events.aggregate([
+//       {$match: {creatorId: this.userId}},
+//       {$project: {invites: 1}},
+//       {$unwind: "$invites" },
+//       {$group: {_id: {email: "$invites.email"}}},
+//       {$project: {email: "$_id.email"}}
+//     ]);
+//   _(contacts).each(function(contact) {
+//     if (contact.email) {
+//       if (!Contacts.findOne({userId: this.userId, email: contact.email})) {
+//         this.added('contacts', Random.id(), {email: contact.email, userId: this.userId, name: ''});
+//       }
+//     }
+//   });
+// });
+
 Meteor.publish("timeseriesData", function() {
 
   var pipeline = [

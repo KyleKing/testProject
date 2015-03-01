@@ -47,7 +47,8 @@ $sliding-menu-color-hover: $flat-gray-1;
   }
 }
 
-@include media($mobile) {
+// @include media($mobile) {
+@include media($desktop) {
   .content {
     &.is-hidden {
       @include transform(translateX(em(-220)));
@@ -101,55 +102,55 @@ $sliding-menu-color-hover: $flat-gray-1;
 
 // Desktop Version
 
-@include media($desktop) {
-  button.js-menu-trigger.sliding-menu-button {
-    display: none;
-  }
-  .navItems {
-    list-style-type: none;
-    font-size: em(30);
-    li.navButton {
-      a {
-        display: inline-block; // Keep it all inline, get it?
-        cursor: pointer;
-        // Mess with Text
-        font-weight: bold;
-        color: tint(red, 30%);
-        text-decoration: none;
-        // Space everything out
-        position: relative;
-        padding: em(10);
-        &:hover {
-          border-bottom: em(5) solid tint(red, 30%);
-        }
-      }
-      &.left {
-        margin-left: em(10);
-        float: left; }
-      &.left:first-child { margin-left: em(50); } // give space for icon
-      &.right {
-        // push content to right side
-        margin-right: em(10);
-        float: right;
-      }
-      .dropdown-toggle {
-        float: right;
-        margin: 0px;
-      }
-      &:hover {
-        .dropdown-menu {
-          display: block;
-        }
-      }
-    }
-    // Sign in dropdown
-    .dropdown-menu {
-      display: none;
-      margin-top: 80px;
-      background: rgba(255, 255, 255, 0.75);
-      button {
-        //
-      }
-    }
-  }
-}
+// @include media($desktop) {
+//   button.js-menu-trigger.sliding-menu-button {
+//     display: none;
+//   }
+//   .navItems {
+//     list-style-type: none;
+//     font-size: em(30);
+//     li.navButton {
+//       a {
+//         display: inline-block; // Keep it all inline, get it?
+//         cursor: pointer;
+//         // Mess with Text
+//         font-weight: bold;
+//         color: tint(red, 30%);
+//         text-decoration: none;
+//         // Space everything out
+//         position: relative;
+//         padding: em(10);
+//         &:hover {
+//           border-bottom: em(5) solid tint(red, 30%);
+//         }
+//       }
+//       &.left {
+//         margin-left: em(10);
+//         float: left; }
+//       &.left:first-child { margin-left: em(50); } // give space for icon
+//       &.right {
+//         // push content to right side
+//         margin-right: em(10);
+//         float: right;
+//       }
+//       .dropdown-toggle {
+//         float: right;
+//         margin: 0px;
+//       }
+//       &:hover {
+//         .dropdown-menu {
+//           display: block;
+//         }
+//       }
+//     }
+//     // Sign in dropdown
+//     .dropdown-menu {
+//       display: none;
+//       margin-top: 80px;
+//       background: rgba(255, 255, 255, 0.75);
+//       button {
+//         //
+//       }
+//     }
+//   }
+// }

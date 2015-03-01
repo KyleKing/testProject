@@ -14,4 +14,4 @@ Template.menu.rendered = function() {
       e.preventDefault();
     });
   });
-}
+};
