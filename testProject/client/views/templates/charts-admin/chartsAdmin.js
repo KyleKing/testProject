@@ -1,4 +1,5 @@
 Meteor.subscribe("timeseriesData");
-Meteor.subscribe("SortTime");
+Meteor.subscribe("informationTestData");
 
+Meteor.subscribe("SortTime");
 Meteor.call('sortTime');

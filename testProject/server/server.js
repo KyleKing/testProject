@@ -24,7 +24,11 @@ Meteor.publish("SortTime", function() {
 // });
 
 Meteor.publish("timeseriesData", function() {
+  return TimeSeries.find();
+});
 
+
+Meteor.publish("informationTestData", function() {
   var pipeline = [
     { $match: {bike: 4} },
     { $unwind: '$position' },

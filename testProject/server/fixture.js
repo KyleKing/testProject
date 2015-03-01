@@ -34,9 +34,21 @@ if (Meteor.isServer) {
   //   }
   // }
 
+  var currentDay = (function() {
+    // Calculate current day of year without momentjs
+    // Copied from: http://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366
+    var currentDay = new Date();
+    var start = new Date(currentDay.getFullYear(), 0, 0);
+    var diff = currentDay - start;
+    var oneDay = 1000 * 60 * 60 * 24;
+    var day = Math.floor(diff / oneDay);
+    return day;
+  });
+
   // Insert database of bikes for first commit
-  if (TimeSeries.find().count() === 0) {
-    console.log("Starting MongoDB with moment!");
+  if (TimeSeries.find({day: currentDay()}).count() === 0) {
+    console.log(currentDay());
+    console.log("Starting TimeSeries data without moment!");
     for (var i = 1; i <= 10; i++) {
       var now = new Date().getTime();
 
@@ -47,20 +59,12 @@ if (Meteor.isServer) {
       for (var countTime = 0; countTime < 15; countTime++) { // For 60 minutes in an hour
         randomNow = now*Math.random();
         blank = {User: NaN, timestamp: randomNow, Lat: NaN, Long: NaN};
-        position.push(blank); // create array of minutes in an hour
+        position.push(blank); // create array
       }
-
-      // Calculate current day of year without momentjs
-      // Copied from: http://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366
-      var currentDay = new Date();
-      var start = new Date(currentDay.getFullYear(), 0, 0);
-      var diff = currentDay - start;
-      var oneDay = 1000 * 60 * 60 * 24;
-      var day = Math.floor(diff / oneDay);
 
       TimeSeries.insert({
         bike: i,
-        day: day,
+        day: currentDay(),
         position: position
       });
     }
