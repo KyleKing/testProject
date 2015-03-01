@@ -1,42 +1,7 @@
-// Potentiometer DataSchema:
-
 if (Meteor.isServer) {
-  // Insert database of bikes for first commit
-  // if (TimeSeries.find().count() === 0) {
-  //   console.log("Starting MongoDB with math!");
-  //   for (var i = 0; i < 10; i++) { // For 10 bikes
-  //     // simplified the initial process for faster initializatino on reset
-  //     // for (var YYYY = 2015; YYYY < 2017; YYYY++) { // For just one year
-  //     var YYYY = 2015;
-  //       // for (var MM = 0; MM < 30; MM++) { // 12 Months
-  //       var MM = 2;
-  //         // for (var DD = 0; DD < 30; DD++) { //  30 days ***need to correct for different length months**
-  //         var DD = 1;
-  //           var blank = {User: NaN, Lat: NaN, Long: NaN}; // create template for each timeseries data stored
-  //           var hourArray = [];
-  //           for (var countTime = 0; countTime < 60; countTime++) { // For 60 minutes in an hour
-  //             hourArray.push(blank); // create array of minutes in an hour
-  //           }
-  //           var dayArray = [];
-  //           for (var countTime = 0; countTime < 24; countTime++) { // For 24 hours in a day
-  //             dayArray.push(hourArray); // create array of hours in a day
-  //           }
-  //           TimeSeries.insert({
-  //             Bike: i,
-  //             YYYY: YYYY,
-  //             MM: MM,
-  //             DD: DD,
-  //             Time: dayArray
-  //           });
-  //         // }
-  //       // }
-  //     // }
-  //   }
-  // }
-
+  // Calculate current day of year without momentjs
+  // Copied from: http://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366
   var currentDay = (function() {
-    // Calculate current day of year without momentjs
-    // Copied from: http://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366
     var currentDay = new Date();
     var start = new Date(currentDay.getFullYear(), 0, 0);
     var diff = currentDay - start;
@@ -45,28 +10,51 @@ if (Meteor.isServer) {
     return day;
   });
 
-  // Insert database of bikes for first commit
+  // Calculate random GPS coordinates within campus
+  // console.log(randGPS().lng[1]);
+  var randGPS = (function() {
+    // Bottom Right: Latitude : 38.980296 | Longitude : -76.933479
+    // Bottom Left: Latitude : 38.982297 | Longitude : -76.957941
+    // Top Left: Latitude : 38.999109 | Longitude : -76.956053
+    // Top Right: Latitude : 39.003778 | Longitude : -76.932278
+    var latRand = [];  var lngRand = [];
+    var latTemp = NaN; var lngTemp = NaN;
+    for (var i = 1; i <= 25; i++) {
+      latTemp = 39.004 - Math.random();
+      lngTemp = -76.958 + Math.random();
+
+      while ((latTemp <= 38.980296) && (latTemp >= 39.003778)) {
+        latTemp = 39.004 - Math.random();
+      }
+
+      while ((lngTemp >= -76.932278) && (lngTemp <= -76.957941)) {
+        lngTemp = -76.958 + Math.random();
+      }
+      latRand.push(latTemp);
+      lngRand.push(lngTemp);
+    }
+
+    var randCoordinates = {lat: latRand, lng: lngRand};
+    return randCoordinates;
+  });
+
+  // Insert database of bikes if no data for today
   if (TimeSeries.find({day: currentDay()}).count() === 0) {
-    console.log(currentDay());
-    console.log("Starting TimeSeries data without moment!");
     for (var i = 1; i <= 10; i++) {
       var now = new Date().getTime();
-
       // create template for each timeseries data stored
-      var position = [];
-      var randomNow = NaN;
-      var blank = {};
+      var position = []; var randomNow = NaN; var blank = {};
       for (var countTime = 0; countTime < 15; countTime++) { // For 60 minutes in an hour
         randomNow = now*Math.random();
         blank = {User: NaN, timestamp: randomNow, Lat: NaN, Long: NaN};
         position.push(blank); // create array
       }
-
       TimeSeries.insert({
         bike: i,
         day: currentDay(),
         position: position
       });
+      console.log("Created TimeSeries dataschema without momentJS!");
     }
   }
 
