@@ -2,6 +2,10 @@ Meteor.publish("bikesData", function() {
   return Bikes.find();
 });
 
+Meteor.publish("SortTime", function() {
+  return SortTime.find();
+});
+
 Meteor.publish("timeseriesData", function() {
 
   var pipeline = [

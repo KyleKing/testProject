@@ -6,6 +6,7 @@ AdminBarChart = new Meteor.Collection('adminbarchart');
 AdminAreaChart = new Meteor.Collection('adminareachart');
 
 Information = new Meteor.Collection('information');
+SortTime = new Meteor.Collection('sortTime');
 
 // // package example
 // // Source: https://github.com/meteorhacks/meteor-aggregate/
@@ -52,18 +53,35 @@ Information = new Meteor.Collection('information');
 //     }}
 // )
 
-// // Testing sorting of array of documents
-// if (Meteor.isServer) {
-//   Meteor.methods({
-//     sortTime: function (num) {
-//       var pipeline = [
-//         { $group : { _id : "$position.timestamp", position: { $push: "$position.Lat" } } }
-//         // { $match: { bike: num} },
-//         // { $unwind: '$position' },
-//         // { $sort: {'position.timestamp': -1} }
-//         // { $out: "sortedTime" } // Not yet supported in Meteor
-//       ];
-//       var TestResult = TimeSeries.aggregate(pipeline);
-//     }
-//   });
-// }
+// Testing sorting of array of documents
+if (Meteor.isServer) {
+  Meteor.methods({
+    sortTime: function () {
+
+      var pipeline = [
+        { $match: {bike: 4} },
+        { $unwind: '$position' },
+        { $sort: {'position.timestamp': -1} },
+        { $group: {_id : "$bike", position: {$push: '$position'}} }
+      ];
+      var TestResult = TimeSeries.aggregate(pipeline);
+      // var pipeline = [
+      //   { $group : { _id : "$position.timestamp", position: { $push: "$position.Lat" } } }
+      //   // { $match: { bike: num} },
+      //   // { $unwind: '$position' },
+      //   // { $sort: {'position.timestamp': -1} }
+      //   // { $out: "sortedTime" } // Not yet supported in Meteor
+      // ];
+      // var TestResult = TimeSeries.aggregate(pipeline);
+
+      SortTime.insert({
+        email: 'Kyle@email.com',
+        meal: TestResult[0]._id,
+        data: 4,
+        lunch: 12
+      });
+      // On the console:
+      // SortTime.find({meal: 4}).fetch()[0]
+    }
+  });
+}
