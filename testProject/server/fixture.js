@@ -33,47 +33,47 @@ var randGPS = (function(max) {
   var randCoordinates = {lat: latRand, lng: lngRand};
   return randCoordinates;
 });
-// console.log(randGPS(25).lng[Math.round(25*Math.random())]);
+// console.log(randGPS(25).lng[Math.round(24*Math.random())]);
 
 var randNames = [
   'Katherina Damm',
-  NaN,
+  '',
   'Ronny Spake',
   'Debroah Armer',
-  NaN,
+  '',
   'June Wakeland',
   'Elfriede Senegal',
   'Isaias Cappello',
   'Kati Rosser',
   'Takisha Bynum',
-  NaN,
+  '',
   'Mafalda Kennett',
   'Britany Bartsch',
   'Roselee Sabourin',
-  NaN,
+  '',
   'Chelsie Vantassel',
   'Chaya Daley',
   'Luella Cordon',
   'Jamel Brekke',
-  NaN,
+  '',
   'Jonie Schoemaker',
   'Susannah Highfield',
   'Mitzi Brouwer',
-  NaN,
+  '',
   'Forrest Lazarus',
   'Dortha Dacanay',
   'Delinda Brouse',
   'Alyssa Castenada',
-  NaN,
+  '',
   'Carlo Poehler',
   'Cicely Rudder',
   'Lorraine Galban',
   'Trang Lenart',
   'Patrica Quirk',
-  NaN,
+  '',
   'Zackary Dedios',
-  NaN,
-  NaN,
+  '',
+  '',
   'Ursula Kennerly',
   'Shameka Flick',
   'President Loh'];
@@ -86,12 +86,17 @@ if (TimeSeries.find({day: currentDay()}).count() === 0) {
     var position = []; var randomNow = NaN; var blank = {};
     for (var countTime = 0; countTime < 15; countTime++) { // For 60 minutes in an hour
       randomNow = now*Math.random();
+      // console.log('i = ' + i);
+      var namePoint = Math.round((randNames.length-1)*Math.random());
+      // console.log('namePoint = ' + namePoint);
+      var randGPSPoint = Math.round(1*Math.random());
       blank = {
-        User: randNames[Math.round((randNames.length-1)*Math.random())],
+        User: randNames[namePoint],
         timestamp: randomNow,
-        Lat: randGPS(1).lat[Math.round(1*Math.random())],
-        Lng: randGPS(1).lng[Math.round(1*Math.random())]
+        Lat: randGPS(2).lat[randGPSPoint],
+        Lng: randGPS(2).lng[randGPSPoint]
       };
+      // console.log('name = ' + blank.User);
       position.push(blank); // create array
     }
     TimeSeries.insert({

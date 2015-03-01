@@ -1,0 +1,29 @@
+template(name="chartsAdmin")
+    //- p These are examples for the Meteor package <a href="https://github.com/MaazAli/Meteor-HighCharts">Meteor-HighCharts</a>
+    .dataFacts
+        .Quick-Info
+            h2 &nbsp;
+            h2 You are a great manager!
+            h4 Get some insights!
+            p Click and hover on the legend and on the graph to see additional insight.
+        +pieDemo
+        +pieDemoUsers
+    h1 &nbsp;
+    .dataFacts
+        +columnDemo
+    h1 &nbsp;
+    .dataFacts
+        +areaDemo
+        //- p  http://www.highcharts.com/demo/arearange
+
+template(name="pieDemo")
+    #container-pie.threeColumnChart
+
+template(name="pieDemoUsers")
+    #container-pie-users.threeColumnChart
+
+template(name="columnDemo")
+    #container-column
+
+template(name="areaDemo")
+    #container-area(style="min-width: 310px; height: 300px")
