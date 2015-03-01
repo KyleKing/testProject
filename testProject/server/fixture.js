@@ -102,7 +102,7 @@ if (TimeSeries.find({day: currentDay()}).count() === 0) {
     TimeSeries.insert({
       bike: i,
       day: currentDay(),
-      position: position
+      positions: position
     });
   }
   console.log("Created TimeSeries dataschema");

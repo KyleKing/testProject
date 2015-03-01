@@ -7,6 +7,8 @@ AdminAreaChart = new Meteor.Collection('adminareachart');
 
 Information = new Meteor.Collection('information');
 SortTime = new Meteor.Collection('sortTime');
+TestUsers = new Meteor.Collection('testUsers');
+
 
 // // package example
 // // Source: https://github.com/meteorhacks/meteor-aggregate/
@@ -45,11 +47,11 @@ SortTime = new Meteor.Collection('sortTime');
 //     }},
 
 //     // Expand the scores array into a stream of documents
-//     { $unwind: '$position' },
+//     { $unwind: '$positions' },
 
 //     // Sort in descending order
 //     { $sort: {
-//         'position.timestamp': -1
+//         'positions.timestamp': -1
 //     }}
 // )
 
@@ -60,16 +62,16 @@ if (Meteor.isServer) {
 
       var pipeline = [
         { $match: {bike: 4} },
-        { $unwind: '$position' },
-        { $sort: {'position.timestamp': -1} },
-        { $group: {_id : "$bike", position: {$push: '$position'}} }
+        { $unwind: '$positions' },
+        { $sort: {'positions.timestamp': -1} },
+        { $group: {_id : "$bike", positions: {$push: '$positions'}} }
       ];
       var TestResult = TimeSeries.aggregate(pipeline);
       // var pipeline = [
-      //   { $group : { _id : "$position.timestamp", position: { $push: "$position.Lat" } } }
+      //   { $group : { _id : "$positions.timestamp", positions: { $push: "$positions.Lat" } } }
       //   // { $match: { bike: num} },
-      //   // { $unwind: '$position' },
-      //   // { $sort: {'position.timestamp': -1} }
+      //   // { $unwind: '$positions' },
+      //   // { $sort: {'positions.timestamp': -1} }
       //   // { $out: "sortedTime" } // Not yet supported in Meteor
       // ];
       // var TestResult = TimeSeries.aggregate(pipeline);
@@ -84,4 +86,34 @@ if (Meteor.isServer) {
       // SortTime.find({meal: 4}).fetch()[0]
     }
   });
+
+//   Meteor.methods({
+//     eachBike: function () {
+//       for (var BikeNum = 1; BikeNum <= 10; BikeNum++) {
+//         var pipeline = [
+//           { $match: {bike: num} },
+//           { $unwind: '$positions' },
+//           // { $sort: {'positions.User': -1} },
+//           { $group: {_id : "$positions.User", positions: {$push: '$positions'}} }
+//         ];
+//         var TestResult = TimeSeries.aggregate(pipeline);
+//         // var pipeline = [
+//         //   { $group : { _id : "$positions.timestamp", positions: { $push: "$positions.Lat" } } }
+//         //   // { $match: { bike: num} },
+//         //   // { $unwind: '$positions' },
+//         //   // { $sort: {'positions.timestamp': -1} }
+//         //   // { $out: "sortedTime" } // Not yet supported in Meteor
+//         // ];
+//         // var TestResult = TimeSeries.aggregate(pipeline);
+
+//         TestUsers.insert({
+//           email: 'Kyle@email.com',
+//           meal: TestResult[0]._id,
+//           data: 4
+//         });
+//         // On the console:
+//         // TestUsers.find({meal: 4}).fetch()[0]
+//       }
+//     }
+//   });
 }
