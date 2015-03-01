@@ -99,8 +99,8 @@ if (TimeSeries.find({day: currentDay()}).count() === 0) {
       day: currentDay(),
       position: position
     });
-    console.log("Created TimeSeries dataschema without momentJS!");
   }
+  console.log("Created TimeSeries dataschema");
 }
 
 if (Current.find().count() === 0) {
