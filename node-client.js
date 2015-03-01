@@ -1,8 +1,8 @@
 // Name serial port - there should be a smarter way to do this, but this seems easiest
 // var currentPort = "/dev/ttyACM0"; // A PC serial port
-var currentPort = "/dev/cu.usbmodem" + "1411"; // direct left port
+// var currentPort = "/dev/cu.usbmodem" + "1411"; // direct left port
 // var currentPort = "/dev/cu.usbmodem" + "1421"; // direct right port
-// var currentPort = "/dev/cu.usbmodem" + "14211"; // indirect right port: closest to aux power
+var currentPort = "/dev/cu.usbmodem" + "14211"; // indirect right port: closest to aux power
 
 var DDPClient = require("ddp");
 var moment = require('moment');
@@ -85,6 +85,8 @@ ddpclient.connect(function(error) {
       countError++;
     }
 
+    cleanArray[10] = (new Date()).getTime();
+
     var dataSet = {
       User: "Kyle",
       BikeNumber: cleanArray[0],
@@ -96,19 +98,25 @@ ddpclient.connect(function(error) {
       timeHH: cleanArray[6],
       timeDD: cleanArray[7],
       timeMM: cleanArray[8],
-      timeYYYY: cleanArray[9]
+      timeYYYY: cleanArray[9],
+      x: cleanArray[10]
     };
 
     if (countError === 0) { // no number errors
       // Call Meteor actions with "data"
-      ddpclient.call('loop', [dataSet, schema], function(err, result) {
+      // ddpclient.call('loop', [dataSet, schema], function(err, result) {
+      //   console.log('data sent: ' + cleanArray);
+      //   console.log('called Loop function, result: ' + result);
+      //   console.log(' ');
+      // });
+      // ddpclient.call('current', [dataSet, schema], function(err, result) {
+      //   console.log('data sent: ' + cleanArray);
+      //   console.log('called Current function, result: ' + result);
+      //   console.log(' ');
+      // });
+      ddpclient.call('chart', [dataSet], function(err, result) {
         console.log('data sent: ' + cleanArray);
-        console.log('called Loop function, result: ' + result);
-        console.log(' ');
-      });
-      ddpclient.call('current', [dataSet, schema], function(err, result) {
-        console.log('data sent: ' + cleanArray);
-        console.log('called Current function, result: ' + result);
+        console.log('called chart function, result: ' + result);
         console.log(' ');
       });
     }

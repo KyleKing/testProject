@@ -1,12 +1,25 @@
 /*
  * Function to draw the area chart
  */
-function builtArea() {
+function builtArea(BarData) {
 
     $('#container-area').highcharts({
 
         chart: {
-            type: 'area'
+            type: 'area',
+            animation: Highcharts.svg, // don't animate in old IE
+            // events: {
+            //         load: function () {
+
+            //             // set up the updating of the chart each second
+            //             var series = this.series[0];
+            //             setInterval(function () {
+            //                 var x = (new Date()).getTime(), // current time
+            //                     y = Math.random();
+            //                 series.addPoint([x, y], true, true);
+            //             }, 1000);
+            //         }
+            //     }
         },
 
         title: {
@@ -85,6 +98,7 @@ function builtArea() {
         //     }
         // },
 
+        // series: BarData
         series: [{
             name: 'Bikes Ridden',
             data: [600, 650, 700, 450, 300, 200, 100, 90, 350, 450, 700, 900]
@@ -98,6 +112,23 @@ function builtArea() {
 /*
  * Call the function to built the chart when the template is rendered
  */
-Template.areaDemo.rendered = function() {
-    builtArea();
-}
+//  if(Meteor.isClient) {
+//     Meteor.subscribe("AdminAreaChartData");
+// }
+
+// if(Meteor.isClient) {
+//     Session.set("current_channel", "cool_people_channel");
+
+//     Meteor.autorun(function() {
+//         Meteor.subscribe("messages", Session.get("current_channel"));
+//     });
+// }
+
+Template.areaDemo.created = function() {
+    return Meteor.subscribe("AdminAreaChartData", function() {
+        if (Meteor.isClient) {
+            // console.log(BarData);
+            builtArea();
+        }
+    });
+};
