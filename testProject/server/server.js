@@ -13,7 +13,7 @@ Meteor.publish("timeseriesData", function() {
   // console.log(TestResult);
 
   // information needs to be the lowercase version from the collection, not the Meteor version
-  this.added('information', Random.id(), {email: 'Kyle@email.com', userId: this.userId, data: TestResult._id });
+  this.added('information', Random.id(), {email: 'Kyle@email.com', userId: this.userId, data: TestResult[0]._id });
 });
 
 Meteor.publish("currentData", function() {
