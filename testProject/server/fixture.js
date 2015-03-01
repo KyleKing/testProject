@@ -1,42 +1,40 @@
 if (Meteor.isServer) {
   // Calculate current day of year without momentjs
-  // Copied from: http://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366
+    // Copied from: http://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366
   var currentDay = (function() {
-    var currentDay = new Date();
-    var start = new Date(currentDay.getFullYear(), 0, 0);
-    var diff = currentDay - start;
+    var dateFunc = new Date();
+    var start = new Date(dateFunc.getFullYear(), 0, 0);
+    var diff = dateFunc - start;
     var oneDay = 1000 * 60 * 60 * 24;
     var day = Math.floor(diff / oneDay);
     return day;
   });
 
   // Calculate random GPS coordinates within campus
-  // console.log(randGPS().lng[1]);
-  var randGPS = (function() {
     // Bottom Right: Latitude : 38.980296 | Longitude : -76.933479
     // Bottom Left: Latitude : 38.982297 | Longitude : -76.957941
     // Top Left: Latitude : 38.999109 | Longitude : -76.956053
     // Top Right: Latitude : 39.003778 | Longitude : -76.932278
+  var randGPS = (function(max) {
+    // Create empty variables
     var latRand = [];  var lngRand = [];
     var latTemp = NaN; var lngTemp = NaN;
-    for (var i = 1; i <= 25; i++) {
+    // Calculate a given number of random GPS locations (max)
+    for (var i = 1; i <= max; i++) {
       latTemp = 39.004 - Math.random();
       lngTemp = -76.958 + Math.random();
-
-      while ((latTemp <= 38.980296) && (latTemp >= 39.003778)) {
-        latTemp = 39.004 - Math.random();
-      }
-
-      while ((lngTemp >= -76.932278) && (lngTemp <= -76.957941)) {
-        lngTemp = -76.958 + Math.random();
-      }
+      // Confine to given area
+      while ((latTemp <= 38.980296) && (latTemp >= 39.003778)) { latTemp = 39.004 - Math.random(); }
+      while ((lngTemp >= -76.932278) && (lngTemp <= -76.957941)) { lngTemp = -76.958 + Math.random(); }
+      // Store in array
       latRand.push(latTemp);
       lngRand.push(lngTemp);
     }
-
+    // Save in object to return
     var randCoordinates = {lat: latRand, lng: lngRand};
     return randCoordinates;
   });
+  // console.log(randGPS(25).lng[Math.round(25*Math.random())]);
 
   // Insert database of bikes if no data for today
   if (TimeSeries.find({day: currentDay()}).count() === 0) {
@@ -46,7 +44,12 @@ if (Meteor.isServer) {
       var position = []; var randomNow = NaN; var blank = {};
       for (var countTime = 0; countTime < 15; countTime++) { // For 60 minutes in an hour
         randomNow = now*Math.random();
-        blank = {User: NaN, timestamp: randomNow, Lat: NaN, Long: NaN};
+        blank = {
+          User: NaN,
+          timestamp: randomNow,
+          Lat: randGPS(1).lat[Math.round(1*Math.random())],
+          Lng: randGPS(1).lng[Math.round(1*Math.random())]
+        };
         position.push(blank); // create array
       }
       TimeSeries.insert({
