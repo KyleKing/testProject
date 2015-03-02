@@ -101,6 +101,7 @@ if (TimeSeries.find({day: currentDay()}).count() === 0) {
     }
     TimeSeries.insert({
       bike: i,
+      status: (Math.round(0.65*Math.random()) === 0 ? 'Fine' : 'Bad'),
       day: currentDay(),
       positions: position
     });

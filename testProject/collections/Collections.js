@@ -19,7 +19,7 @@ if (Meteor.isServer) {
         { $sort: {'positions.timestamp': -1} },
         { $group: {_id : "$bike", positions: {$push: '$positions'}} }
       ];
-      var TestResult = TimeSeries.aggregate(pipeline);
+      var Bike = TimeSeries.aggregate(pipeline);
       // var pipeline = [
       //   { $group : { _id : "$positions.timestamp", positions: { $push: "$positions.Lat" } } }
       //   // { $match: { bike: num} },
@@ -27,11 +27,11 @@ if (Meteor.isServer) {
       //   // { $sort: {'positions.timestamp': -1} }
       //   // { $out: "sortedTime" } // Not yet supported in Meteor
       // ];
-      // var TestResult = TimeSeries.aggregate(pipeline);
+      // var Bike = TimeSeries.aggregate(pipeline);
 
       SortTime.insert({
         email: 'Kyle@email.com',
-        meal: TestResult[0]._id,
+        meal: Bike[0]._id,
         data: 4,
         lunch: 12
       });
@@ -43,34 +43,38 @@ if (Meteor.isServer) {
   Meteor.methods({
     eachBike: function () {
       for (var BikeNum = 1; BikeNum <= 10; BikeNum++) {
-        var TestResults = TimeSeries.aggregate([
+        var Bikes = TimeSeries.aggregate([
           { $match: {bike: BikeNum} },
           { $unwind: '$positions' },
           { $sort: {'positions.timestamp': 1} },
           { $group: {_id : "$positions.User", positions: {$push: '$positions'} } }
         ]);
-        // console.log(TestResults);
+        // console.log(Bikes);
 
-        _(TestResults).each(function(testResult) {
-          if (testResult._id) { // Ignore blank strings (i.e. no user)
-            var record = TestUsers.findOne({User: testResult._id});
-            var positionsData = [];
-            _(testResult.positions).each(function(position) {
+        _(Bikes).each(function(Bike) {
+          if (Bike._id) { // Ignore blank strings (i.e. no user)
+            var record = TestUsers.findOne({User: Bike._id});
+            var positionsData = []; var rides = 0;
+            _(Bike.positions).each(function(position) {
               positionsData.push({bike: BikeNum, timestamp: position.timestamp,  User: position.User, Lat: position.Lat, Lng: position.Lng});
+              rides = rides + 1;
             });
             if (!record) {
               TestUsers.insert({
-                User: testResult._id,
+                User: Bike._id,
+                rides: rides,
                 positions: positionsData
-                // positions: testResult.positions
+                // positions: Bike.positions
               });
             } else {
-              _(testResult.positions).each(function(position) {
+              _(Bike.positions).each(function(position) {
                 if (!TestUsers.findOne({'positions.timestamp': position.timestamp})) {
                   positionsData = {bike: BikeNum, timestamp: position.timestamp,  User: position.User, Lat: position.Lat, Lng: position.Lng};
                   TestUsers.update(
-                    record,
-                    { $addToSet: {positions: positionsData} }
+                    record, {
+                      $addToSet: {positions: positionsData},
+                      $inc: {rides: 1}
+                    }
                   );
                 }
               });
