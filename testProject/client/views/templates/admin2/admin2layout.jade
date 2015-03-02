@@ -4,12 +4,14 @@ template(name='admin2layout')
     table.data-set
       //- Per user history
       tr
+        td bike
         td timestamp
         td User
         td Lat
         td Lng
       each admin2layout.positions
         tr
+          td #{bike}
           td #{timestamp}
           td #{User}
           td #{Lat}
@@ -19,13 +21,11 @@ template(name='admin2layout')
       //- Labels Row
       tr
         td ID
-        td Bike
         td User
         td &nbsp;
       each admin2layout
         tr
           td #{_id}
-          td #{bike}
           td #{User}
           td
             button.seeMore See More

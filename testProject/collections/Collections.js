@@ -54,18 +54,23 @@ if (Meteor.isServer) {
         _(TestResults).each(function(testResult) {
           if (testResult._id) { // Ignore blank strings (i.e. no user)
             var record = TestUsers.findOne({User: testResult._id});
+            var positionsData = [];
+            _(testResult.positions).each(function(position) {
+              positionsData.push({bike: BikeNum, timestamp: position.timestamp,  User: position.User, Lat: position.Lat, Lng: position.Lng});
+            });
             if (!record) {
               TestUsers.insert({
-                bike: BikeNum,
                 User: testResult._id,
-                positions: testResult.positions
+                positions: positionsData
+                // positions: testResult.positions
               });
             } else {
               _(testResult.positions).each(function(position) {
                 if (!TestUsers.findOne({'positions.timestamp': position.timestamp})) {
+                  positionsData = {bike: BikeNum, timestamp: position.timestamp,  User: position.User, Lat: position.Lat, Lng: position.Lng};
                   TestUsers.update(
                     record,
-                    { $push: {positions: position} }
+                    { $addToSet: {positions: positionsData} }
                   );
                 }
               });
