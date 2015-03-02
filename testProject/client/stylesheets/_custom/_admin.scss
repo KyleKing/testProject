@@ -19,12 +19,6 @@
     .Quick-Info {
       @include admin_chart_scaling(3, 1);
     }
-    // #container-pie {
-    //   @include admin_chart_scaling(3, 1);
-    // }
-    // #container-pie-users {
-    //   @include admin_chart_scaling(3, 1);
-    // }
     #container-column {
       @include admin_chart_scaling(12, 3);
     }

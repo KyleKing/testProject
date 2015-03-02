@@ -2,13 +2,14 @@ Meteor.publish("bikesData", function() {
   return Bikes.find();
 });
 
-Meteor.publish("SortTime", function() {
-  return SortTime.find();
-});
 
+Meteor.publish("timeseriesData", function() {
+  return TimeSeries.find();
+});
 Meteor.publish("TestUsersData", function() {
   return TestUsers.find();
 });
+
 
 // Meteor.publish('previousInviteContacts', function() {
 //   contacts = Events.aggregate([
@@ -27,11 +28,6 @@ Meteor.publish("TestUsersData", function() {
 //   });
 // });
 
-Meteor.publish("timeseriesData", function() {
-  return TimeSeries.find();
-});
-
-
 Meteor.publish("informationTestData", function() {
   var pipeline = [
     { $match: {bike: 4} },
@@ -48,6 +44,10 @@ Meteor.publish("informationTestData", function() {
   // information needs to be the lowercase version from the collection, not the Meteor version
   this.added('information', Random.id(), {email: 'Kyle@email.com', userId: this.userId, data: TestResult[0]._id });
 });
+Meteor.publish("SortTime", function() {
+  return SortTime.find();
+});
+
 
 Meteor.publish("currentData", function() {
   return Current.find();

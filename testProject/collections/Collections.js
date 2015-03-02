@@ -56,7 +56,6 @@ if (Meteor.isServer) {
             if (!TestUsers.findOne({User: testResult._id})) {
               TestUsers.insert({
                 bike: BikeNum,
-                day: 60,
                 User: testResult._id,
                 positions: testResult.positions
               });
@@ -66,4 +65,5 @@ if (Meteor.isServer) {
       }
     }
   });
+
 }
