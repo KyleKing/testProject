@@ -1,1 +1,27 @@
 template(name='admin3layout')
+  button.seeLess See Less
+  if ViewUsersFunc
+    table.data-set
+      //- Per user history
+      tr
+        td timestamp
+        td User
+        td Lat
+        td Lng
+      each admin3layout.positions
+        tr
+          td #{timestamp}
+          td #{User}
+          td #{Lat}
+          td #{Lng}
+  else
+    table.data-set
+      //- Labels Row
+      tr
+        td bike
+        td &nbsp;
+      each admin3layout
+        tr
+          td #{bike}
+          td
+            button.seeMore See More
