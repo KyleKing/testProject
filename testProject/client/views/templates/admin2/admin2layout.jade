@@ -1,1 +1,29 @@
 template(name='admin2layout')
+  table.data-set
+    //- Labels Row
+    tr
+      td ID
+      td Bike
+      td User
+      td &nbsp;
+    each admin2layout
+      tr
+        td #{_id}
+        td #{bike}
+        td #{User}
+        td
+          button See More
+  //- Per user history
+  //- table.data-set
+  //-   //- Labels Row
+  //-   tr
+  //-     td timestamp
+  //-     td User
+  //-     td Lat
+  //-     td Lng
+  //-   each admin2layout.positions
+  //-     tr
+  //-       td #{timestamp}
+  //-       td #{User}
+  //-       td #{Lat}
+  //-       td #{Lng}
