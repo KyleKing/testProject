@@ -7,32 +7,6 @@ Template.admin3layout.created = function() {
   Session.set('ViewUsers', 0);
 };
 
-// Use UI.registerHelper..
-UI.registerHelper("formatDate", function(datetime, format) {
-  var DateFormats = {
-         short: "YYYY, MM, DD",
-         // short: "DD MMMM - YYYY",
-         long: "dddd DD.MM.YYYY HH:mm"
-  };
-  if (moment) {
-    // can use other formats like 'lll' too
-    format = DateFormats[format] || format;
-    return moment(datetime).format(format);
-  }
-  else {
-    return datetime;
-  }
-});
-
-// Try sorting in JS?
-// var sorted = function (arr) {
-//   var cloned = arr.slice(0);
-//   cloned.sort(); // sort in-place
-//   if (!ascending.get())
-//     cloned.reverse(); // reverse in-place
-//   return cloned;
-// };
-
 Template.admin3layout.helpers({
   admin3layout: function () {
     // Used for testing and direct access to second page

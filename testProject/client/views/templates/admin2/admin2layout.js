@@ -7,10 +7,13 @@ Template.admin2layout.created = function() {
 };
 
 // Use UI.registerHelper..
+// Copied fromL http://stackoverflow.com/questions/18580495/format-a-date-from-inside-a-handlebars-template-in-meteor
 UI.registerHelper("formatDate", function(datetime, format) {
   var DateFormats = {
-         short: "DD MMMM - YYYY",
-         long: "dddd DD.MM.YYYY HH:mm"
+    short: 'H:m a - MMM D, YYYY',
+    // short: "DD MMMM - YYYY",
+    long: 'H:m:s a - MMM D, YYYY'
+    // long: "dddd DD.MM.YYYY HH:mm"
   };
   if (moment) {
     // can use other formats like 'lll' too
@@ -30,7 +33,8 @@ Template.admin2layout.helpers({
     } else {
       // Return only the clicked user:
       // return TestUsers.find({bike: 7}).fetch()[0]; // (i.e. findOne)
-      return TestUsers.findOne({_id: Session.get('ViewUsers')});
+      var userData = TestUsers.findOne({_id: Session.get('ViewUsers')}).positions;
+      return _.sortBy(userData, "timestamp");
     }
   },
   // Determing which view to return (true = all, false = single user)
