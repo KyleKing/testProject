@@ -9,7 +9,8 @@ Template.admin3layout.created = function() {
 // Use UI.registerHelper..
 UI.registerHelper("formatDate", function(datetime, format) {
   var DateFormats = {
-         short: "DD MMMM - YYYY",
+         short: "YYYY, MM, DD",
+         // short: "DD MMMM - YYYY",
          long: "dddd DD.MM.YYYY HH:mm"
   };
   if (moment) {
@@ -32,7 +33,7 @@ Template.admin3layout.helpers({
     } else {
       // Return only the clicked bike:
       return TimeSeries.findOne({_id: Session.get('ViewUsers')}).positions;
-      // .sort({timestamp: -1});
+      // .sort({'timestamp': 1});
     }
   },
   // Determing which view to return (true = all, false = single user)
