@@ -6,6 +6,22 @@ Template.admin2layout.created = function() {
   Session.set('ViewUsers', 0);
 };
 
+// Use UI.registerHelper..
+UI.registerHelper("formatDate", function(datetime, format) {
+  var DateFormats = {
+         short: "DD MMMM - YYYY",
+         long: "dddd DD.MM.YYYY HH:mm"
+  };
+  if (moment) {
+    // can use other formats like 'lll' too
+    format = DateFormats[format] || format;
+    return moment(datetime).format(format);
+  }
+  else {
+    return datetime;
+  }
+});
+
 Template.admin2layout.helpers({
   admin2layout: function () {
     // Return all users in system

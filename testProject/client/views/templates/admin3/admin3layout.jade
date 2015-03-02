@@ -8,9 +8,10 @@ template(name='admin3layout')
         td User
         td Lat
         td Lng
-      each admin3layout.positions
+      each admin3layout
         tr
-          td #{timestamp}
+          td {{formatDate timestamp "short"}}
+            //- Only works with {{ }} and not #{}
           td #{User}
           td #{Lat}
           td #{Lng}

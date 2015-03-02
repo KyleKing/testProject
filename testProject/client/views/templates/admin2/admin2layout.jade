@@ -12,7 +12,8 @@ template(name='admin2layout')
       each admin2layout.positions
         tr
           td #{bike}
-          td #{timestamp}
+          td {{formatDate timestamp "short"}}
+          //- td #{timestamp}
           td #{User}
           td #{Lat}
           td #{Lng}
