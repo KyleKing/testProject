@@ -2,7 +2,7 @@ Meteor.subscribe("TestUsersData");
 Meteor.call('eachBike');
 
 Template.admin2layout.created = function() {
-  console.log("Created!");
+  // Default to all users view
   Session.set('ViewUsers', 0);
 };
 
