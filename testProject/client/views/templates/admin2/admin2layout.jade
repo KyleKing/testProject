@@ -1,5 +1,6 @@
 template(name='admin2layout')
-  button.seeLess See Less
+  if ViewUsersFunc
+    button.seeLess See Less
   if ViewUsersFunc
     table.data-set
       //- Per user history
