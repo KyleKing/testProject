@@ -9,6 +9,21 @@ Meteor.publish("timeseriesData", function() {
 Meteor.publish("TestUsersData", function() {
   return TestUsers.find();
 });
+// Meteor.publish("TestUserDataSorted", function() {
+//   var TestResult = TimeSeries.aggregate([
+//     { $match: {bike: 4} },
+//     { $unwind: '$positions' },
+//     { $sort: {'positions.timestamp': -1} },
+//     { $group: {_id : "$bike", positions: {$push: '$positions'}} }
+//   ]);
+//   // console.log(TestResult[0].positions);
+//   // _(TestResult[0].positions).each(function(eachSelf){
+//   //   console.log('_each: ' + eachSelf.timestamp);
+//   // });
+
+//   // information needs to be the lowercase version from the collection, not the Meteor version
+//   this.added('testUsers', Random.id(), {sort: true, data: TestResult[0]._id });
+// });
 
 
 // Meteor.publish('previousInviteContacts', function() {
@@ -44,6 +59,7 @@ Meteor.publish("informationTestData", function() {
   // information needs to be the lowercase version from the collection, not the Meteor version
   this.added('information', Random.id(), {email: 'Kyle@email.com', userId: this.userId, data: TestResult[0]._id });
 });
+
 Meteor.publish("SortTime", function() {
   return SortTime.find();
 });

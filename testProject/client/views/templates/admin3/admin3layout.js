@@ -1,5 +1,6 @@
 Meteor.subscribe("TestUsersData");
 Meteor.call('eachBike');
+// Meteor.subscribe("TestUsersDataSorted");
 
 Template.admin3layout.created = function() {
   // Default to all users view
@@ -23,6 +24,15 @@ UI.registerHelper("formatDate", function(datetime, format) {
   }
 });
 
+// Try sorting in JS?
+// var sorted = function (arr) {
+//   var cloned = arr.slice(0);
+//   cloned.sort(); // sort in-place
+//   if (!ascending.get())
+//     cloned.reverse(); // reverse in-place
+//   return cloned;
+// };
+
 Template.admin3layout.helpers({
   admin3layout: function () {
     // Used for testing and direct access to second page
@@ -32,8 +42,8 @@ Template.admin3layout.helpers({
       return TimeSeries.find().fetch();
     } else {
       // Return only the clicked bike:
-      return TimeSeries.findOne({_id: Session.get('ViewUsers')}).positions;
-      // .sort({'timestamp': 1});
+      var bikeData = TimeSeries.findOne({_id: Session.get('ViewUsers')}).positions;
+      return _.sortBy(bikeData, "timestamp");
     }
   },
   // Determing which view to return (true = all, false = single user)
