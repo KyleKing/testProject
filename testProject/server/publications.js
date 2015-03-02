@@ -6,6 +6,10 @@ Meteor.publish("SortTime", function() {
   return SortTime.find();
 });
 
+Meteor.publish("TestUsersData", function() {
+  return TestUsers.find();
+});
+
 // Meteor.publish('previousInviteContacts', function() {
 //   contacts = Events.aggregate([
 //       {$match: {creatorId: this.userId}},
@@ -31,13 +35,13 @@ Meteor.publish("timeseriesData", function() {
 Meteor.publish("informationTestData", function() {
   var pipeline = [
     { $match: {bike: 4} },
-    { $unwind: '$position' },
-    { $sort: {'position.timestamp': -1} },
-    { $group: {_id : "$bike", position: {$push: '$position'}} }
+    { $unwind: '$positions' },
+    { $sort: {'positions.timestamp': -1} },
+    { $group: {_id : "$bike", positions: {$push: '$positions'}} }
   ];
   var TestResult = TimeSeries.aggregate(pipeline);
-  // console.log(TestResult[0].position);
-  // _(TestResult[0].position).each(function(eachSelf){
+  // console.log(TestResult[0].positions);
+  // _(TestResult[0].positions).each(function(eachSelf){
   //   console.log('_each: ' + eachSelf.timestamp);
   // });
 
