@@ -10,6 +10,7 @@ Template.admin2layout.created = function() {
 // Copied fromL http://stackoverflow.com/questions/18580495/format-a-date-from-inside-a-handlebars-template-in-meteor
 UI.registerHelper("formatDate", function(datetime, format) {
   var DateFormats = {
+    shortest: 'MMM D, YYYY',
     short: 'hh:mm a - MMM D, YYYY',
     // short: "DD MMMM - YYYY",
     long: 'H:m:s a - MMM D, YYYY'

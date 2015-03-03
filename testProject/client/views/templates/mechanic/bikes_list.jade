@@ -2,18 +2,22 @@ template(name='bikesList')
   table.data-set
     //- Labels Row
     tr
-      td bike
+      td timestamp
       td status
-      td Needs
-      td Repaired on
-      td.pos Lat
-      td.pos Lng
+      td mechanicNotes
+      td partslist
+      td mechanic
+      td role
+      td.pos lat
+      td.pos lng
     //- Actual Bike Data
     each bikes
       tr
-        td #{bike}
+        td {{formatDate timestamp "shortest"}}
         td #{status}
-        td #{needs}
-        td #{repaired}
-        td.pos #{Lat}
-        td.pos #{Lng}
+        td #{mechanicNotes}
+        td #{partslist}
+        td #{mechanic}
+        td #{role}
+        td.pos #{lat}
+        td.pos #{lng}

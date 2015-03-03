@@ -1,5 +1,4 @@
 var totalBikeCount = 15;
-var status = ['Waiting for Repair', 'Scrap', 'Fixed', 'Circulating', 'In Use'];
 
 // Calculate current day of year without momentjs
   // Copied from: http://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366
@@ -38,47 +37,7 @@ var randGPS = (function(max) {
 });
 // console.log(randGPS(25).lng[Math.round(24*Math.random())]);
 
-var partslist = [
-  'Bottom Bracket',
-  'Stacks of cash',
-  'Stem post',
-  'Handlebar' ];
-
-var mechanicNotes = [
-  'Broken spokes, all of them',
-  'Flat tire',
-  'Broken stem',
-  'Broken seatpost, someone was too heavy',
-  'Tuneup',
-  'Tuneup',
-  'Tuneup',
-  'Tuneup',
-  'Tuneup',
-  'Tuneup',
-  'Tuneup',
-  'Tuneup',
-  'Tuneup',
-  'Tuneup',
-  'Tuneup',
-  'Built from box',
-  'Built from box' ];
-
-var mechanic = {
-  name: [
-    'Erlene Pettit',
-    'Ingrid Carney',
-    'Cassondra Chau',
-    'Katharina Pearce',
-    'Thomasina Dye',
-    'Melda Miranda',
-    'Doretha Bayne',
-    'Ester Newkirk',
-    'Wynell Rosa',
-    'Chadwick Slade' ],
-  role: [
-    'Administrator',
-    'mechanic'
-  ]};
+var status = ['Waiting for Repair', 'Scrap', 'Fixed', 'Circulating', 'In Use'];
 
 var randNames = [
   'Katherina Damm',
@@ -154,6 +113,48 @@ if (TimeSeries.find({day: currentDay()}).count() === 0) {
   console.log("Created TimeSeries dataschema");
 }
 
+var partslist = [
+  'Bottom Bracket',
+  'Stacks of cash',
+  'Stem post',
+  'Handlebar' ];
+
+var mechanicNotes = [
+  'Broken spokes, all of them',
+  'Flat tire',
+  'Broken stem',
+  'Broken seatpost, someone was too heavy',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Built from box',
+  'Built from box' ];
+
+var mechanic = {
+  name: [
+    'Erlene Pettit',
+    'Ingrid Carney',
+    'Cassondra Chau',
+    'Katharina Pearce',
+    'Thomasina Dye',
+    'Melda Miranda',
+    'Doretha Bayne',
+    'Ester Newkirk',
+    'Wynell Rosa',
+    'Chadwick Slade' ],
+  role: [
+    'Administrator',
+    'mechanic'
+  ]};
+
 // Insert database of bikes if no data for today
 if (Bikes.find({month: currentDay()}).count() === 0) {
   for (var i = 1; i <= totalBikeCount; i++) {
@@ -164,10 +165,10 @@ if (Bikes.find({month: currentDay()}).count() === 0) {
       randomNow = now*Math.random();
       var randGPSPoint = Math.round(1*Math.random());
       blank = {
-        status: status[_.random(0,status.length)],
-        mechanicNotes: mechanicNotes[_.random(0,mechanicNotes.length)],
-        partslist: partslist[_.random(0,partslist.length)],
-        mechanic: mechanic.name[_.random(0,10)],
+        status: status[_.random(0,status.length - 1)],
+        mechanicNotes: mechanicNotes[_.random(0,mechanicNotes.length - 1)],
+        partslist: partslist[_.random(0,partslist.length - 1)],
+        mechanic: mechanic.name[_.random(0,9)],
         role: (Math.round(0.65*Math.random()) === 1 ? 'Administrator' : 'Mechanic'),
         timestamp: randomNow,
         lat: randGPS(2).lat[randGPSPoint],
