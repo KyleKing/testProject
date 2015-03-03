@@ -1,4 +1,4 @@
-var totalBikeCount = 15;
+var totalBikeCount = 85;
 
 // Calculate current day of year without momentjs
   // Copied from: http://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366
@@ -10,6 +10,8 @@ var currentDay = (function() {
   var day = Math.floor(diff / oneDay);
   return day;
 });
+
+var now = new Date().getTime();
 
   // Bottom Right: Latitude : 38.980296 | Longitude : -76.933479
   // Bottom Left: Latitude : 38.982297 | Longitude : -76.957941
@@ -32,8 +34,6 @@ var randGPS = (function(max) {
   return randCoordinates;
 });
 // console.log(randGPS(25).lng[Math.round(24*Math.random())]);
-
-var status = ['Waiting for Repair', 'Scrap', 'Fixed', 'Circulating', 'In Use'];
 
 var randNames = [
   'Anastasia Romanoff',
@@ -81,11 +81,10 @@ var randNames = [
 // Insert database of bikes if no data for today
 if (TimeSeries.find({day: currentDay()}).count() === 0) {
   for (var i = 1; i <= totalBikeCount; i++) {
-    var now = new Date().getTime();
     // create template for each timeseries data stored
     var position = []; var randomNow = NaN; var blank = {};
-    for (var countTime = 0; countTime < 15; countTime++) { // For 60 minutes in an hour
-      randomNow = now*Math.random();
+    for (var countTime = 0; countTime < 30; countTime++) { // For 60 minutes in an hour
+      randomNow = now - 10000000*Math.random();
       // console.log('i = ' + i);
       var namePoint = Math.round((randNames.length-1)*Math.random());
       // console.log('namePoint = ' + namePoint);
@@ -109,6 +108,26 @@ if (TimeSeries.find({day: currentDay()}).count() === 0) {
   console.log("Created TimeSeries dataschema");
 }
 
+var status = [
+  'Scrap',
+  'Waiting for Repair',
+  'Fixed',
+  'Fixed',
+  'Fixed',
+  'Fixed',
+  'Available',
+  'Available',
+  'Available',
+  'Available',
+  'Available',
+  'Available',
+  'In Use',
+  'In Use',
+  'In Use',
+  'In Use',
+  'In Use',
+  'In Use'];
+
 var partslist = [
   'Bottom Bracket',
   'Stacks of cash',
@@ -120,6 +139,13 @@ var mechanicNotes = [
   'Flat tire',
   'Broken stem',
   'Broken seatpost, someone was too heavy',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
   'Tuneup',
   'Tuneup',
   'Tuneup',
@@ -154,11 +180,10 @@ var mechanic = {
 // Insert database of bikes if no data for today
 if (Bikes.find({month: currentDay()}).count() === 0) {
   for (var i = 1; i <= totalBikeCount; i++) {
-    var now = new Date().getTime();
     // create template for each Bikes data stored
     var update = []; var randomNow = NaN; var blank = {};
-    for (var countTime = 0; countTime < 15; countTime++) { // For 60 minutes in an hour
-      randomNow = now*Math.random();
+    for (var countTime = 0; countTime < 30; countTime++) { // For 60 minutes in an hour
+      randomNow = now - 10000000*Math.random();
       var randGPSPoint = Math.round(1*Math.random());
       blank = {
         status: status[_.random(0,status.length - 1)],

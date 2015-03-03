@@ -11,7 +11,7 @@ Template.admin2layout.created = function() {
 UI.registerHelper("formatDate", function(datetime, format) {
   var DateFormats = {
     shortest: 'MMM D, YYYY',
-    short: 'hh:mm a - MMM D, YYYY',
+    short: 'hh:mm:ss a - MMM D, YYYY',
     // short: "DD MMMM - YYYY",
     long: 'H:m:s a - MMM D, YYYY'
     // long: "dddd DD.MM.YYYY HH:mm"
