@@ -1,3 +1,6 @@
+var totalBikeCount = 15;
+var status = ['Waiting for Repair', 'Scrap', 'Fixed', 'Circulating', 'In Use'];
+
 // Calculate current day of year without momentjs
   // Copied from: http://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366
 var currentDay = (function() {
@@ -34,6 +37,48 @@ var randGPS = (function(max) {
   return randCoordinates;
 });
 // console.log(randGPS(25).lng[Math.round(24*Math.random())]);
+
+var partslist = [
+  'Bottom Bracket',
+  'Stacks of cash',
+  'Stem post',
+  'Handlebar' ];
+
+var mechanicNotes = [
+  'Broken spokes, all of them',
+  'Flat tire',
+  'Broken stem',
+  'Broken seatpost, someone was too heavy',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Tuneup',
+  'Built from box',
+  'Built from box' ];
+
+var mechanic = {
+  name: [
+    'Erlene Pettit',
+    'Ingrid Carney',
+    'Cassondra Chau',
+    'Katharina Pearce',
+    'Thomasina Dye',
+    'Melda Miranda',
+    'Doretha Bayne',
+    'Ester Newkirk',
+    'Wynell Rosa',
+    'Chadwick Slade' ],
+  role: [
+    'Administrator',
+    'mechanic'
+  ]};
 
 var randNames = [
   'Katherina Damm',
@@ -80,7 +125,7 @@ var randNames = [
 
 // Insert database of bikes if no data for today
 if (TimeSeries.find({day: currentDay()}).count() === 0) {
-  for (var i = 1; i <= 10; i++) {
+  for (var i = 1; i <= totalBikeCount; i++) {
     var now = new Date().getTime();
     // create template for each timeseries data stored
     var position = []; var randomNow = NaN; var blank = {};
@@ -109,9 +154,40 @@ if (TimeSeries.find({day: currentDay()}).count() === 0) {
   console.log("Created TimeSeries dataschema");
 }
 
+// Insert database of bikes if no data for today
+if (Bikes.find({month: currentDay()}).count() === 0) {
+  for (var i = 1; i <= totalBikeCount; i++) {
+    var now = new Date().getTime();
+    // create template for each Bikes data stored
+    var update = []; var randomNow = NaN; var blank = {};
+    for (var countTime = 0; countTime < 15; countTime++) { // For 60 minutes in an hour
+      randomNow = now*Math.random();
+      var randGPSPoint = Math.round(1*Math.random());
+      blank = {
+        status: status[_.random(0,status.length)],
+        mechanicNotes: mechanicNotes[_.random(0,mechanicNotes.length)],
+        partslist: partslist[_.random(0,partslist.length)],
+        mechanic: mechanic.name[_.random(0,10)],
+        role: (Math.round(0.65*Math.random()) === 1 ? 'Administrator' : 'Mechanic'),
+        timestamp: randomNow,
+        lat: randGPS(2).lat[randGPSPoint],
+        lng: randGPS(2).lng[randGPSPoint]
+      };
+      // console.log('name = ' + blank.User);
+      update.push(blank); // create array
+    }
+    Bikes.insert({
+      bike: i,
+      month: currentDay(),
+      updates: update
+    });
+  }
+  console.log("Created Bikes dataschema");
+}
+
 if (Current.find().count() === 0) {
   // console.log("Starting MongoDB with math!");
-  for (var i = 0; i < 10; i++) { // For 10 bikes
+  for (var i = 0; i < totalBikeCount; i++) { // For 10 bikes
     Current.insert({
       Bike: i,
       Lat: NaN,
