@@ -17,7 +17,7 @@ Template.admin3layout.helpers({
     } else {
       // Return only the clicked bike:
       var bikeData = TimeSeries.findOne({_id: Session.get('ViewUsers')}).positions;
-      return _.sortBy(bikeData, "timestamp");
+      return _.sortBy(bikeData, "timestamp").reverse();
     }
   },
   // Determing which view to return (true = all, false = single user)
