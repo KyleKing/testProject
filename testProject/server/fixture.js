@@ -122,24 +122,32 @@ if (Current.find().count() === 0) {
 
 if (BarChart.find().count() === 0) {
   console.log("Starting BarChart with math!");
+  var randArray = [];
+  _.times(7, function(){ randArray.push(_.random(10, 30)); });
   BarChart.insert({
-    Data: [21.2, 12.5, 19.4, 12.2, 30.0, 15.0, 28.6]
+    Data: randArray
   });
 }
 
 if (AdminBarChart.find().count() === 0) {
   console.log("Starting AdminBarChart with math!");
+  var randArray = [];
+  _.times(12, function(){ randArray.push(_.random(40, 200)); });
   AdminBarChart.insert({
         name: '< 10 Minute Rides',
-        data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+        data: randArray
         });
+  var randArray = [];
+  _.times(12, function(){ randArray.push(_.random(40, 200)); });
   AdminBarChart.insert({
         name: '10+ Minute Rides',
-        data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+        data: randArray
       });
+  var randArray = [];
+  _.times(12, function(){ randArray.push(_.random(40, 200)); });
   AdminBarChart.insert({
         name: 'Off Campus Rides',
-        data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+        data: randArray
     });
 }
 

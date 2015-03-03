@@ -9,19 +9,19 @@ function builtPie() {
     data.push({
         name: 'In Use',
         y: 10,
-        color: '#55BF3B'
+        color: '#113F8C'
     });
 
     data.push({
         name: 'Unused',
         y: 40,
-        color: '#DDDF0D'
+        color: '#01A4A4'
     });
 
     data.push({
         name: 'Broken',
         y: 29,
-        color: '#DF5353'
+        color: '#00A1CB'
     });
 
     $('#container-pie').highcharts({
@@ -68,4 +68,4 @@ function builtPie() {
  */
 Template.pieDemo.rendered = function() {
     builtPie();
-}
+};

@@ -20,9 +20,9 @@
       @include admin_chart_scaling(3, 1);
     }
     #container-column {
-      @include admin_chart_scaling(12, 3);
+      @include admin_chart_scaling(9, 3);
     }
     #container-area {
-      @include admin_chart_scaling(12, 3);
+      @include admin_chart_scaling(9, 3);
     }
 }
