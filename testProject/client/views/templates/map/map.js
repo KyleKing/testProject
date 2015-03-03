@@ -89,7 +89,7 @@ Template.map.created = function() {
           markers.addLayer( new L.Marker(new L.LatLng(bikesData[i].Lat, bikesData[i].Long), {icon: bikeIconGR} ) );
           console.log(bikesData[i]);
         } else {
-          console.log("Bad Bike Location (NaN)");
+          console.log("Bad Bike Location (NaN) - i.e. the current database is empty");
         }
         i--;
       }

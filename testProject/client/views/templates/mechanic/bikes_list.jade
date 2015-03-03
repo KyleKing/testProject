@@ -1,7 +1,23 @@
 template(name='bikesList')
   .mechanic-info
     form.info
-      input(type="text" name="BikeNumber")
+      input(type="number" autocomplete="off" autofocus="true" name="BikeNumber" placeholder="1")
+      input(type="text" list="options")
+      datalist(id="options")
+        option One
+        option Two
+        option(label="midpoint") Thirty
+      h2 show only by mechanic [each mechanic...option #{mechanic}], condition, status, notes, parts needed, role, positional area (i.e. in shop, outside of shop)
+      hr/
+      h2 And offer sort option
+      //- input(type="range" min="0" max="100" list="numbers")
+      //- input(type="number" min="0" max="100" list="numbers")
+      //- datalist(id="numbers")
+      //-   option 10
+      //-   option(label="30") 30
+      //-   option(label="midpoint") 50
+      //-   option 7
+      //-   option 90
       input(type="submit" value="Change Bike")
   table.data-set
     //- Labels Row
@@ -17,7 +33,8 @@ template(name='bikesList')
     //- Actual Bike Data
     each bikes
       tr
-        td {{formatDate timestamp "shortest"}}
+        td {{formatDate timestamp "short"}}
+        //- td {{formatDate timestamp "shortest"}}
         td #{status}
         td #{mechanicNotes}
         td #{partslist}
