@@ -11,28 +11,24 @@ var currentDay = (function() {
   return day;
 });
 
-// Calculate random GPS coordinates within campus
   // Bottom Right: Latitude : 38.980296 | Longitude : -76.933479
   // Bottom Left: Latitude : 38.982297 | Longitude : -76.957941
   // Top Left: Latitude : 38.999109 | Longitude : -76.956053
   // Top Right: Latitude : 39.003778 | Longitude : -76.932278
 var randGPS = (function(max) {
-  // Create empty variables
-  var latRand = [];  var lngRand = [];
-  var latTemp = NaN; var lngTemp = NaN;
-  // Calculate a given number of random GPS locations (max)
-  for (var i = 1; i <= max; i++) {
-    latTemp = 39.004 - Math.random();
-    lngTemp = -76.958 + Math.random();
-    // Confine to given area
-    while ((latTemp <= 38.980296) && (latTemp >= 39.003778)) { latTemp = 39.004 - Math.random(); }
-    while ((lngTemp >= -76.932278) && (lngTemp <= -76.957941)) { lngTemp = -76.958 + Math.random(); }
-    // Store in array
-    latRand.push(latTemp);
-    lngRand.push(lngTemp);
-  }
+  // Calculate random GPS coordinates within campus
+  var leftLat = 38.994052;
+  var rightLat = 38.981376;
+  var bottomLng = -76.936569;
+  var topLng = -76.950603;
+  var skew = 1000000;
+
+  var randLat = [];  var randLng = [];
+  _.times(max, function(){ randLat.push(_.random(leftLat*skew, rightLat*skew)/skew); });
+  _.times(max, function(){ randLng.push(_.random(bottomLng*skew, topLng*skew)/skew); });
+
   // Save in object to return
-  var randCoordinates = {lat: latRand, lng: lngRand};
+  var randCoordinates = {lat: randLat, lng: randLng};
   return randCoordinates;
 });
 // console.log(randGPS(25).lng[Math.round(24*Math.random())]);
