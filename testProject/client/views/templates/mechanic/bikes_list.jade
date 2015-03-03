@@ -2,18 +2,18 @@ template(name='bikesList')
   table.data-set
     //- Labels Row
     tr
-      td Bike Number
-      td Status
+      td bike
+      td status
       td Needs
       td Repaired on
-      td.pos Latitude
-      td.pos Longitude
+      td.pos Lat
+      td.pos Lng
     //- Actual Bike Data
     each bikes
       tr
-        td #{title}
+        td #{bike}
         td #{status}
         td #{needs}
         td #{repaired}
-        td.pos #{latitude}
-        td.pos #{longitude}
+        td.pos #{Lat}
+        td.pos #{Lng}
