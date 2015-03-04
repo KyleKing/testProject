@@ -92,10 +92,10 @@ if (TimeSeries.find({day: currentDay()}).count() === 0) {
       // console.log('randNames = ' + randNames);
       var randGPSPoint = Math.round(1*Math.random());
       blank = {
-        User: randNames[namePoint],
+        user: randNames[namePoint],
         timestamp: randomNow,
-        Lat: randGPS(2).lat[randGPSPoint],
-        Lng: randGPS(2).lng[randGPSPoint]
+        lat: randGPS(2).lat[randGPSPoint],
+        lng: randGPS(2).lng[randGPSPoint]
       };
       // console.log('name = ' + blank.User);
       position.push(blank); // create array
@@ -213,9 +213,9 @@ if (Current.find().count() === 0) {
   // console.log("Starting MongoDB with math!");
   for (var i = 0; i < totalBikeCount; i++) { // For 10 bikes
     Current.insert({
-      Bike: i,
-      Lat: NaN,
-      Long: NaN
+      bike: i,
+      lat: NaN,
+      lng: NaN
     });
   }
 }
@@ -225,7 +225,7 @@ if (BarChart.find().count() === 0) {
   var randArray = [];
   _.times(7, function(){ randArray.push(_.random(10, 30)); });
   BarChart.insert({
-    Data: randArray
+    data: randArray
   });
 }
 
@@ -271,9 +271,9 @@ Meteor.methods({
     // Prepare fields to udpate MongoDB
     var fields = {};
     var root = ["Time." + dataSet.timeHH + '.' + dataSet.timemm];
-    fields[root + ".User"] = dataSet.User;
-    fields[root + ".Lat"] = dataSet.Lat;
-    fields[root + ".Long"] = dataSet.Long;
+    fields[root + ".user"] = dataSet.User;
+    fields[root + ".lat"] = dataSet.Lat;
+    fields[root + ".lng"] = dataSet.Long;
 
     // Update MongoDB data based on bike number
     var record = TimeSeries.findOne({Bike: dataSet.BikeNumber, YYYY: dataSet.timeYYYY, MM: dataSet.timeMM, DD: dataSet.timeDD});
@@ -297,8 +297,8 @@ Meteor.methods({
 
     // Prepare fields to udpate MongoDB
     var fields = {};
-    fields.Lat = dataSet.Lat;
-    fields.Long = dataSet.Long;
+    fields.lat = dataSet.lat;
+    fields.lng = dataSet.lng;
 
     // Update MongoDB data based on bike number
     var record = Current.findOne({Bike: dataSet.BikeNumber});

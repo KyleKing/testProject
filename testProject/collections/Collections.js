@@ -51,7 +51,7 @@ if (Meteor.isServer) {
           { $match: {bike: BikeNum} },
           { $unwind: '$positions' },
           { $sort: {'positions.timestamp': 1} },
-          { $group: {_id : "$positions.User", positions: {$push: '$positions'} } }
+          { $group: {_id : "$positions.user", positions: {$push: '$positions'} } }
         ]);
         // console.log(Bikes);
 
@@ -60,12 +60,12 @@ if (Meteor.isServer) {
             var record = TestUsers.findOne({User: Bike._id});
             var positionsData = []; var rides = 0;
             _(Bike.positions).each(function(position) {
-              positionsData.push({bike: BikeNum, timestamp: position.timestamp,  User: position.User, Lat: position.Lat, Lng: position.Lng});
+              positionsData.push({bike: BikeNum, timestamp: position.timestamp,  user: position.user, lat: position.lat, lng: position.lng});
               rides = rides + 1;
             });
             if (!record) {
               TestUsers.insert({
-                User: Bike._id,
+                user: Bike._id,
                 rides: rides,
                 positions: positionsData
                 // positions: Bike.positions
@@ -73,7 +73,7 @@ if (Meteor.isServer) {
             } else {
               _(Bike.positions).each(function(position) {
                 if (!TestUsers.findOne({'positions.timestamp': position.timestamp})) {
-                  positionsData = {bike: BikeNum, timestamp: position.timestamp,  User: position.User, Lat: position.Lat, Lng: position.Lng};
+                  positionsData = {bike: BikeNum, timestamp: position.timestamp,  user: position.user, lat: position.lat, lng: position.lng};
                   TestUsers.update(
                     record, {
                       $addToSet: {positions: positionsData},

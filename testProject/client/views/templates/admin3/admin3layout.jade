@@ -13,9 +13,9 @@ template(name='admin3layout')
         tr
           td {{formatDate timestamp "short"}}
             //- Only works with {{ }} and not #{}
-          td #{User}
-          td #{Lat}
-          td #{Lng}
+          td #{user}
+          td #{lat}
+          td #{lng}
   else
     table.data-set
       //- Labels Row
