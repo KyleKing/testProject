@@ -10,6 +10,8 @@ Information = new Meteor.Collection('information');
 SortTime = new Meteor.Collection('sortTime');
 TestUsers = new Meteor.Collection('testUsers');
 
+RandNames = new Meteor.Collection('randNames');
+
 // Testing sorting of array of documents
 if (Meteor.isServer) {
   Meteor.methods({

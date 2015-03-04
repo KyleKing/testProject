@@ -73,6 +73,12 @@ var randNames = [
   '','','','','','','','','','','','','','','','','','','','','','','','','','','','',
   '','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
 
+if(RandNames.find().count() === 0) {
+  RandNames.insert({
+    names: randNames.slice(0, 31);
+  });
+}
+
 // Insert database of bikes if no data for today
 if (TimeSeries.find({day: currentDay()}).count() === 0) {
   for (var i = 1; i <= totalBikeCount; i++) {
