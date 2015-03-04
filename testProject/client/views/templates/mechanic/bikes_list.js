@@ -1,5 +1,4 @@
 Meteor.subscribe("bikesData");
-Meteor.subscribe("RandNamesData");
 Meteor.subscribe("RandMechanicNamesData");
 
 Template.bikesList.created = function() {
@@ -73,9 +72,9 @@ Template.bikesList.helpers({
   mechanicName: function () {
     if (RandMechanicNames.findOne()) {
       // this helper returns a cursor of all of the posts in the collection
-      var mechanics = RandMechanicNames.findOne().names;
+      var mechanics = RandMechanicNames.findOne().staff;
       // console.log(_.sortBy(mechanics, 'name'));
-      return mechanics;
+      return _.sortBy(mechanics, 'name');
     }
   }
 });
