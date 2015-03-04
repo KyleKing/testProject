@@ -6,7 +6,7 @@ Template.bikesList.created = function() {
   Session.set('BikeNumber', 1);
   Session.set('sortType', 'timestamp');
   Session.set('sortOrder', 'desc');
-  Session.set('mechanic', '');
+  Session.set('mechanic', 'Doretha Bayne');
 };
 
 // Source: http://stackoverflow.com/questions/604167/how-can-we-access-the-value-of-a-radio-button-using-the-dom
@@ -14,7 +14,7 @@ function getRadioValue(theRadioGroup) {
     var elements = document.getElementsByName(theRadioGroup);
     for (var i = 0, l = elements.length; i < l; i++) {
         if (elements[i].checked) {
-            console.log(elements[i].value);
+            // console.log(elements[i].value);
             return elements[i].value;
         }
     }
@@ -43,7 +43,8 @@ Template.bikesList.events({
     Session.set('sortOrder', getRadioValue('sortOrder'));
     // console.log(getRadioValue('sortOrder'));
     Session.set('sortType', event.target.sortType.value);
-    Session.set('mechanic', event.target.sortType.value);
+    Session.set('mechanic', event.target.mechanicSelected.value);
+    console.log('mechanic = ' + event.target.mechanicSelected.value);
     }
 });
 
@@ -51,15 +52,18 @@ Template.bikesList.helpers({
   bikes: function () {
     if (Bikes.findOne({bike: Session.get('BikeNumber')})) {
       // this helper returns a cursor of all of the posts in the collection
-      var bikeData = [];
-      // if (!Session.get('mechanic')) {
-        bikeData = Bikes.findOne({bike: Session.get('BikeNumber')}).updates;
-      // } else {
-      //   bikeData = Bikes.findOne({bike: Session.get('BikeNumber'), mechanic: Session.get('mechanic')}).updates;
-      // }
-      // console.log(bikeData);
+      var bikeData = Bikes.findOne({bike: Session.get('BikeNumber')}).updates;
+      if (Session.get('mechanic')) {
+        console.log('Session');
+        bikeData = _.filter(bikeData, function(bikes){ return bikes.mechanic === Session.get('mechanic'); });
+        // console.log(Session.get('mechanic'));
+        console.log(bikeData);
+      } else {
+        console.log('No Session');
+      }
 
       if (Session.get('sortOrder') === 'desc') {
+        console.log(bikeData);
         return _.sortBy(bikeData, Session.get('sortType')).reverse();
       } else {
         return _.sortBy(bikeData, Session.get('sortType'));
