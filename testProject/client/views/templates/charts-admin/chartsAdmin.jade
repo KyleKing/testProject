@@ -18,6 +18,15 @@ template(name="chartsAdmin")
     .dataFacts
         +areaDemo
         //- p  http://www.highcharts.com/demo/arearange
+    h1 &nbsp;
+    .dataFacts
+        +pie_semi_circle_Demo
+    h1 &nbsp;
+    .dataFacts
+        +pie_big_circle_Demo
+    h1 &nbsp;
+    .dataFacts
+        +multiDemo
 
 template(name="pieDemo")
     #container-pie.threeColumnChart
@@ -30,3 +39,12 @@ template(name="columnDemo")
 
 template(name="areaDemo")
     #container-area(style="min-width: 310px; height: 300px")
+
+template(name="pie_semi_circle_Demo")
+    #container_pie_semi_circle(style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto")
+
+template(name="multiDemo")
+    #container-multiDemo(style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto")
+
+template(name="pie_big_circle_Demo")
+    #container_pie_big_circle(style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto")
