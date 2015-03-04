@@ -1,10 +1,12 @@
 Meteor.subscribe("bikesData");
+Meteor.subscribe("RandNamesData");
 
 Template.bikesList.created = function() {
   // Default to all users view
   Session.set('BikeNumber', 1);
   Session.set('sortType', 'timestamp');
   Session.set('sortOrder', 'desc');
+  Session.set('mechanic', '');
 };
 
 // Source: http://stackoverflow.com/questions/604167/how-can-we-access-the-value-of-a-radio-button-using-the-dom
@@ -40,22 +42,37 @@ Template.bikesList.events({
     // var sortOrder = event.target.sortOrder;
     Session.set('sortOrder', getRadioValue('sortOrder'));
     // console.log(getRadioValue('sortOrder'));
-    var temp = event.target.sortType.value;
-    Session.set('sortType', temp);
-    // console.log(event.target.sortType.value);
+    Session.set('sortType', event.target.sortType.value);
+    Session.set('mechanic', event.target.sortType.value);
     }
 });
 
 Template.bikesList.helpers({
   bikes: function () {
-    if (Bikes.findOne({bike: 1})) {
+    if (Bikes.findOne({bike: Session.get('BikeNumber')})) {
       // this helper returns a cursor of all of the posts in the collection
-      var bikeData = Bikes.findOne({bike: Session.get('BikeNumber')}).updates;
+      var bikeData = [];
+      // if (!Session.get('mechanic')) {
+        bikeData = Bikes.findOne({bike: Session.get('BikeNumber')}).updates;
+      // } else {
+      //   bikeData = Bikes.findOne({bike: Session.get('BikeNumber'), mechanic: Session.get('mechanic')}).updates;
+      // }
+
       if (Session.get('sortOrder') === 'desc') {
         return _.sortBy(bikeData, Session.get('sortType')).reverse();
       } else {
         return _.sortBy(bikeData, Session.get('sortType'));
         }
+    }
+  }
+});
+
+Template.bikesList.helpers({
+  mechanicName: function () {
+    if (RandNames.findOne()) {
+      // this helper returns a cursor of all of the posts in the collection
+      var mechanics = RandNames.findOne().names;
+      return _.sortBy(mechanics, 'names');
     }
   }
 });

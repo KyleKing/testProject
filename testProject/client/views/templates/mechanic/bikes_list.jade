@@ -70,20 +70,34 @@ template(name='bikesList')
             each sortType
               option #{this}
               //- option(label="midpoint") Thirty
+        .large-3.columns
+          label Select Mechnic
+          input(type="text" list="mechanicSelect" name='mechanicSelected')
+          datalist(id="mechanicSelect")
+            each mechanicName
+              option #{this}
+              //- option(label="midpoint") Thirty
+        .large-3.columns
+          label Select Mechnic
+          input(type="text" list="mechanicSelect" name='mechanicSelected')
+          datalist(id="mechanicSelect")
+            each mechanicName
+              option #{this}
+              //- option(label="midpoint") Thirty
+      .row
         .large-4.columns
           label Choose sortOrder
           input#ascRadio(type='radio', name='sortOrder', value='asc')
           label(for='ascRadio') ascRadio
           input#descRadio(type='radio', name='sortOrder', value='desc' checked)
           label(for='descRadio') descRadio
+      .row
         .large-2.columns
           input(type="submit" value="Submit")
     .row
       .large-12.columns
         hr
-        p show only by mechanic [each mechanic...option #{mechanic}], condition, status, notes, parts needed, role, positional area (i.e. in shop, outside of shop)
-        p And offer sort option
-        hr
+        p show only by positional area (i.e. in shop, outside of shop
       //- input(type="range" min="0" max="100" list="numbers")
       //- input(type="number" min="0" max="100" list="numbers")
       //- datalist(id="numbers")

@@ -75,7 +75,7 @@ var randNames = [
 
 if(RandNames.find().count() === 0) {
   RandNames.insert({
-    names: randNames.slice(0, 31);
+    names: randNames.slice(0, 31)
   });
 }
 
@@ -88,7 +88,7 @@ if (TimeSeries.find({day: currentDay()}).count() === 0) {
       randomNow = now - 10000000*Math.random();
       // console.log('i = ' + i);
       var namePoint = Math.round((randNames.length-1)*Math.random());
-      // console.log('namePoint = ' + namePoint);
+      console.log('randNames = ' + randNames);
       var randGPSPoint = Math.round(1*Math.random());
       blank = {
         User: randNames[namePoint],

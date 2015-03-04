@@ -1,6 +1,6 @@
 Meteor.publish("RandNamesData", function () {
   return RandNames.find();
-})
+});
 
 
 Meteor.publish("bikesData", function() {
