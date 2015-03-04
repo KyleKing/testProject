@@ -1,5 +1,6 @@
 Meteor.subscribe("bikesData");
 Meteor.subscribe("RandNamesData");
+Meteor.subscribe("RandMechanicNamesData");
 
 Template.bikesList.created = function() {
   // Default to all users view
@@ -57,22 +58,24 @@ Template.bikesList.helpers({
       // } else {
       //   bikeData = Bikes.findOne({bike: Session.get('BikeNumber'), mechanic: Session.get('mechanic')}).updates;
       // }
+      // console.log(bikeData);
 
       if (Session.get('sortOrder') === 'desc') {
         return _.sortBy(bikeData, Session.get('sortType')).reverse();
       } else {
         return _.sortBy(bikeData, Session.get('sortType'));
-        }
+      }
     }
   }
 });
 
 Template.bikesList.helpers({
   mechanicName: function () {
-    if (RandNames.findOne()) {
+    if (RandMechanicNames.findOne()) {
       // this helper returns a cursor of all of the posts in the collection
-      var mechanics = RandNames.findOne().names;
-      return _.sortBy(mechanics, 'names');
+      var mechanics = RandMechanicNames.findOne().names;
+      // console.log(_.sortBy(mechanics, 'name'));
+      return mechanics;
     }
   }
 });

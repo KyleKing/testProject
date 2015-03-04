@@ -75,7 +75,8 @@ var randNames = [
 
 if(RandNames.find().count() === 0) {
   RandNames.insert({
-    names: randNames.slice(0, 31)
+    names: _.without(randNames, '')
+    // .slice(0, 31)
   });
 }
 
@@ -88,7 +89,7 @@ if (TimeSeries.find({day: currentDay()}).count() === 0) {
       randomNow = now - 10000000*Math.random();
       // console.log('i = ' + i);
       var namePoint = Math.round((randNames.length-1)*Math.random());
-      console.log('randNames = ' + randNames);
+      // console.log('randNames = ' + randNames);
       var randGPSPoint = Math.round(1*Math.random());
       blank = {
         User: randNames[namePoint],
@@ -140,22 +141,43 @@ var mechanicNotes = [
   'Tuneup', 'Tuneup', 'Tuneup', 'Tuneup', 'Tuneup', 'Tuneup',
   'Built from box', 'Built from box' ];
 
-var mechanic = {
-  name: [
-    'Erlene Pettit',
-    'Ingrid Carney',
-    'Cassondra Chau',
-    'Katharina Pearce',
-    'Thomasina Dye',
-    'Melda Miranda',
-    'Doretha Bayne',
-    'Ester Newkirk',
-    'Wynell Rosa',
-    'Chadwick Slade' ],
-  role: [
-    'Administrator',
-    'mechanic'
-  ]};
+var mechanics = [{
+    name: 'Erlene Pettit',
+    role: 'Administrator'
+  }, {
+    name: 'Ingrid Carney',
+    role: 'Mechanic'
+  }, {
+    name: 'Cassondra Chau',
+    role: 'Mechanic'
+  }, {
+    name: 'Katharina Pearce',
+    role: 'Mechanic'
+  }, {
+    name: 'Thomasina Dye',
+    role: 'Mechanic'
+  }, {
+    name: 'Melda Miranda',
+    role: 'Mechanic'
+  }, {
+    name: 'Doretha Bayne',
+    role: 'Mechanic'
+  }, {
+    name: 'Ester Newkirk',
+    role: 'Mechanic'
+  }, {
+    name: 'Wynell Rosa',
+    role: 'Mechanic'
+  }, {
+    name: 'Chadwick Slade',
+    role: 'Mechanic'
+  }];
+
+if(RandMechanicNames.find().count() === 0) {
+  RandMechanicNames.insert({
+    staff: mechanics
+  });
+}
 
 // Insert database of bikes if no data for today
 if (Bikes.find({month: currentDay()}).count() === 0) {
@@ -169,8 +191,8 @@ if (Bikes.find({month: currentDay()}).count() === 0) {
         status: status[_.random(0,status.length - 1)],
         mechanicNotes: mechanicNotes[_.random(0,mechanicNotes.length - 1)],
         partslist: partslist[_.random(0,partslist.length - 1)],
-        mechanic: mechanic.name[_.random(0,9)],
-        role: (Math.round(0.65*Math.random()) === 1 ? 'Administrator' : 'Mechanic'),
+        mechanic: mechanics[_.random(0,9)].name,
+        role: mechanics[_.random(0,9)].role,
         timestamp: randomNow,
         lat: randGPS(2).lat[randGPSPoint],
         lng: randGPS(2).lng[randGPSPoint]

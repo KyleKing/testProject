@@ -70,19 +70,19 @@ template(name='bikesList')
             each sortType
               option #{this}
               //- option(label="midpoint") Thirty
+        //- .large-3.columns
+        //-   label Select Mechnic
+        //-   input(type="text" list="mechanicSelect" name='mechanicSelected')
+        //-   datalist(id="mechanicSelect")
+        //-     each mechanicName
+        //-       option #{this}
+        //-       //- option(label="midpoint") Thirty
         .large-3.columns
           label Select Mechnic
           input(type="text" list="mechanicSelect" name='mechanicSelected')
           datalist(id="mechanicSelect")
             each mechanicName
-              option #{this}
-              //- option(label="midpoint") Thirty
-        .large-3.columns
-          label Select Mechnic
-          input(type="text" list="mechanicSelect" name='mechanicSelected')
-          datalist(id="mechanicSelect")
-            each mechanicName
-              option #{this}
+              option #{name}
               //- option(label="midpoint") Thirty
       .row
         .large-4.columns

@@ -11,6 +11,7 @@ SortTime = new Meteor.Collection('sortTime');
 TestUsers = new Meteor.Collection('testUsers');
 
 RandNames = new Meteor.Collection('randNames');
+RandMechanicNames = new Meteor.Collection('randMechanicNames');
 
 // Testing sorting of array of documents
 if (Meteor.isServer) {
