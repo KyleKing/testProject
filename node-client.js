@@ -1,8 +1,8 @@
 // Name serial port - there should be a smarter way to do this, but this seems easiest
 // var currentPort = "/dev/ttyACM0"; // A PC serial port
 // var currentPort = "/dev/cu.usbmodem" + "1411"; // direct left port
-// var currentPort = "/dev/cu.usbmodem" + "1421"; // direct right port
-var currentPort = "/dev/cu.usbmodem" + "14211"; // indirect right port: closest to aux power
+var currentPort = "/dev/cu.usbmodem" + "1421"; // direct right port
+// var currentPort = "/dev/cu.usbmodem" + "14211"; // indirect right port: closest to aux power
 
 var DDPClient = require("ddp");
 var moment = require('moment');
@@ -51,48 +51,19 @@ ddpclient.connect(function(error) {
 
   function showPortOpen() { console.log('port open. Data rate: ' + serialPort.options.baudRate); }
   function saveLatestData(data) {
-    // See what data comes through
-    // console.log('data received: ' + data);
     var array = data.split(','); // CSV Data Parse:
-    // Print each parsed data
-    // var schema = ['Bike Number', 'Lat', 'Long', 'Potentiometer', "time (s)", "time (mm)", "time (HH)", "time (DD)", "time (MM)", "time (YYYY)"];
-    // for (var i = 0; i < array.length; i++) {
-    //    // console.log(i + ' = ' + schema[i] + ' : ' + array[i]);
-    // }
-
-    // // Clean up string array into a set of numbers and account for any NaN conversion issues:
-    // var cleanArray = [];
-    // var countError = 0;
-    // for (var count = 0; count < array.length; count++) {
-    //   cleanArray[count] =  parseFloat(array[count]);
-    //   // console.log(count + ' at: ' + cleanArray[count]);
-    //   // if (~~cleanArray[count] === 0) {
-    //   //   console.log("*****************NaN PROBLEM*****************");
-    //   //   console.log(array[count])
-    //   //   countError++;
-    //   // }
-    // }
-    // if (cleanArray.length !== 10) {
-    //   console.log('*****************' + cleanArray + '*****************');
-    //   countError++;
-    // }
-
     array[1] = (new Date()).getTime();
-
     var dataSet = {
       RFIDCode: array[0],
       time: array[1]
     };
 
-    if (countError === 0) { // no number errors
-      // Call Meteor actions with "data"
-      ddpclient.call('RFIDStreamData', [dataSet], function(err, result) {
-        console.log('data sent: ' + array);
-        console.log('called RFIDStreamData function, result: ' + result);
-        console.log(' ');
-      });
-    }
-
+    // Call Meteor actions with "data"
+    ddpclient.call('RFIDStreamData', [dataSet], function(err, result) {
+      console.log('data sent: ' + array);
+      console.log('called RFIDStreamData function, result: ' + result);
+      console.log(' ');
+    });
   }
 
   // Error Checking

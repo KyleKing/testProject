@@ -333,11 +333,11 @@ Meteor.methods({
 
 // Test Format
 // if (RFIDdata.find().count() === 0) {
-  console.log("Starting RFID with math!");
-  RFIDdata.insert({
-    RFIDCode: 'HAR3',
-    time: now
-  });
+  // console.log("Starting RFID with math!");
+  // RFIDdata.insert({
+  //   RFIDCode: 'HAR3',
+  //   time: now
+  // });
 // }
 
 Meteor.methods({
