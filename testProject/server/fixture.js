@@ -330,6 +330,17 @@ Meteor.methods({
   }
 });
 
+
+
+if (RFIDdata.find().count() === 0) {
+  console.log("Starting RFID with math!");
+  RFIDdata.insert({
+    bike: 1,
+    lat: NaN,
+    lng: NaN
+  });
+}
+
 Meteor.methods({
   'RFIDStreamData': function (dataSet) {
     // // Prepare fields to udpate MongoDB
