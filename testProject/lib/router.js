@@ -15,6 +15,7 @@ Router.route('/admin');
 Router.route('/admin1');
 Router.route('/admin2');
 Router.route('/admin3');
+Router.route('/RFID');
 
 Router.route('/student');
 

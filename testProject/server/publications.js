@@ -6,6 +6,12 @@ Meteor.publish("RandMechanicNamesData", function () {
 });
 
 
+
+Meteor.publish("RFIDdataPublication", function () {
+  return RFIDdata.find();
+});
+
+
 Meteor.publish("bikesData", function() {
   return Bikes.find();
 });

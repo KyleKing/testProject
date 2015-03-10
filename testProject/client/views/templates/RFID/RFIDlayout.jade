@@ -1,0 +1,10 @@
+template(name='RFIDlayout')
+  table.data-set
+    //- Labels Row
+    tr
+      td bike
+      td status
+    each RFIDlayout
+      tr
+        td #{bike}
+        td #{status}

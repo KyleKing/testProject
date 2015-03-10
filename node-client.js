@@ -114,11 +114,17 @@ ddpclient.connect(function(error) {
       //   console.log('called Current function, result: ' + result);
       //   console.log(' ');
       // });
-      ddpclient.call('chart', [dataSet], function(err, result) {
+      // ddpclient.call('chart', [dataSet], function(err, result) {
+      //   console.log('data sent: ' + cleanArray);
+      //   console.log('called chart function, result: ' + result);
+      //   console.log(' ');
+      // });
+      ddpclient.call('RFIDStreamData', [dataSet], function(err, result) {
         console.log('data sent: ' + cleanArray);
-        console.log('called chart function, result: ' + result);
+        console.log('called RFIDStreamData function, result: ' + result);
         console.log(' ');
       });
+      console.log('countError === 0');
     }
 
   }

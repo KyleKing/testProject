@@ -329,3 +329,22 @@ Meteor.methods({
     return "ok";
   }
 });
+
+Meteor.methods({
+  'RFIDStreamData': function (dataSet) {
+    // // Prepare fields to udpate MongoDB
+    // var fields = {};
+    // fields["data." + dataSet.BikeNumber] = dataSet.Potentiometer;
+    // fields.x = dataSet.x;
+    // console.log(dataSet.Potentiometer);
+
+    // Update MongoDB data based on bike number
+    var record = RFIDdata.findOne();
+    RFIDdata.update(
+      record,
+      { $set: fields }
+    );
+
+    return "ok";
+  }
+});

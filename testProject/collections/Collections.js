@@ -6,12 +6,15 @@ BarChart = new Meteor.Collection('barchart');
 AdminBarChart = new Meteor.Collection('adminbarchart');
 AdminAreaChart = new Meteor.Collection('adminareachart');
 
+RFIDdata = new Meteor.Collection('rfidData'); // Time series data
+
 Information = new Meteor.Collection('information');
 SortTime = new Meteor.Collection('sortTime');
 TestUsers = new Meteor.Collection('testUsers');
 
 RandNames = new Meteor.Collection('randNames');
 RandMechanicNames = new Meteor.Collection('randMechanicNames');
+
 
 // Testing sorting of array of documents
 if (Meteor.isServer) {
