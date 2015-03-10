@@ -331,30 +331,24 @@ Meteor.methods({
 });
 
 
-
-if (RFIDdata.find().count() === 0) {
+// Test Format
+// if (RFIDdata.find().count() === 0) {
   console.log("Starting RFID with math!");
   RFIDdata.insert({
-    bike: 1,
-    lat: NaN,
-    lng: NaN
+    RFIDCode: 'HAR3',
+    time: now
   });
-}
+// }
 
 Meteor.methods({
   'RFIDStreamData': function (dataSet) {
-    // // Prepare fields to udpate MongoDB
-    // var fields = {};
-    // fields["data." + dataSet.BikeNumber] = dataSet.Potentiometer;
-    // fields.x = dataSet.x;
-    // console.log(dataSet.Potentiometer);
 
     // Update MongoDB data based on bike number
     var record = RFIDdata.findOne();
-    RFIDdata.update(
-      record,
-      { $set: fields }
-    );
+    RFIDdata.insert({
+      RFIDCode: dataSet.RFIDCode,
+      time: dataSet.time
+    });
 
     return "ok";
   }

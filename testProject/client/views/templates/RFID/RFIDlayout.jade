@@ -2,9 +2,9 @@ template(name='RFIDlayout')
   table.data-set
     //- Labels Row
     tr
-      td bike
-      td status
+      td RFIDCode
+      td time
     each RFIDlayout
       tr
-        td #{bike}
-        td #{status}
+        td #{RFIDCode}
+        td {{formatDate time "short"}}
