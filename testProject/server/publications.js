@@ -16,6 +16,10 @@ Meteor.publish("bikesData", function() {
   return Bikes.find();
 });
 
+Meteor.publish("users", function() {
+  return Meteor.users.find();
+});
+
 
 Meteor.publish("timeseriesData", function() {
   return TimeSeries.find();

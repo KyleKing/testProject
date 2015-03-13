@@ -27,6 +27,8 @@ Router.route('/potentiometer');
 
 Router.route('/cool');
 
+Router.route('/loginLayout');
+
 
 // To be added to about, if needed:
 // Iron.Router.hooks.scrollToTop = function () {
