@@ -1,7 +1,7 @@
 /*
  * Function to draw the area chart
  */
-function builtArea(BarData) {
+function builtArea(randArray1, randArray2) {
 
     $('#container-area').highcharts({
 
@@ -29,6 +29,10 @@ function builtArea(BarData) {
         credits: {
             enabled: false
         },
+
+        colors: [
+            '#98C73D','#3B3B3D', '#00A9E0'
+        ],
 
         // subtitle: {
         //     text: 'Source: <a href="http://thebulletin.metapress.com/content/c4120650912x74k7/fulltext.pdf">' +
@@ -101,10 +105,10 @@ function builtArea(BarData) {
         // series: BarData
         series: [{
             name: 'Bikes Ridden',
-            data: [600, 650, 700, 450, 300, 200, 100, 90, 350, 450, 700, 900]
+            data: randArray1
         }, {
             name: 'Miles Redistributed',
-            data: [10, 35, 25, 30, 40, 55, 65, 30, 25, 10, 30, 10]
+            data: randArray2
         }]
     });
 }
@@ -128,7 +132,12 @@ Template.areaDemo.created = function() {
     return Meteor.subscribe("AdminAreaChartData", function() {
         if (Meteor.isClient) {
             // console.log(BarData);
-            builtArea();
+            var randArray1 = [];
+            _.times(12, function(){ randArray1.push(_.random(100, 800)); });
+
+            var randArray2 = [];
+            _.times(12, function(){ randArray2.push(_.random(1, 200)); });
+            builtArea(randArray1, randArray2);
         }
     });
 };

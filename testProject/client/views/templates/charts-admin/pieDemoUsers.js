@@ -8,20 +8,23 @@ function builtPieUsers() {
 
     dataUsers.push({
         name: 'Under 5 rides/week',
-        y: 900,
-        color: '#55BF3B'
+        y: _.random(10, 1000),
+        color: '#32742C'
+        // color: '#55BF3B'
     });
 
     dataUsers.push({
         name: '5 -  30 rides/week',
-        y: 1500,
-        color: '#DDDF0D'
+        y: _.random(10, 1000),
+        color: '#D0D102'
+        // color: '#DDDF0D'
     });
 
     dataUsers.push({
         name: '30+ rides/week',
-        y: 270,
-        color: '#DF5353'
+        y: _.random(10, 1000),
+        color: '#61AE24'
+        // color: '#DF5353'
     });
 
     $('#container-pie-users').highcharts({
@@ -33,7 +36,7 @@ function builtPieUsers() {
         },
 
         title: {
-            text: ''
+            text: 'Users by Number of Rides'
         },
 
         credits: {
@@ -68,4 +71,4 @@ function builtPieUsers() {
  */
 Template.pieDemoUsers.rendered = function() {
     builtPieUsers();
-}
+};

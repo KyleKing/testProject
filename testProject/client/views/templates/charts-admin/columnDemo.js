@@ -13,9 +13,13 @@ function builtColumn(BarData) {
             text: 'Monthly Red Bars Bike Rides'
         },
 
-        // subtitle: {
-        //     text: 'Source: WorldClimate.com'
-        // },
+        colors: [
+            '#00A9E0', '#3B3B3D', '#67CDDC', '#98C73D', '#D0DD2B'
+        ],
+
+        subtitle: {
+            text: 'Source: Math.random()'
+        },
 
         credits: {
             enabled: false

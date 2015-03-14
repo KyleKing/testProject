@@ -29,10 +29,6 @@ Template.mechmap.created = function() {
 
       map.addControl(zoomControl);
 
-      // Use Leaflet cluster group plugin
-      var markers = new L.MarkerClusterGroup();
-      bikesData = Bikes.find().fetch();
-
       // var bikeIconGR = L.icon({
       //     iconUrl: 'leaflet/bikes/marker-icon.png',
       //     shadowUrl: 'leaflet/bikes/marker-icon.png',
@@ -55,15 +51,17 @@ Template.mechmap.created = function() {
           popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
       });
 
-      var i = bikesData.length - 1;
-      while (i >= 0) {
-        if (bikesData[i].status === "Bad") {
-          markers.addLayer( new L.Marker(new L.LatLng(bikesData[i].latitude, bikesData[i].longitude), {icon: bikeIconRE} ) );
+      // Use Leaflet cluster group plugin
+      var markers = new L.MarkerClusterGroup();
+      // var bikesData = Bikes.findOne({bike: 1}).updates;
+
+      for (var i = 0; i <= 10; i++) {
+        if (Bikes.findOne({bike: 1}).updates[i].status === "Fixed") {
+          console.log('Fixed Bike');
           // markers.addLayer( new L.Marker(new L.LatLng(bikesData[i].latitude, bikesData[i].longitude), {icon: bikeIconGR} ) );
         } else {
-          console.log('Bad Bike');
+          markers.addLayer( new L.Marker(new L.LatLng(Bikes.findOne({bike: 1}).updates[i].lat, Bikes.findOne({bike: 1}).updates[i].lng), {icon: bikeIconRE} ) );
         }
-        i--;
       }
 
       map.addLayer(markers);
@@ -75,6 +73,6 @@ Template.mechmap.created = function() {
     var marker;
       marker = L.marker([e.latitude, e.longitude]).addTo(map);
     });
-  };
+  }
 });
 };

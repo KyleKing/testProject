@@ -13,19 +13,16 @@
 // Admin style sheet
 .dataFacts {
   @include outer-container;
+    .threeColumnChart {
+      @include admin_chart_scaling(3, 1);
+    }
     .Quick-Info {
-      @include admin_chart_scaling(4, 1);
-    }
-    #container-pie {
-      @include admin_chart_scaling(4, 1);
-    }
-    #container-pie-users {
-      @include admin_chart_scaling(4, 1);
+      @include admin_chart_scaling(3, 1);
     }
     #container-column {
-      @include admin_chart_scaling(12, 3);
+      @include admin_chart_scaling(9, 3);
     }
     #container-area {
-      @include admin_chart_scaling(12, 3);
+      @include admin_chart_scaling(9, 3);
     }
 }

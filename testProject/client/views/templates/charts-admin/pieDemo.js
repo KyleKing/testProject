@@ -8,20 +8,20 @@ function builtPie() {
 
     data.push({
         name: 'In Use',
-        y: 10,
-        color: '#55BF3B'
+        y: _.random(10, 100),
+        color: '#113F8C'
     });
 
     data.push({
         name: 'Unused',
-        y: 40,
-        color: '#DDDF0D'
+        y: _.random(1, 40),
+        color: '#01A4A4'
     });
 
     data.push({
         name: 'Broken',
-        y: 29,
-        color: '#DF5353'
+        y: _.random(1, 20),
+        color: '#00A1CB'
     });
 
     $('#container-pie').highcharts({
@@ -33,7 +33,7 @@ function builtPie() {
         },
 
         title: {
-            text: ''
+            text: 'Bikes by Condition'
         },
 
         credits: {
@@ -68,4 +68,4 @@ function builtPie() {
  */
 Template.pieDemo.rendered = function() {
     builtPie();
-}
+};

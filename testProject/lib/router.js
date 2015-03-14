@@ -12,6 +12,10 @@ Router.route('/', function () {
 Router.route('/about');
 
 Router.route('/admin');
+Router.route('/admin1');
+Router.route('/admin2');
+Router.route('/admin3');
+Router.route('/RFID');
 
 Router.route('/student');
 
@@ -22,6 +26,8 @@ Router.route('/mechanicMap');
 Router.route('/potentiometer');
 
 Router.route('/cool');
+
+Router.route('/loginLayout');
 
 
 // To be added to about, if needed:
