@@ -13,7 +13,9 @@ Template.admin3layout.helpers({
     // Session.set('ViewUsers', TimeSeries.findOne({bike: 1})._id);
     // Return all bikes in system
     if (Session.get('ViewUsers') === 0) {
-      return TimeSeries.find().fetch();
+      // var data = TimeSeries.find({day: 71}).fetch();
+      var data = TimeSeries.find().fetch();
+      return _.sortBy(data, "bike");
     } else {
       // Return only the clicked bike:
       var bikeData = TimeSeries.findOne({_id: Session.get('ViewUsers')}).positions;
