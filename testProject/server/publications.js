@@ -9,6 +9,10 @@
   Meteor.publish("RandMechanicNamesData", function () {
     return RandMechanicNames.find();
   });
+  // Bike data used in mechanic layout
+  Meteor.publish("bikesData", function() {
+    return Bikes.find();
+  });
   // RFID Confirmation and Storage Test Data
   Meteor.publish("RFIDdataPublication", function () {
     return RFIDdata.find();
@@ -109,15 +113,3 @@
   Meteor.publish("currentData", function() {
     return Current.find();
   });
-
-
-
-
-
-
-
-
-
-Meteor.publish("bikesData", function() {
-  return Bikes.find();
-});

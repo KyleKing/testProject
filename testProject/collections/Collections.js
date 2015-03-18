@@ -1,20 +1,50 @@
-Bikes = new Mongo.Collection('bikes'); // Create new bikes collection for inventory
+/*****************/
+/*  Admin View         */
+/*****************/
 
-TimeSeries = new Meteor.Collection('timeseries'); // Time series data
-Current = new Meteor.Collection('current'); // Time series data
-BarChart = new Meteor.Collection('barchart');
-AdminBarChart = new Meteor.Collection('adminbarchart');
-AdminAreaChart = new Meteor.Collection('adminareachart');
+  // Mechanic Filler Data
+  RandNames = new Meteor.Collection('randNames');
+  RandMechanicNames = new Meteor.Collection('randMechanicNames');
+  // Bike data used in mechanic layout
+  Bikes = new Mongo.Collection('bikes'); // Create new bikes collection for inventory
+  // RFID Confirmation and Storage Test Data
+  RFIDdata = new Meteor.Collection('rfidData');
 
-RFIDdata = new Meteor.Collection('rfidData');
+  /************************/
+  /*  Sample Chart Data          */
+  /************************/
+    // Used in user profile
+    BarChart = new Meteor.Collection('barchart');
+    AdminBarChart = new Meteor.Collection('adminbarchart');
+    AdminAreaChart = new Meteor.Collection('adminareachart');
 
-Information = new Meteor.Collection('information');
-SortTime = new Meteor.Collection('sortTime');
-TestUsers = new Meteor.Collection('testUsers');
+  /************************/
+  /*  Named Admin Views          */
+  /************************/
+  // Admin 2 and Admin 3
+  TestUsers = new Meteor.Collection('testUsers');
+  // Subscription call inside charts-admin/chartsAdmin.js
+  TimeSeries = new Meteor.Collection('timeseries'); // Time series data
 
-RandNames = new Meteor.Collection('randNames');
-RandMechanicNames = new Meteor.Collection('randMechanicNames');
+  // chartsAdmin.js
+  /*********************************************/
+  /*   Demo collection for login info                             */
+  /********************************************/
+  Information = new Meteor.Collection('information');
+  SortTime = new Meteor.Collection('sortTime'); // see sort time function below
 
+
+/*****************/
+/*  User View          */
+/*****************/
+
+  // Map data
+  Current = new Meteor.Collection('current'); // One set of public data
+
+
+/*********************************************/
+/*  Meteor Methods (server side code called from client)  */
+/********************************************/
 
 // Testing sorting of array of documents
 if (Meteor.isServer) {
@@ -46,11 +76,10 @@ if (Meteor.isServer) {
   });
 
 
-
-
   // Called by Admin 3
   Meteor.methods({
     eachBike: function () {
+      // For each bike (10), match and unwind into usable format
       for (var BikeNum = 1; BikeNum <= 10; BikeNum++) {
         var Bikes = TimeSeries.aggregate([
           { $match: {bike: BikeNum} },
@@ -58,8 +87,9 @@ if (Meteor.isServer) {
           { $sort: {'positions.timestamp': 1} },
           { $group: {_id : "$positions.user", positions: {$push: '$positions'} } }
         ]);
-        // console.log(Bikes);
+        console.log(Bikes);
 
+        // for each bike (scalable), ...
         _(Bikes).each(function(Bike) {
           if (Bike._id) { // Ignore blank strings (i.e. no user)
             var record = TestUsers.findOne({User: Bike._id});
@@ -73,7 +103,6 @@ if (Meteor.isServer) {
                 user: Bike._id,
                 rides: rides,
                 positions: positionsData
-                // positions: Bike.positions
               });
             } else {
               _(Bike.positions).each(function(position) {
@@ -94,4 +123,4 @@ if (Meteor.isServer) {
     }
   });
 
-}
+} // end Meteor.isServer
