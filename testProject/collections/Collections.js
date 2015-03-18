@@ -6,7 +6,7 @@ BarChart = new Meteor.Collection('barchart');
 AdminBarChart = new Meteor.Collection('adminbarchart');
 AdminAreaChart = new Meteor.Collection('adminareachart');
 
-RFIDdata = new Meteor.Collection('rfidData'); // Time series data
+RFIDdata = new Meteor.Collection('rfidData');
 
 Information = new Meteor.Collection('information');
 SortTime = new Meteor.Collection('sortTime');
@@ -42,11 +42,13 @@ if (Meteor.isServer) {
         data: 4,
         lunch: 12
       });
-      // On the console:
-      // SortTime.find({meal: 4}).fetch()[0]
     }
   });
 
+
+
+
+  // Called by Admin 3
   Meteor.methods({
     eachBike: function () {
       for (var BikeNum = 1; BikeNum <= 10; BikeNum++) {

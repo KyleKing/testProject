@@ -1,3 +1,7 @@
+/*******************************************/
+/* GPS and String data test for non-RFID data passing */
+/*******************************************/
+
 
 // // To test the ability to set the motor by the switch and then by meteor:
 

@@ -46,20 +46,21 @@ function builtColumn(BarData) {
         series: [{
             name: '< 10 Minute Rides',
             // Data: [21.2, 12.5, 19.4, 12.2, 30.0, 15.0, 28.6]
-            data: BarData.Data
+            data: BarData
         }]
     });
 }
 
-/*
- * Call the function to built the chart when the template is rendered
- */
+/*********************************************/
+/*   Build the bar chart whenever the template is rendered (refreshed)  */
+/********************************************/
+
 Template.columnDemoProfile.rendered = function() {
-    return Meteor.subscribe("BarChartData", function() {
-        if (Meteor.isClient) {
-            BarData = BarChart.findOne();
-            // console.log(BarData.Data);
-            builtColumn(BarData);
-        }
+    // Use a subscribe function to delay creating the chart until data is accessible by the client
+    Meteor.subscribe("BarChartData", function() {
+        BarData = BarChart.findOne().data;
+        // console.log('BarData');
+        // console.log(BarData);
+        builtColumn(BarData);
     });
 };

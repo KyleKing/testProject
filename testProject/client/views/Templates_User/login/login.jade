@@ -1,32 +1,5 @@
+//- Login Demo - Famous Dead People Package
 template(name='login')
     h1 test
     each userList
         p #{profile.name}
-
-//-  <template name="login">
-//-     <div class="navbar navbar-default" role="navigation">
-//-         <div class="navbar-header">
-//-             <div class="navbar-header">
-//-                 <a class="navbar-brand" href="/">Accounts Admin</a>
-//-             </div>
-//-         </div>
-//-         <div class="navbar-collapse collapse">
-//-             <ul class="nav navbar-nav">
-//-             </ul>
-//-             <ul class="nav navbar-nav navbar-right">
-//-             {{> loginButtons }}
-//-             </ul>
-//-         </div>
-//-     </div>
-//-     <div class="container">
-//-         {{> adminTemplate}}
-//-     </div>
-//- </template>
-
-//- <template name="adminTemplate">
-//-     {{#if isAdminUser}}
-//-         {{> accountsAdmin}}
-//-     {{else}}
-//-         Must be admin to see this...
-//-     {{/if}}
-//- </template>

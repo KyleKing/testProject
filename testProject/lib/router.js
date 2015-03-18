@@ -1,13 +1,20 @@
+/*********************************************/
+/*   Not working -> defaults to map static                  */
+/********************************************/
 Router.route('/', function () {
   this.wait(Meteor.subscribe('Bikes'));
-
   // this.ready() is true if all items in the wait list are ready
   if (this.ready()) {
-    this.render('map-static');
+    this.render('mapLayout');
   } else {
-    this.render('map-layout');
+    this.render('mapStatic');
   }
 });
+
+// Temporary workaround
+// Router.route('/', function () {
+//   this.render('mapLayout');
+// });
 
 Router.route('/about');
 
@@ -30,7 +37,7 @@ Router.route('/cool');
 Router.route('/loginLayout');
 
 
-// To be added to about, if needed:
+// To be added to about, for scroll to top, if needed:
 // Iron.Router.hooks.scrollToTop = function () {
 //   var scrollEl = this.lookupOption('scrollEl') || 'body';
 //   Deps.afterFlush(function () {
@@ -39,3 +46,5 @@ Router.route('/loginLayout');
 // };
 
 // Router.plugin('scrollToTop', {scrollEl: '.layout'});
+
+// Additionally, make sure routing behaviour defaults to scrolling to top of each new page
