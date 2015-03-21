@@ -1,6 +1,3 @@
-// From one of the creators of normalize.css
-@import '_sanitize.scss';
-
 /* ------------------------------------------------------------
                Bourbon.io framework
                Docs:
@@ -18,8 +15,9 @@
 @import 'neat/neat';
 @import 'base/base';
 
+// From the creators of normalize.css
 // Remove browser-imposed css
-@import '_custom/normalize';
+@import '_sanitize.scss';
 
 /* ------------------------------------------------------------
                Custom stylization
@@ -34,7 +32,9 @@
 @import '_custom/_video';
 @import '_custom/_mechanic';
 
-// body {
+body {
+  font-size: 1.1em;
+}
 //   @include hidpi(3) {
 //     font-size: 3*$base-font-size;
 //   }
