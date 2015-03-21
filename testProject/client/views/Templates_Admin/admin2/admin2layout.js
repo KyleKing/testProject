@@ -1,5 +1,8 @@
 Meteor.subscribe("TestUsersData");
-Meteor.call('eachBike');
+/*********************************************/
+/*   Temporarily commented out for Eric                      */
+/********************************************/
+// Meteor.call('eachBike');
 
 Template.admin2layout.created = function() {
   // Default to all users view

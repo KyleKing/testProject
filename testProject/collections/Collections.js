@@ -87,7 +87,7 @@ if (Meteor.isServer) {
           { $sort: {'positions.timestamp': 1} },
           { $group: {_id : "$positions.user", positions: {$push: '$positions'} } }
         ]);
-        console.log(Bikes);
+        // console.log(Bikes);
 
         // for each bike (scalable), ...
         _(Bikes).each(function(Bike) {
