@@ -20,6 +20,7 @@ mrt:moment
 twbs:bootstrap
 ian:accounts-ui-bootstrap-3
 rajit:bootstrap3-datepicker
+pcuci:bootcards
 webix:webix
 mrt:leaflet
 maazalik:highcharts
@@ -29,14 +30,19 @@ clinical:accounts-famous-dead-people
 
 
 # ---To Be Integrated---
-raix:handlebar-helpers
-joshowens:accounts-entry
+mdg:camera
 
 # ---TBD---
+# raix:handlebar-helpers
+# joshowens:accounts-entry
+
 # meteorhacks:fast-render
 # percolate:momentum
 # modweb:vivus
 # mrt:chartjs
+
+# ___Useful for secure remote DDP COnnections___
+# meteorhacks:firewall
 
 # ___Visual (Front End) Things___
 # wolves:bourbon
@@ -56,7 +62,6 @@ joshowens:accounts-entry
 
 # ___Cordova Things___
 # richsilv:cordova-notifications
-mdg:camera
 
 # ___Speed User Things___
 # chriswessels:hammer
