@@ -87,6 +87,10 @@ if (Meteor.isServer) {
           { $sort: {'positions.timestamp': 1} },
           { $group: {_id : "$positions.user", positions: {$push: '$positions'} } }
         ]);
+        /*********************************************/
+        /*   This should be including every bike with the same bike number regardless of day value, but it isn't */
+        /* Possibly due to the _id */
+        /********************************************/
         // console.log(Bikes);
 
         // for each bike (scalable), ...

@@ -4,14 +4,60 @@
 # but you can also edit it by hand.
 
 standard-app-packages
+
+# Tools - Languages
+fourseven:scss
 mquandalle:jade
-iron:router
-mdg:camera
-maazalik:highcharts
-mrt:leaflet
-fourseven:scss@=0.9.6
-nsmeta:zurb-foundation
 underscore
-clinical:accounts-famous-dead-people
+
+# Tools - General
+iron:router
 meteorhacks:aggregate
 mrt:moment
+
+# Visuals
+# bootstrap
+twbs:bootstrap
+ian:accounts-ui-bootstrap-3
+rajit:bootstrap3-datepicker
+webix:webix
+mrt:leaflet
+maazalik:highcharts
+
+# Quick Start
+clinical:accounts-famous-dead-people
+
+
+# ---To Be Integrated---
+raix:handlebar-helpers
+joshowens:accounts-entry
+
+# ---TBD---
+# meteorhacks:fast-render
+# percolate:momentum
+# modweb:vivus
+# mrt:chartjs
+
+# ___Visual (Front End) Things___
+# wolves:bourbon
+# wolves:neat
+# fezvrasta:bootstrap-material-design
+# nsmeta:zurb-foundation
+# meteoric:ionic-sass
+# meteoric:ionicons-sass
+# meteoric:ionic
+# reactjs:react
+# zimme:iron-router-auth
+# mjn:famous
+# gadicohen:famous-views
+# jhuenges:highstock
+# ___Animation Things___
+# velocityjs:velocityjs
+
+# ___Cordova Things___
+# richsilv:cordova-notifications
+mdg:camera
+
+# ___Speed User Things___
+# chriswessels:hammer
+# mousetrap:mousetrap
