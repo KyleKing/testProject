@@ -33,7 +33,8 @@ Template.admin2layout.helpers({
   admin2layout: function () {
     // Return all users in system
     if (Session.get('ViewUsers') === 0) {
-      return TestUsers.find().fetch();
+      // Added limit option to return set number of items and not overload client
+      return TestUsers.find({},{limit: 10}).fetch();
     } else {
       // Return only the clicked user:
       // return TestUsers.find({bike: 7}).fetch()[0]; // (i.e. findOne)
