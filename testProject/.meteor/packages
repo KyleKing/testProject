@@ -6,7 +6,7 @@
 standard-app-packages
 
 # Tools - Languages
-fourseven:scss
+fourseven:scss@=0.9.6
 mquandalle:jade
 underscore
 
@@ -20,14 +20,12 @@ mrt:moment
 twbs:bootstrap
 ian:accounts-ui-bootstrap-3
 rajit:bootstrap3-datepicker
-pcuci:bootcards
 webix:webix
 mrt:leaflet
 maazalik:highcharts
 
 # Quick Start
 clinical:accounts-famous-dead-people
-
 
 # ---To Be Integrated---
 mdg:camera
@@ -38,6 +36,7 @@ mrt:nprogress
 fastclick
 
 # ---TBD---
+# pcuci:bootcards
 # matteodem:gridster
 # raix:handlebar-helpers
 # joshowens:accounts-entry
