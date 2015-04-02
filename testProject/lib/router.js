@@ -3,12 +3,13 @@
 /********************************************/
 Router.route('/', function () {
   this.wait(Meteor.subscribe('Bikes'));
-  // this.ready() is true if all items in the wait list are ready
-  if (this.ready()) {
-    this.render('mapLayout');
-  } else {
-    this.render('mapStatic');
-  }
+  this.render('mapLayout');
+  // // this.ready() is true if all items in the wait list are ready
+  // if (this.ready()) {
+  //   this.render('mapLayout');
+  // } else {
+  //   this.render('mapStatic');
+  // }
 });
 
 // Temporary workaround
