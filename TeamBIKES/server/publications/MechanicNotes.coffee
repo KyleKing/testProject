@@ -10,4 +10,4 @@ Meteor.publish 'MechanicNotesPub', (group) ->
     return
 
 Meteor.publish "ManageMechanicNotes", ->
-  DailyBikeData.find({Tag: {$ne: "Removed"}}, {fields: {Positions: 0}})
+  MechanicNotes.find({Tag: {$ne: "Removed"}}, {fields: {Positions: 0}})

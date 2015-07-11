@@ -3,16 +3,24 @@
 # Config variables:
 col = [
   {
-    name: 'Bike'
-    description: 'Bike Number'
+    name: 'MechanicID'
+    description: 'MechanicID'
   }
   {
-    name: 'Day'
-    description: 'Day of Data'
+    name: 'Timestamp'
+    description: 'Timestamp'
+  }
+  {
+    name: 'Bike'
+    description: 'Bike'
+  }
+  {
+    name: 'Notes'
+    description: 'Mechanic Notes'
   }
   {
     name: 'Tag'
-    description: 'Tag'
+    description: 'Bike Tag'
   }]
 
 # Initialization
@@ -22,16 +30,24 @@ dataTable =
   id: 'datatable'
   columns: [
     {
-      id: col[0].name, header: col[0].description, sort: 'int'
+      id: col[0].name, header: col[0].description, sort: 'int', editor: 'text'
       adjust: true
     }
     {
-      id: col[1].name, header: col[1].description, sort: 'int'
+      id: col[1].name, header: col[1].description, sort: 'int', editor: 'text'
       adjust: true
     }
     {
       id: col[2].name, header: col[2].description, sort: 'string', editor: 'text'
+      adjust: true
+    }
+    {
+      id: col[3].name, header: col[3].description, sort: 'string', editor: 'text'
       fillspace: true, adjust: true
+    }
+    {
+      id: col[4].name, header: col[4].description, sort: 'string', editor: 'text'
+      adjust: true
     }
   ]
   select: true
@@ -40,8 +56,8 @@ dataTable =
   editable: true
   editaction: 'dblclick'
   resizeColumn: true
-  url: webix.proxy('meteor', DailyBikeData)
-  save: webix.proxy('meteor', DailyBikeData)
+  url: webix.proxy('meteor', MechanicNotes)
+  save: webix.proxy('meteor', MechanicNotes)
 
 toolbar =
   view: 'toolbar'
@@ -65,14 +81,10 @@ toolbar =
       click: ->
         id = $$('datatable').getSelectedId()
         if id
-          _.each id, (id) ->
-            row = $$('datatable').getItem(id.row)
-            row.Tag = 'Removed'
-            console.log row
-            console.log id.row
-            $$('datatable').updateItem(id.row, row);
+          $$('datatable').remove id
         else
           webix.message 'Please select a row to delete'
+        return
     }
   ]
 
