@@ -1,5 +1,6 @@
 # DEV - Webix
-Router.route '/', name: 'ManageMechanicNotes'
+Router.route '/', name: 'ManageUsers'
+Router.route '/ManageMechanicNotes'
 Router.route '/ManageBikes'
 Router.route '/crud'
 
