@@ -81,6 +81,9 @@ cmather:handlebars-server@0.2.0
 matdutour:outdated-browser
 peerlibrary:blaze-components
 
+# https://atmospherejs.com/lookback/seo
+yasinuslu:blaze-meta
+
 
 # ---TBD---
 # aldeed:collection2
@@ -101,9 +104,6 @@ peerlibrary:blaze-components
 # digilord:faker
 ## ericchen0121:filter-collections
 # alethes:pages
-
-# # https://atmospherejs.com/lookback/seo
-# yasinuslu:blaze-meta
 
 # ___Useful for secure remote DDP COnnections___
 # meteorhacks:firewall
