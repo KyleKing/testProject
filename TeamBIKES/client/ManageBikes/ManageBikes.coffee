@@ -43,17 +43,6 @@ dataTable =
   url: webix.proxy('meteor', DailyBikeData)
   save: webix.proxy('meteor', DailyBikeData)
 
-# http://docs.webix.com/desktop__list.html
-list =
-  view: 'list'
-  template: 'Bike Num: #Bike# is tagged #Tag#'
-  scroll: 'xy'
-  drag: 'order'
-  url: webix.proxy('meteor', DailyBikeData.find(
-    Day: today
-    Tag: {$in: ["ToBeRedistributed", "RepairToBeStarted", "RepairInProgress", "WaitingOnParts"]}
-  ))
-
 toolbar =
   view: 'toolbar'
   elements: [
@@ -76,7 +65,11 @@ toolbar =
       click: ->
         id = $$('datatable').getSelectedId()
         if id
-          $$('datatable').remove id
+          row = $$('datatable').getItem(id.row)
+          row.Tag = 'Removed'
+          console.log row
+          console.log id.row
+          $$('datatable').updateItem(id.row, row);
         else
           webix.message 'Please select a row to delete'
     }
@@ -114,16 +107,7 @@ Template.ManageBikes.rendered = ->
             toolbar
             dataTable
           ]
-          gravity: 1
         }
-        { rows: [
-          {
-            view: 'template'
-            type: 'header'
-            template: 'Unavailable Bikes'
-          }
-          list
-        ] }
       ] }
       { view: 'resizer' }
       detailForm

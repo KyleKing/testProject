@@ -1,5 +1,7 @@
 # DEV - Webix
+# Router.route '/', name: 'ManageMechanicNotes'
 Router.route '/', name: 'ManageBikes'
+# Router.route '/ManageBikes'
 Router.route '/crud'
 
 

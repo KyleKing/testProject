@@ -9,4 +9,4 @@ Meteor.publish 'DailyBikeDataPub', (group) ->
     @stop()
 
 Meteor.publish "ManageBikes", ->
-  DailyBikeData.find({}, {fields: {Positions: 0}})
+  DailyBikeData.find({Tag: {$ne: "Removed"}}, {fields: {Positions: 0}})
