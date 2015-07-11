@@ -1,5 +1,6 @@
 # DEV - Webix
-Router.route '/', name: 'crud'
+Router.route '/', name: 'ManageBikes'
+Router.route '/crud'
 
 
 # # Global Route Configuration

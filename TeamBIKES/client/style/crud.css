@@ -10,6 +10,6 @@ body {
   flex-direction: column;
 }
 
-#webix-playground {
+.webix-container {
   flex-grow: 1;  /* fill the remaining space in the parent element*/
 }
