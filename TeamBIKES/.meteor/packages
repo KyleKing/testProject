@@ -11,14 +11,153 @@ meteor-platform
 # Developer Tools
 meteortoys:allthings # Pres ctrl-m to activate
 
+## Visuals
+
 # Preprocessors
 mquandalle:jade
 coffeescript
 stylus
+
+# Icons
+mrt:ionicons
+fortawesome:fontawesome
+
+# Libraries
 # cryptoquick:stylus-multi
 kyleking:customizable-bootstrap-stylus
 
 # Webix
 webix:webix
 webix:skin-flat
-fortawesome:fontawesome
+
+# JS Libraries - Visual
+# webix:webix
+# webix:skin-web
+maazalik:highcharts
+maazalik:highcharts-gauge
+# jhuenges:highstock
+mrt:leaflet
+fuatsengul:leaflet-markercluster
+appshore:leaflet-awesome-markers
+timmyg:wow
+chrisbutler:typed.js
+mrt:jquery-easing
+
+## Tools
+
+# JS Libraries - Tools
+momentjs:moment
+mrt:underscore-string-latest
+meteorhacks:kadira
+meteorhacks:aggregate
+jparker:crypto-aes
+
+# Router:
+iron:router
+zimme:iron-router-active
+okgrow:iron-router-autoscroll
+
+# Collections:
+dburles:collection-helpers
+matb33:collection-hooks
+reywood:publish-composite
+
+# Authentication
+accounts-password
+alanning:roles
+useraccounts:bootstrap
+
+# Seed Data
+dburles:factory
+anti:fake
+# clinical:accounts-famous-dead-people
+
+# Mobile Functions
+mdg:camera
+
+# Misc:
+cunneen:mailgun
+cmather:handlebars-server@0.2.0
+matdutour:outdated-browser
+peerlibrary:blaze-components
+
+
+# ---TBD---
+# aldeed:collection2
+# aldeed:autoform
+# jeremy:snapsvg
+# mirageglobe:snapsvgcdn
+# lepozepo:accounting
+# mrt:nprogress
+# matteodem:gridster
+# raix:handlebar-helpers
+# joshowens:accounts-entry
+# meteorhacks:fast-render
+# percolate:momentum
+# modweb:vivus
+# mrt:chartjs
+# zimme:iron-router-auth
+# meteorhacks:fast-render
+# digilord:faker
+## ericchen0121:filter-collections
+# alethes:pages
+
+# # https://atmospherejs.com/lookback/seo
+# yasinuslu:blaze-meta
+
+# ___Useful for secure remote DDP COnnections___
+# meteorhacks:firewall
+
+# ___Cordova Things___
+# richsilv:cordova-notifications
+
+# ___Speed User Things___
+# chriswessels:hammer
+# mousetrap:mousetrap
+
+# Motivation:
+# https://github.com/daneden/animate.css
+## natestrauser:animate-css
+# https://github.com/modernassembly/threesixtyjs
+
+# http://prismjs.com/
+## mrt:prismjs
+# https://atmospherejs.com/bkruse/pace
+# http://github.hubspot.com/pace/docs/welcome/
+## bkruse:pace
+# http://rocha.la/jQuery-slimScroll
+
+# http://gsgd.co.uk/sandbox/jquery/easing/
+# Alt: https://atmospherejs.com/andreioprisan/ceaser-easing-sass
+
+# https://atmospherejs.com/alexanderson1993/please.js
+# This looks fun:
+## alexanderson1993:please.js
+
+
+
+# From Killer demo app #2
+# aldeed:collection2
+# aldeed:simple-schema
+# raix:handlebar-helpers
+# cfs:standard-packages
+# cfs:gridfs
+# aldeed:template-extension
+# yogiben:alerts
+# cfs:graphicsmagick
+# yogiben:helpers
+# yogiben:user-helpers
+# yogiben:autoform-modals@0.2.8
+# yogiben:favorites@0.0.4
+# yogiben:comments@0.0.8
+# yogiben:notifications@0.0.6
+# yogiben:pretty-emails
+# yogiben:pretty-email
+# yogiben:autoform-file
+# yogiben:admin
+# yogiben:autoform-map@0.0.2
+# multiply:iron-router-progress
+# manuelschoebel:ms-seo
+# spiderable
+
+# New Packages
