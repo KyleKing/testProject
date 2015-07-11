@@ -1,3 +1,20 @@
+[today, now] = CurrentDay()
+
+# Config variables:
+col = [
+  {
+    name: 'Bike'
+    description: 'Bike Number'
+  }
+  {
+    name: 'Day'
+    description: 'Day of Data'
+  }
+  {
+    name: 'Tag'
+    description: 'Tag'
+  }]
+
 # Initialization
 # http://docs.webix.com/api__refs__ui.datatable.html
 dataTable =
@@ -5,17 +22,16 @@ dataTable =
   id: 'datatable'
   columns: [
     {
-      id:"ch1", header:"", template:"{common.checkbox()}"
+      id: col[0].name, header: col[0].description, sort: 'int'
+      adjust: true
     }
     {
-      id: 'title', header: 'Film title', sort: 'string', editor: 'text'
-      adjust: true, fillspace: true
+      id: col[1].name, header: col[1].description, sort: 'int'
+      adjust: true
     }
     {
-      id: 'year', header: 'Release year', sort: 'int', editor: 'text'
-    }
-    {
-      id: 'rating', header: 'Rating', sort: 'int', editor: 'text'
+      id: col[2].name, header: col[2].description, sort: 'string', editor: 'text'
+      fillspace: true, adjust: true
     }
   ]
   select: true
@@ -24,16 +40,19 @@ dataTable =
   editable: true
   editaction: 'dblclick'
   resizeColumn: true
-  url: webix.proxy('meteor', Movies)
-  save: webix.proxy('meteor', Movies)
+  url: webix.proxy('meteor', DailyBikeData)
+  save: webix.proxy('meteor', DailyBikeData)
 
 # http://docs.webix.com/desktop__list.html
 list =
   view: 'list'
-  template: '#title# (#year#) is rated #rating#'
+  template: 'Bike Num: #Bike# is tagged #Tag#'
   scroll: 'xy'
   drag: 'order'
-  url: webix.proxy('meteor', Movies.find(title: /e/))
+  url: webix.proxy('meteor', DailyBikeData.find(
+    Day: today
+    Tag: {$in: ["ToBeRedistributed", "RepairToBeStarted", "RepairInProgress", "WaitingOnParts"]}
+  ))
 
 toolbar =
   view: 'toolbar'
@@ -67,9 +86,9 @@ detailForm =
   view: 'form'
   id: 'detail-form'
   elements: [
-    { view: 'text', name: 'title', label: 'Movie title' }
-    { view: 'text', name: 'year', label: 'Year' }
-    { view: 'text', name: 'rating', label: 'Rating' }
+    { view: 'text', name: col[0].name, label: col[0].description, labelWidth: 120 }
+    { view: 'text', name: col[1].name, label: col[1].description, labelWidth: 120 }
+    { view: 'text', name: col[2].name, label: col[2].description, labelWidth: 120 }
     {
       view: 'button'
       label: 'Save'
@@ -82,7 +101,7 @@ detailForm =
 
 Template.ManageBikes.onCreated ->
   # Use this.subscribe inside onCreated callback
-  @subscribe 'crud'
+  @subscribe 'ManageBikes'
 
 Template.ManageBikes.rendered = ->
   webixContainer = webix.ui(
@@ -95,13 +114,13 @@ Template.ManageBikes.rendered = ->
             toolbar
             dataTable
           ]
-          gravity: 2
+          gravity: 1
         }
         { rows: [
           {
             view: 'template'
             type: 'header'
-            template: 'Movies containing "e" (drag them!)'
+            template: 'Unavailable Bikes'
           }
           list
         ] }
@@ -120,4 +139,3 @@ Template.ManageBikes.rendered = ->
 
   # http://docs.webix.com/desktop__data_binding.html
   $$('detail-form').bind $$('datatable')
-  console.log 'The DataTable is reactive: Movies.insert({title: "Star Wars"})'
