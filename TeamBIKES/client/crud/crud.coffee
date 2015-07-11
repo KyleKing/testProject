@@ -84,11 +84,11 @@ detailForm =
     }
   ]
 
-Template.webix.onCreated ->
+Template.crud.onCreated ->
   # Use this.subscribe inside onCreated callback
-  @subscribe 'webix'
+  @subscribe 'crud'
 
-Template.webix.rendered = ->
+Template.crud.rendered = ->
   webixContainer = webix.ui(
     container: 'webix-playground'
     view: 'layout'

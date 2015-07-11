@@ -5,7 +5,7 @@ if (Movies.find().count() === 0) {
   Movies.insert({title: 'The Matrix', year: 1999, rating: 8.7});
 }
 
-Meteor.publish("webix", function () {
+Meteor.publish("crud", function () {
   return Movies.find();
 });
 
