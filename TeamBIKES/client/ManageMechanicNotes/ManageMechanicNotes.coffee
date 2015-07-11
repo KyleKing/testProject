@@ -93,13 +93,13 @@ detailForm =
     }
   ]
 
-Template.ManageBikes.onCreated ->
+Template.ManageMechanicNotes.onCreated ->
   # Use this.subscribe inside onCreated callback
-  @subscribe 'ManageBikes'
+  @subscribe 'ManageMechanicNotes'
 
-Template.ManageBikes.rendered = ->
+Template.ManageMechanicNotes.rendered = ->
   webixContainer = webix.ui(
-    container: 'ManageBikes-Webix'
+    container: 'ManageMechanicNotes-Webix'
     view: 'layout'
     rows: [
       { cols: [
