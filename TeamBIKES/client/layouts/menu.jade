@@ -9,22 +9,18 @@ template(name="menu")
     #sidebar-wrapper
       ul.sidebar-nav
         li.sidebar-brand
-          a(href='#')
-            | Start Bootstrap
-        li
-          a(href='#') Dashboard
-        li
-          a(href='#') Shortcuts
-        li
-          a(href='#') Overview
-        li
-          a(href='#') Events
-        li
-          a(href='#') About
-        li
-          a(href='#') Services
-        li
-          a(href='#') Contact
+          a(href='/')
+            | Team BIKES
+        li(class="{{ activeIfTemplateIs 'ManageUsers' }}")
+          a(href="{{pathFor 'ManageUsers'}}") ManageUsers
+        li(class="{{ activeIfTemplateIs 'PageContent' }}")
+          a(href="{{pathFor 'PageContent'}}") PageContent
+        li(class="{{ activeIfTemplateIs 'ManageMechanicNotes' }}")
+          a(href="{{pathFor 'ManageMechanicNotes'}}") ManageMechanicNotes
+        li(class="{{ activeIfTemplateIs 'ManageBikes' }}")
+          a(href="{{pathFor 'ManageBikes'}}") ManageBikes
+        li(class="{{ activeIfTemplateIs 'crud' }}")
+          a(href="{{pathFor 'crud'}}") crud
     // /#sidebar-wrapper
     +yield
   // /#wrapper
