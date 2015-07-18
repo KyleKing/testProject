@@ -98,7 +98,7 @@ Template.ManageBikes.onCreated ->
   @subscribe 'ManageBikes'
 
 Template.ManageBikes.rendered = ->
-  webixContainer = webix.ui(
+  @webixContainer = webix.ui(
     container: 'ManageBikes-Webix'
     view: 'layout'
     rows: [
@@ -120,7 +120,11 @@ Template.ManageBikes.rendered = ->
   # container. You have to resize them manually, like below:
   # Read more at http://forum.webix.com/discussion/comment/3650/#Comment_3650.
   webix.event window, 'resize', ->
-    webixContainer.resize()
+    @webixContainer.resize()
 
   # http://docs.webix.com/desktop__data_binding.html
   $$('ManageBikes-Form').bind $$('datatable')
+
+Template.Datatable.destroyed = ->
+  if @webixContainer
+    @webixContainer.destructor()

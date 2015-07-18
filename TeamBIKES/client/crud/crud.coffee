@@ -89,7 +89,7 @@ Template.crud.onCreated ->
   @subscribe 'crud'
 
 Template.crud.rendered = ->
-  webixContainer = webix.ui(
+  @webixContainer = webix.ui(
     container: 'webix-playground'
     view: 'layout'
     rows: [
@@ -120,10 +120,12 @@ Template.crud.rendered = ->
   # container. You have to resize them manually, like below:
   # Read more at http://forum.webix.com/discussion/comment/3650/#Comment_3650.
   webix.event window, 'resize', ->
-    webixContainer.resize()
-    return
+    @webixContainer.resize()
 
   # http://docs.webix.com/desktop__data_binding.html
   $$('detail-form').bind $$('datatable')
   console.log 'The DataTable is reactive: Movies.insert({title: "Star Wars"})'
-  return
+
+Template.Datatable.destroyed = ->
+  if @webixContainer
+    @webixContainer.destructor()
