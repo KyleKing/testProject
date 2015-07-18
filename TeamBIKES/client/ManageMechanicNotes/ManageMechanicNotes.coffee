@@ -27,7 +27,7 @@ col = [
 # http://docs.webix.com/api__refs__ui.datatable.html
 dataTable =
   view: 'datatable'
-  id: 'datatable'
+  id: 'MechanicNotes-Table'
   columns: [
     {
       id: col[0].name, header: col[0].description, sort: 'int', editor: 'text'
@@ -71,17 +71,17 @@ toolbar =
       value: 'Add'
       width: 100
       click: ->
-        row = $$('datatable').add({})
-        $$('datatable').editCell row, 'title'
+        row = $$('MechanicNotes-Table').add({})
+        $$('MechanicNotes-Table').editCell row, 'title'
     }
     {
       view: 'button'
       value: 'Remove'
       width: 100
       click: ->
-        id = $$('datatable').getSelectedId()
+        id = $$('MechanicNotes-Table').getSelectedId()
         if id
-          $$('datatable').remove id
+          $$('MechanicNotes-Table').remove id
         else
           webix.message 'Please select a row to delete'
         return
@@ -90,7 +90,7 @@ toolbar =
 
 detailForm =
   view: 'form'
-  id: 'detail-form'
+  id: 'MechanicNotes-Form'
   elements: [
     { view: 'text', name: col[0].name, label: col[0].description, labelWidth: 120 }
     { view: 'text', name: col[1].name, label: col[1].description, labelWidth: 120 }
@@ -135,4 +135,4 @@ Template.ManageMechanicNotes.rendered = ->
     webixContainer.resize()
 
   # http://docs.webix.com/desktop__data_binding.html
-  $$('detail-form').bind $$('datatable')
+  $$('MechanicNotes-Form').bind $$('datatable')

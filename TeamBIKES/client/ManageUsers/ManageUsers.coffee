@@ -23,7 +23,7 @@ col = [
 # http://docs.webix.com/api__refs__ui.datatable.html
 dataTable =
   view: 'datatable'
-  id: 'datatable'
+  id: 'ManageUsers-Table'
   columns: [
     {
       id: col[0].name, header: col[0].description, sort: 'int'
@@ -63,17 +63,17 @@ toolbar =
       value: 'Add'
       width: 100
       click: ->
-        row = $$('datatable').add({})
-        $$('datatable').editCell row, 'title'
+        row = $$('ManageUsers-Table').add({})
+        $$('ManageUsers-Table').editCell row, 'title'
     }
     {
       view: 'button'
       value: 'Remove'
       width: 100
       click: ->
-        id = $$('datatable').getSelectedId()
+        id = $$('ManageUsers-Table').getSelectedId()
         if id
-          $$('datatable').remove id
+          $$('ManageUsers-Table').remove id
         else
           webix.message 'Please select a row to delete'
         return
@@ -82,7 +82,7 @@ toolbar =
 
 detailForm =
   view: 'form'
-  id: 'detail-form'
+  id: 'ManageUsers-Form'
   elements: [
     { view: 'text', name: col[1].name, label: col[1].description, labelWidth: 120 }
     { view: 'text', name: col[3].name, label: col[3].description, labelWidth: 120 }
@@ -126,4 +126,4 @@ Template.ManageUsers.rendered = ->
     webixContainer.resize()
 
   # http://docs.webix.com/desktop__data_binding.html
-  $$('detail-form').bind $$('datatable')
+  $$('ManageUsers-Form').bind $$('datatable')

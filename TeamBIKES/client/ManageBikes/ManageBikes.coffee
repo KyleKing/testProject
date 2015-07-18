@@ -19,7 +19,7 @@ col = [
 # http://docs.webix.com/api__refs__ui.datatable.html
 dataTable =
   view: 'datatable'
-  id: 'datatable'
+  id: 'ManageBikes-Table'
   columns: [
     {
       id: col[0].name, header: col[0].description, sort: 'int'
@@ -55,22 +55,22 @@ toolbar =
       value: 'Add'
       width: 100
       click: ->
-        row = $$('datatable').add({})
-        $$('datatable').editCell row, 'title'
+        row = $$('ManageBikes-Table').add({})
+        $$('ManageBikes-Table').editCell row, 'title'
     }
     {
       view: 'button'
       value: 'Remove'
       width: 100
       click: ->
-        id = $$('datatable').getSelectedId()
+        id = $$('ManageBikes-Table').getSelectedId()
         if id
           _.each id, (id) ->
-            row = $$('datatable').getItem(id.row)
+            row = $$('ManageBikes-Table').getItem(id.row)
             row.Tag = 'Removed'
             console.log row
             console.log id.row
-            $$('datatable').updateItem(id.row, row);
+            $$('ManageBikes-Table').updateItem(id.row, row);
         else
           webix.message 'Please select a row to delete'
     }
@@ -78,7 +78,7 @@ toolbar =
 
 detailForm =
   view: 'form'
-  id: 'detail-form'
+  id: 'ManageBikes-Form'
   elements: [
     { view: 'text', name: col[0].name, label: col[0].description, labelWidth: 120 }
     { view: 'text', name: col[1].name, label: col[1].description, labelWidth: 120 }
@@ -123,4 +123,4 @@ Template.ManageBikes.rendered = ->
     webixContainer.resize()
 
   # http://docs.webix.com/desktop__data_binding.html
-  $$('detail-form').bind $$('datatable')
+  $$('ManageBikes-Form').bind $$('datatable')
