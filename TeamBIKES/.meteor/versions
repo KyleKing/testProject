@@ -17,6 +17,7 @@ chrisbutler:typed.js@1.1.0
 cmather:handlebars-server@0.2.0
 coffeescript@1.0.6
 cunneen:mailgun@0.9.1
+davidsichau:sidebar@0.1.1
 dburles:collection-helpers@1.0.3
 dburles:factory@0.3.10
 dburles:mongo-collection-instances@0.3.3

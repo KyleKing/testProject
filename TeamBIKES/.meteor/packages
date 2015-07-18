@@ -9,9 +9,10 @@ meteor-platform
 # insecure
 
 # Developer Tools
-meteortoys:allthings # Pres ctrl-m to activate
+meteortoys:allthings@1.2.1 # Pres ctrl-m to activate
 
 ## Visuals
+davidsichau:sidebar
 
 # Preprocessors
 mquandalle:jade

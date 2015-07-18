@@ -15,10 +15,6 @@ col = [
     description: 'emails.address'
   }
   {
-    name: 'verified'
-    description: 'emails.verified'
-  }
-  {
     name: 'roles'
     description: 'roles'
   }]
@@ -30,24 +26,20 @@ dataTable =
   id: 'datatable'
   columns: [
     {
-      id: col[0].name, header: col[0].description, sort: 'int', editor: 'text'
-      adjust: true, map:"#profile.name#"
+      id: col[0].name, header: col[0].description, sort: 'int'
+      adjust: true, map:"#profile.name#", fillspace: true
     }
     {
       id: col[1].name, header: col[1].description, sort: 'int', editor: 'text'
       adjust: true
     }
     {
-      id: col[2].name, header: col[2].description, sort: 'string', editor: 'text'
+      id: col[2].name, header: col[2].description, sort: 'string'
       adjust: true, map:"#emails[0].address#"
     }
     {
       id: col[3].name, header: col[3].description, sort: 'string', editor: 'text'
-      adjust: true, map:"#emails[0].verified#"
-    }
-    {
-      id: col[4].name, header: col[4].description, sort: 'string', editor: 'text'
-      adjust: true
+      adjust: true, fillspace: true
     }
   ]
   select: true
@@ -92,9 +84,8 @@ detailForm =
   view: 'form'
   id: 'detail-form'
   elements: [
-    { view: 'text', name: col[0].name, label: col[0].description, labelWidth: 120 }
     { view: 'text', name: col[1].name, label: col[1].description, labelWidth: 120 }
-    { view: 'text', name: col[2].name, label: col[2].description, labelWidth: 120 }
+    { view: 'text', name: col[3].name, label: col[3].description, labelWidth: 120 }
     {
       view: 'button'
       label: 'Save'

@@ -1,0 +1,30 @@
+head
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+
+template(name="menu")
+  #wrapper
+    // Sidebar
+    #sidebar-wrapper
+      ul.sidebar-nav
+        li.sidebar-brand
+          a(href='#')
+            | Start Bootstrap
+        li
+          a(href='#') Dashboard
+        li
+          a(href='#') Shortcuts
+        li
+          a(href='#') Overview
+        li
+          a(href='#') Events
+        li
+          a(href='#') About
+        li
+          a(href='#') Services
+        li
+          a(href='#') Contact
+    // /#sidebar-wrapper
+    +yield
+  // /#wrapper

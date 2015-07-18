@@ -43,7 +43,7 @@ dataTable =
     }
     {
       id: col[3].name, header: col[3].description, sort: 'string', editor: 'text'
-      fillspace: true, adjust: true
+      adjust: true, fillspace: true
     }
     {
       id: col[4].name, header: col[4].description, sort: 'string', editor: 'text'
