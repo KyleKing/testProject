@@ -114,6 +114,9 @@ Template.ManageBikes.rendered = ->
       detailForm
     ]
   )
+  # $$("webixContainer").config.height = $(window).height()
+  # @webixContainer.resize()
+
 
   # The problem with mixing Webix components and non-Webix HTML markup is that
   # Webix UI components won't resize automatically if you place them in an HTML
@@ -124,6 +127,17 @@ Template.ManageBikes.rendered = ->
 
   # http://docs.webix.com/desktop__data_binding.html
   $$('ManageBikes-Form').bind $$('datatable')
+
+# Template.menu.events 'click': (e) ->
+#   @webixContainer.resize() if webixContainer
+
+# Template.ManageBikes.helpers RealHeight: ->
+#   $(window).height()
+
+# Template.ManageBikes.helpers attributes: ->
+#   return {
+#     height: $(window).height()
+#   }
 
 Template.Datatable.destroyed = ->
   if @webixContainer

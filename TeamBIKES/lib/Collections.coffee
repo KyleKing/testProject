@@ -22,3 +22,4 @@
 
 # For testing Webix
 @Movies = new Mongo.Collection 'movies'
+@Books = new Mongo.Collection 'books'

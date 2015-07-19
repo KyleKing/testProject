@@ -10,11 +10,7 @@ body {
   flex-direction: column;
 }
 
-section#WebixViewDataTable {
-	min-height: 600px;
-	height: 100%;
-}
-
 .webix-container {
+	height:600px;
   flex-grow: 1;  /* fill the remaining space in the parent element*/
 }

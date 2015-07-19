@@ -9,4 +9,23 @@ Meteor.publish("crud", function () {
   return Movies.find();
 });
 
+if (!Books.find().count()){
+	Books.insert({
+		author:"Anthony Doerr",
+		name:"All the Light We Cannot See"
+	});
+
+	Books.insert({
+		author:"Paula Hawkins",
+		name:"The girl on the train"
+	});
+}
+
+Meteor.publish("Datatable", function () {
+  return Books.find();
+});
+
+// more movie data: http://www.imdb.com/xml/find?json=1&tt=on&q=meteor
+
+
 // more movie data: http://www.imdb.com/xml/find?json=1&tt=on&q=meteor

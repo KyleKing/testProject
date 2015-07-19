@@ -21,6 +21,8 @@ template(name="menu")
           a(href="{{pathFor 'ManageBikes'}}") ManageBikes
         li(class="{{ activeIfTemplateIs 'crud' }}")
           a(href="{{pathFor 'crud'}}") crud
+        li(class="{{ activeIfTemplateIs 'Datatable' }}")
+          a(href="{{pathFor 'Datatable'}}") Datatable
     // /#sidebar-wrapper
     +yield
   // /#wrapper
