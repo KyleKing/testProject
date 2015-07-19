@@ -56,11 +56,6 @@ MechanicNotes.attachSchema new SimpleSchema(
 # All the options from the core documentation at:
 # https://github.com/aldeed/meteor-collection2#attach-a-schema-to-meteorusers
 Schema = {}
-Schema.UserCountry = new SimpleSchema(
-  name: type: String
-  code:
-    type: String
-    regEx: /^[A-Z]{2}$/)
 Schema.UserProfile = new SimpleSchema(
   firstName:
     type: String
@@ -69,35 +64,8 @@ Schema.UserProfile = new SimpleSchema(
   lastName:
     type: String
     regEx: /^[a-zA-Z]{2,25}$/
-    optional: true
-  birthday:
-    type: Date
-    optional: true
-  gender:
-    type: String
-    allowedValues: [
-      'Male'
-      'Female'
-    ]
-    optional: true
-  organization:
-    type: String
-    regEx: /^[a-z0-9A-z .]{3,30}$/
-    optional: true
-  website:
-    type: String
-    regEx: SimpleSchema.RegEx.Url
-    optional: true
-  bio:
-    type: String
-    optional: true
-  country:
-    type: Schema.UserCountry
     optional: true)
 Schema.User = new SimpleSchema(
-  username:
-    type: String
-    regEx: /^[a-z0-9A-Z_]{3,15}$/
   emails:
     type: [ Object ]
     optional: true
@@ -109,10 +77,6 @@ Schema.User = new SimpleSchema(
   profile:
     type: Schema.UserProfile
     optional: true
-  services:
-    type: Object
-    optional: true
-    blackbox: true
   roles:
     type: Object
     optional: true
@@ -121,18 +85,3 @@ Schema.User = new SimpleSchema(
     type: [ String ]
     optional: true)
 Meteor.users.attachSchema Schema.User
-
-# Meteor.users.attachSchema new SimpleSchema(
-#   createdAt:
-#     type: Date
-#     label: 'createdAt'
-#   Bike:
-#     type: Number
-#     label: 'Bike Number'
-#     min: 0
-#   Notes:
-#     type: String
-#     label: 'Notes'
-#   Tag:
-#     type: String
-#     label: 'Tag')
