@@ -5,6 +5,7 @@ Meteor.isClient and Template.registerHelper('TabularTables', TabularTables)
 TabularTables.Books = new (Tabular.Table)(
   name: 'BookList'
   collection: Books
+  autoWidth: false
   columns: [
     { data: 'title', title: 'Title' }
     { data: 'author', title: 'Author' }
@@ -16,6 +17,7 @@ Meteor.isClient and Template.registerHelper('ManageBikesTable', TabularTables)
 TabularTables.ManageBikes = new (Tabular.Table)(
   name: 'ManageBikes'
   collection: DailyBikeData
+  autoWidth: false
   columns: [
     { data: 'Bike', title: 'Bike' }
     { data: 'Day', title: 'Day' }
@@ -27,6 +29,7 @@ Meteor.isClient and Template.registerHelper('ManageMechanicNotesTable', TabularT
 TabularTables.ManageMechanicNotes = new (Tabular.Table)(
   name: 'ManageMechanicNotes'
   collection: MechanicNotes
+  autoWidth: false
   columns: [
     { data: 'MechanicID', title: 'MechanicID' }
     { data: 'Timestamp', title: 'Timestamp' }
@@ -40,6 +43,7 @@ Meteor.isClient and Template.registerHelper('ManageUsersTable', TabularTables)
 TabularTables.ManageUsers = new (Tabular.Table)(
   name: 'ManageUsers'
   collection: Meteor.users
+  autoWidth: false
   columns: [
     { data: 'profile.name', title: 'profile.name' }
     { data: 'createdAt', title: 'createdAt' }
