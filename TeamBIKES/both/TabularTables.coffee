@@ -47,6 +47,6 @@ TabularTables.ManageUsers = new (Tabular.Table)(
   columns: [
     { data: 'profile.name', title: 'profile.name' }
     { data: 'createdAt', title: 'createdAt' }
-    { data: 'emails.address', title: 'emails.address[0]' }
+    { data: 'emails[0].address', title: 'emails[0].address' }
     { data: 'roles', title: 'roles' }
   ])
