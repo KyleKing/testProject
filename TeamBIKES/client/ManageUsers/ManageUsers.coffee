@@ -11,15 +11,3 @@ Template.ManageUsers.helpers
   # Return the id of selected row
   SelectedRow: ->
     Meteor.users.findOne {_id: Session.get "IDofSelectedRow"}
-
-# # Attempted to add index column items
-# # Source: https://datatables.net/examples/api/counter_columns.html
-# Template.ManageUsers.rendered = ->
-#   TabularTables.ManageUsers.on('order.dt search.dt', ->
-#     TabularTables.ManageUsers.column(0,
-#       search: 'applied'
-#       order: 'applied').nodes().each (cell, i) ->
-#       cell.innerHTML = i + 1
-#       return
-#     return
-#   ).draw()
