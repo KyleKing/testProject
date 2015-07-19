@@ -11,8 +11,8 @@ template(name="menu")
         li.sidebar-brand
           a(href='/')
             | Team BIKES
-        //- li(class="{{ activeIfTemplateIs 'ManageUsers' }}")
-        //-   a(href="{{pathFor 'ManageUsers'}}") ManageUsers
+        li(class="{{ activeIfTemplateIs 'Table' }}")
+          a(href="{{pathFor 'Table'}}") Table
         li(class="{{ activeIfTemplateIs 'PageContent' }}")
           a(href="{{pathFor 'PageContent'}}") PageContent
     // /#sidebar-wrapper

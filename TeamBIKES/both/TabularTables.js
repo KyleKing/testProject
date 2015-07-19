@@ -1,7 +1,3 @@
-//code shared between client and server
-
-Books = new Mongo.Collection("players");
-
 TabularTables = {};
 
 Meteor.isClient && Template.registerHelper('TabularTables', TabularTables);
