@@ -5,3 +5,4 @@ Router.configure
 # DEV - Webix
 Router.route '/', name: 'Table'
 Router.route '/PageContent'
+Router.route '/ManageBikes'
