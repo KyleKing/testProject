@@ -13,6 +13,7 @@ meteortoys:allthings@1.2.1 # Pres ctrl-m to activate
 
 ## Visuals
 davidsichau:sidebar
+aldeed:tabular
 
 # Preprocessors
 mquandalle:jade
@@ -26,10 +27,6 @@ fortawesome:fontawesome
 # Libraries
 # cryptoquick:stylus-multi
 kyleking:customizable-bootstrap-stylus
-
-# Webix
-webix:webix
-webix:skin-flat
 
 
 # JS Libraries - Visual

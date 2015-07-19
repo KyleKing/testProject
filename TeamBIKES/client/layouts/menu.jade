@@ -11,18 +11,10 @@ template(name="menu")
         li.sidebar-brand
           a(href='/')
             | Team BIKES
-        li(class="{{ activeIfTemplateIs 'ManageUsers' }}")
-          a(href="{{pathFor 'ManageUsers'}}") ManageUsers
+        //- li(class="{{ activeIfTemplateIs 'ManageUsers' }}")
+        //-   a(href="{{pathFor 'ManageUsers'}}") ManageUsers
         li(class="{{ activeIfTemplateIs 'PageContent' }}")
           a(href="{{pathFor 'PageContent'}}") PageContent
-        li(class="{{ activeIfTemplateIs 'ManageMechanicNotes' }}")
-          a(href="{{pathFor 'ManageMechanicNotes'}}") ManageMechanicNotes
-        li(class="{{ activeIfTemplateIs 'ManageBikes' }}")
-          a(href="{{pathFor 'ManageBikes'}}") ManageBikes
-        li(class="{{ activeIfTemplateIs 'crud' }}")
-          a(href="{{pathFor 'crud'}}") crud
-        li(class="{{ activeIfTemplateIs 'Datatable' }}")
-          a(href="{{pathFor 'Datatable'}}") Datatable
     // /#sidebar-wrapper
     +yield
   // /#wrapper

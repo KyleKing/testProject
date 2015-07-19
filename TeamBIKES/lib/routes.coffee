@@ -3,9 +3,5 @@ Router.configure
   layoutTemplate: 'menu'
 
 # DEV - Webix
-Router.route '/', name: 'ManageUsers'
+Router.route '/', name: 'Table'
 Router.route '/PageContent'
-Router.route '/ManageMechanicNotes'
-Router.route '/ManageBikes'
-Router.route '/crud'
-Router.route '/Datatable'

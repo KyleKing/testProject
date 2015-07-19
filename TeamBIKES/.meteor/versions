@@ -1,6 +1,7 @@
 accounts-base@1.2.0
 accounts-password@1.1.1
 alanning:roles@1.2.13
+aldeed:tabular@1.2.0
 aldeed:template-extension@3.4.3
 anti:fake@0.4.1
 appshore:leaflet-awesome-markers@1.0.3
@@ -132,8 +133,6 @@ useraccounts:bootstrap@1.11.1
 useraccounts:core@1.11.1
 webapp@1.2.0
 webapp-hashing@1.0.3
-webix:skin-flat@2.3.14
-webix:webix@2.3.8_1
 yasinuslu:blaze-meta@0.3.1
 zimme:active-route@2.0.4_1
 zimme:iron-router-active@2.0.1

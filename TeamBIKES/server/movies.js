@@ -9,17 +9,32 @@ Meteor.publish("crud", function () {
   return Movies.find();
 });
 
-if (!Books.find().count()){
-	Books.insert({
-		author:"Anthony Doerr",
-		name:"All the Light We Cannot See"
-	});
+// if (!Books.find().count()){
+// 	Books.insert({
+// 		author:"Anthony Doerr",
+// 		name:"All the Light We Cannot See"
+// 	});
 
-	Books.insert({
-		author:"Paula Hawkins",
-		name:"The girl on the train"
-	});
-}
+// 	Books.insert({
+// 		author:"Paula Hawkins",
+// 		name:"The girl on the train"
+// 	});
+// }
+
+Meteor.startup(function () {
+  if (Books.find().count() === 0) {
+    var books = [
+      {title: "Discover Meteor", author: "Tom Coleman and Sacha Grief", info: { url: "https://www.discovermeteor.com/"}},
+      {title: "Your First Meteor Application", author: "David Turnbull", info: { url: "http://meteortips.com/first-meteor-tutorial/"}},
+      {title: "Meteor Tutorial", author: "Matthew Platts", info: { url: "http://www.meteor-tutorial.org/"}},
+      {title: "Meteor in Action", author: "Stephen Hochaus and Manuel Schoebel", info: { url: "http://www.meteorinaction.com/"}},
+      {title: "Meteor Cookbook", author: "Abigail Watson", info: { url: "https://github.com/awatson1978/meteor-cookbook/blob/master/table-of-contents.md"}}
+      ];
+    _.each(books, function (book) {
+      Books.insert(book);
+    });
+  }
+});
 
 Meteor.publish("Datatable", function () {
   return Books.find();
