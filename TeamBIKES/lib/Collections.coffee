@@ -11,6 +11,21 @@
 
 # Specific bike information: repairs, serial number, etc.
 @MechanicNotes = new Mongo.Collection 'mechanicNotes'
+MechanicNotes.attachSchema new SimpleSchema(
+  Timestamp:
+    type: String
+    label: 'Timestamp'
+    max: 200
+  Bike:
+    type: Number
+    label: 'Bike Number'
+    min: 0
+  Notes:
+    type: String
+    label: 'Notes'
+  Tag:
+    type: String
+    label: 'Tag')
 
 
 
@@ -23,3 +38,4 @@
 # For testing Webix
 @Movies = new Mongo.Collection 'movies'
 @Books = new Mongo.Collection 'books'
+

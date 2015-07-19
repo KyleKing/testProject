@@ -6,3 +6,5 @@ template(name='ManageMechanicNotes')
 			h1 ManageMechanicNotes
 			p DailyBikeData Top-Level Data
 		+tabular table=TabularTables.ManageMechanicNotes class="table table-striped table-hover table-bordered table-condensed"
+		//- +quickForm collection="MechanicNotes" id="insertMechanicNotesForm" type="insert"
+		+quickForm collection="MechanicNotes" doc=SelectedRow id="updateMechanicNotesForm" type="update"
