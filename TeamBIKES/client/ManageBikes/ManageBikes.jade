@@ -6,3 +6,4 @@ template(name='ManageBikes')
 			h1 ManageBikes
 			p DailyBikeData Top-Level Data
 		+tabular table=TabularTables.ManageBikes class="table table-striped table-hover table-bordered table-condensed"
+		+quickForm collection="DailyBikeData" doc=SelectedRow id="updateDailyBikeDataForm" type="update"
