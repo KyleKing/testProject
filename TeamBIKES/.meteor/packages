@@ -14,6 +14,7 @@ meteortoys:allthings@1.2.1 # Pres ctrl-m to activate
 ## Visuals
 davidsichau:sidebar
 aldeed:tabular
+aldeed:autoform
 
 # Preprocessors
 mquandalle:jade
@@ -86,7 +87,6 @@ yasinuslu:blaze-meta
 
 # ---TBD---
 # aldeed:collection2
-# aldeed:autoform
 # jeremy:snapsvg
 # mirageglobe:snapsvgcdn
 # lepozepo:accounting
