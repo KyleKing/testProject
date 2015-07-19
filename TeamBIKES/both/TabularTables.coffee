@@ -21,3 +21,28 @@ TabularTables.ManageBikes = new (Tabular.Table)(
     { data: 'Day', title: 'Day' }
     { data: 'Tag', title: 'Tag' }
   ])
+
+# ManageMechanicNotes
+Meteor.isClient and Template.registerHelper('ManageMechanicNotesTable', TabularTables)
+TabularTables.ManageMechanicNotes = new (Tabular.Table)(
+  name: 'ManageMechanicNotes'
+  collection: MechanicNotes
+  columns: [
+    { data: 'MechanicID', title: 'MechanicID' }
+    { data: 'Timestamp', title: 'Timestamp' }
+    { data: 'Bike', title: 'Bike' }
+    { data: 'Notes', title: 'Notes' }
+    { data: 'Tag', title: 'Tag' }
+  ])
+
+# ManageUsers
+Meteor.isClient and Template.registerHelper('ManageUsersTable', TabularTables)
+TabularTables.ManageUsers = new (Tabular.Table)(
+  name: 'ManageUsers'
+  collection: Meteor.users
+  columns: [
+    { data: 'profile.name', title: 'profile.name' }
+    { data: 'createdAt', title: 'createdAt' }
+    { data: 'emails.address', title: 'emails.address[0]' }
+    { data: 'roles', title: 'roles' }
+  ])
