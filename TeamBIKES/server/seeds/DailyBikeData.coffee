@@ -74,7 +74,7 @@ randGPS = (max) ->
 # Useful function from lib/CurrentDay.coffee for current date and time
 [today, now] = CurrentDay()
 # Insert database of bikes if no data for today
-if DailyBikeData.find({Day: today}).count() != 0
+if DailyBikeData.find({Day: today}).count() == 0
   i = 1
   # while i <= 200
   while i <= 2

@@ -45,9 +45,9 @@ TabularTables.ManageUsers = new (Tabular.Table)(
   collection: Meteor.users
   autoWidth: false
   columns: [
-    { data: 'profile.name', title: 'profile.name' }
+    { data: 'profile.FullName', title: 'profile.FullName' }
     { data: 'createdAt', title: 'createdAt' }
-    { data: 'emails[0].address', title: 'emails[0].address' }
-    { data: 'emails[0].verified', title: 'emails[0].verified' }
+    { data: 'emails.0.address', title: 'emails.0.address' }
+    { data: 'emails.0.verified', title: 'emails.0.verified' }
     { data: 'roles', title: 'roles' }
   ])

@@ -95,4 +95,4 @@ Schema.User = new SimpleSchema(
   roles:
     type: [ String ]
     optional: true)
-Meteor.users.attachSchema Schema.User
+# Meteor.users.attachSchema Schema.User
