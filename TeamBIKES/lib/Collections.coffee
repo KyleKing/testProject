@@ -12,7 +12,18 @@ DailyBikeData.attachSchema new SimpleSchema(
     max: 367
   Tag:
     type: String
-    label: 'Tag')
+    label: 'Tag'
+  Positions:
+    type: [ Object ]
+  'Positions.$.Rider':
+    type: String
+    optional: true
+  'Positions.$.Timestamp':
+    type: Date
+  'Positions.$.Lat':
+    type: String
+  'Positions.$.Lng':
+    type: String)
 
 # Subset of above collection. Only bikes tagged with 'Avilable'
 @AvailableBikeLocations = new Mongo.Collection 'availableBikeLocations'
