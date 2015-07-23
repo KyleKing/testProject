@@ -40,7 +40,7 @@ if Meteor.users.find({}).count() == 0
     id = Accounts.createUser(
       email: user.Email
       password: 'password'
-      profile: FullName: user.FullName)
+      profile: name: user.FullName)
     if user.Roles.length > 0
       # Need _id of existing user record so this call must come
       # after `Accounts.createUser` or `Accounts.onCreate`

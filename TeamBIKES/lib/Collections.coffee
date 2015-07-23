@@ -36,10 +36,12 @@ DailyBikeData.attachSchema new SimpleSchema(
 # Specific bike information: repairs, serial number, etc.
 @MechanicNotes = new Mongo.Collection 'mechanicNotes'
 MechanicNotes.attachSchema new SimpleSchema(
+  MechanicID:
+    type: String
+    label: 'ID'
   Timestamp:
     type: String
     label: 'Timestamp'
-    max: 200
   Bike:
     type: Number
     label: 'Bike Number'
@@ -64,35 +66,35 @@ MechanicNotes.attachSchema new SimpleSchema(
 @Books = new Mongo.Collection 'books'
 
 
-# All the options from the core documentation at:
-# https://github.com/aldeed/meteor-collection2#attach-a-schema-to-meteorusers
-Schema = {}
-Schema.UserProfile = new SimpleSchema(
-  firstName:
-    type: String
-    regEx: /^[a-zA-Z-]{2,25}$/
-    optional: true
-  lastName:
-    type: String
-    regEx: /^[a-zA-Z]{2,25}$/
-    optional: true)
-Schema.User = new SimpleSchema(
-  emails:
-    type: [ Object ]
-    optional: true
-  'emails.$.address':
-    type: String
-    regEx: SimpleSchema.RegEx.Email
-  'emails.$.verified': type: Boolean
-  createdAt: type: Date
-  profile:
-    type: Schema.UserProfile
-    optional: true
-  roles:
-    type: Object
-    optional: true
-    blackbox: true
-  roles:
-    type: [ String ]
-    optional: true)
+# # All the options from the core documentation at:
+# # https://github.com/aldeed/meteor-collection2#attach-a-schema-to-meteorusers
+# Schema = {}
+# Schema.UserProfile = new SimpleSchema(
+#   firstName:
+#     type: String
+#     regEx: /^[a-zA-Z-]{2,25}$/
+#     optional: true
+#   lastName:
+#     type: String
+#     regEx: /^[a-zA-Z]{2,25}$/
+#     optional: true)
+# Schema.User = new SimpleSchema(
+#   emails:
+#     type: [ Object ]
+#     optional: true
+#   'emails.$.address':
+#     type: String
+#     regEx: SimpleSchema.RegEx.Email
+#   'emails.$.verified': type: Boolean
+#   createdAt: type: Date
+#   profile:
+#     type: Schema.UserProfile
+#     optional: true
+#   roles:
+#     type: Object
+#     optional: true
+#     blackbox: true
+#   roles:
+#     type: [ String ]
+#     optional: true)
 # Meteor.users.attachSchema Schema.User
