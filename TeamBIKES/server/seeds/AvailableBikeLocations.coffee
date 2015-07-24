@@ -18,9 +18,8 @@ if DailyBikeData.find({Day: today}).count() != 0
         # Make sure to strip out rider name and only take last position
         ## WIP
         ## not from a sorted array -> need to pick latest update
-        Positions:
-          Timestamp: BikeDatum.Positions[0].Timestamp
-          Lat: BikeDatum.Positions[0].Lat
-          Lng: BikeDatum.Positions[0].Lng
+        Timestamp: BikeDatum.Positions[0].Timestamp
+        Lat: BikeDatum.Positions[0].Lat
+        Lng: BikeDatum.Positions[0].Lng
         ## WIP
     console.log 'Created AvilableBikeData data schema'

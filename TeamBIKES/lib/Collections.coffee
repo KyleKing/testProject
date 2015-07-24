@@ -27,7 +27,28 @@ DailyBikeData.attachSchema new SimpleSchema(
 
 # Subset of above collection. Only bikes tagged with 'Avilable'
 @AvailableBikeLocations = new Mongo.Collection 'availableBikeLocations'
-# AvailableBikeLocations.helpers {}
+AvailableBikeLocations.attachSchema new SimpleSchema(
+  Bike:
+    type: Number
+    label: 'Bike Number'
+    min: 0
+  Day:
+    type: Number
+    label: 'Day'
+    min: 0
+    max: 367
+  Tag:
+    type: String
+    label: 'Tag'
+  Rider:
+    type: String
+    optional: true
+  Timestamp:
+    type: Date
+  Lat:
+    type: String
+  Lng:
+    type: String)
 
 # AvailableBikeLocations.before.insert (userId, doc) ->
 #   doc.createdAt = moment().toDate()

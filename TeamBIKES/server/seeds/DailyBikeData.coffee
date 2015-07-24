@@ -76,8 +76,7 @@ randGPS = (max) ->
 # Insert database of bikes if no data for today
 if DailyBikeData.find({Day: today}).count() == 0
   i = 1
-  # while i <= 200
-  while i <= 2
+  while i <= 200
     # create template for each DailyBikeData data stored
     Position = []
     randomNow = NaN
